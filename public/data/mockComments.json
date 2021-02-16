@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "feedIdBelongTo": 1,
+    "username": "승주",
+    "commentText": "색감 넘 귀여워요 ❤️",
+    "writenDate": "21.02.10"
+  },
+  {
+    "id": 2,
+    "feedIdBelongTo": 1,
+    "username": "벼리",
+    "commentText": "감사합니다. ❤️",
+    "writenDate": "21.02.12"
+  },
+  {
+    "id": 3,
+    "feedIdBelongTo": 1,
+    "username": "마미",
+    "commentText": "좋은 사진이네요~ ❤️",
+    "writenDate": "21.02.13"
+  },
+  {
+    "id": 4,
+    "feedIdBelongTo": 1,
+    "username": "진",
+    "commentText": "노란색 잘 어울려요 ❤️",
+    "writenDate": "21.02.15"
+  }
+]

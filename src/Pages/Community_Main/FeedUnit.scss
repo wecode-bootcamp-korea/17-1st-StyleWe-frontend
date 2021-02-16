@@ -1,0 +1,10 @@
+$border: 0.1rem solid #e8ebed;
+$border-radius: 5px;
+$feedUnitWidth: 220px;
+
+.FeedUnit {
+  width: $feedUnitWidth;
+  border: $border;
+  border-radius: $border-radius;
+  margin-left: 20px;
+}
