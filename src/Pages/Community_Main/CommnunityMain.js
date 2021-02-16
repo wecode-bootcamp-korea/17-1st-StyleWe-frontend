@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../Styles/commons.scss';
 import './CommunityMain.scss';
 import TopFeedSection from './TopFeedSection';
 import FeedUnit from './FeedUnit';
@@ -36,16 +37,30 @@ export default class CommnunityMain extends Component {
   }
 
   render() {
-    console.log(this.state.feedContent);
-    console.log(this.state.comment);
     return (
       <div className="CommunityMain">
         <TopFeedSection />
-        <p className="sectionTitle" style={{ 'align-self': 'flex-start' }}>
+        <p className="sectionTitle" style={{ alignSelf: 'flex-start' }}>
           지금의 트랜드
         </p>
         <div className="Feeds">
-          <FeedUnit feedcontent={this.feedContent} comment={this.comment} />
+          {this.state.feedContent.map((feed) => {
+            return (
+              <FeedUnit
+                className="FeedUnit"
+                key={feed.id}
+                username={feed.username}
+                img={feed.feedImages}
+                isLinked={feed.isLinkedProduct}
+                isProductInformation={feed.isProductInformation}
+                isCollected={feed.isCollected}
+                sns={feed.sns}
+                feedtext={feed.FeedText}
+                likedNumber={feed.LikedNumber}
+                comment={this.state.comment}
+              />
+            );
+          })}
         </div>
         <Footer />
       </div>

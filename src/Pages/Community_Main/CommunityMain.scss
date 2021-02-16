@@ -1,12 +1,28 @@
-$border: 0.1rem solid #e8ebed;
-$border-radius: 5px;
-
 .CommunityMain {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: 1180px;
+  width: 1198px;
   margin: 20px auto;
+  .Feeds {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    .FeedUnit {
+      margin-top: 20px;
+      margin-left: 20px;
+      &:nth-child(5n-4) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.sectionTitle {
+  margin-top: 50px;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 600;
 }

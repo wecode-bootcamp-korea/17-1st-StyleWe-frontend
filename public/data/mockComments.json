@@ -2,29 +2,33 @@
   {
     "id": 1,
     "feedIdBelongTo": 1,
-    "username": "승주",
+    "cmtUsername": "승주",
     "commentText": "색감 넘 귀여워요 ❤️",
-    "writenDate": "21.02.10"
+    "profileImgSrc": "https://usercontents-c.styleshare.io/images/47352496/120x120",
+    "writtenDate": "21.02.10"
   },
   {
     "id": 2,
     "feedIdBelongTo": 1,
-    "username": "벼리",
-    "commentText": "감사합니다. ❤️",
-    "writenDate": "21.02.12"
+    "cmtUsername": "벼리",
+    "commentText": "치마 정보 알려 주실 수 있으신가요 🥺🥺",
+    "profileImgSrc": "https://usercontents-c.styleshare.io/images/47352496/120x120",
+    "writtenDate": "21.02.12"
   },
   {
     "id": 3,
     "feedIdBelongTo": 1,
-    "username": "마미",
+    "cmtUsername": "마미",
     "commentText": "좋은 사진이네요~ ❤️",
-    "writenDate": "21.02.13"
+    "profileImgSrc": "https://usercontents-c.styleshare.io/images/47352496/120x120",
+    "writtenDate": "21.02.13"
   },
   {
     "id": 4,
     "feedIdBelongTo": 1,
-    "username": "진",
+    "cmtUsername": "진",
     "commentText": "노란색 잘 어울려요 ❤️",
-    "writenDate": "21.02.15"
+    "profileImgSrc": "https://usercontents-c.styleshare.io/images/47352496/120x120",
+    "writtenDate": "21.02.15"
   }
 ]
