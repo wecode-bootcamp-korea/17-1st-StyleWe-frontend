@@ -1,0 +1,60 @@
+@import '../../Styles/commons.scss';
+
+.createModal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 30%;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border: $border;
+  border-radius: $border-radius;
+  z-index: 10;
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 3px solid lightgrey;
+    img {
+      width: 15px;
+      height: 15px;
+      margin-top: 15px;
+      margin-right: 15px;
+      filter: opacity(20%);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    > p {
+      font-size: 15px;
+      font-weight: 500;
+      padding-left: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .boxContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 15px;
+    img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    p {
+      font-size: 15px;
+      font-weight: 500;
+      padding-top: 10px;
+    }
+  }
+}

@@ -48,14 +48,28 @@ export default class CommnunityMain extends Component {
   };
 
   render() {
+    const { feedContent, isModalOpen } = this.state;
+
+    document.body.style.overflow = this.state.isModalOpen ? 'hidden' : 'auto';
+
     return (
-      <div className="CommunityMain">
+      <div
+        className="CommunityMain"
+        style={{ overflow: isModalOpen && 'hidden' }}
+      >
+        <div
+          className="overlay"
+          style={{
+            opacity: isModalOpen ? '0.3' : '1',
+            backgroundColor: isModalOpen && 'gray',
+          }}
+        ></div>
         <TopFeedSection />
         <p className="sectionTitle" style={{ alignSelf: 'flex-start' }}>
           지금의 트랜드
         </p>
         <div className="Feeds">
-          {this.state.feedContent.map((feed) => {
+          {feedContent.map((feed) => {
             return (
               <FeedUnit
                 className="FeedUnit"
@@ -86,7 +100,10 @@ export default class CommnunityMain extends Component {
           onClick={this.handleModal}
         />
         {this.state.isModalOpen && (
-          <CreateModal handleModal={this.handleModal} />
+          <CreateModal
+            handleModal={this.handleModal}
+            isModalOpen={isModalOpen}
+          />
         )}
         <Footer />
       </div>
