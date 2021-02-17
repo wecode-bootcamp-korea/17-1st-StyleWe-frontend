@@ -3,12 +3,13 @@ import '../../Styles/commons.scss';
 import './CommunityMain.scss';
 import TopFeedSection from './TopFeedSection';
 import FeedUnit from './FeedUnit';
+import CreateModal from './CreateModal';
 import Footer from '../../Components/Footer/Footer';
 
 export default class CommnunityMain extends Component {
   constructor() {
     super();
-    this.state = { comment: [], feedContent: [] };
+    this.state = { comment: [], feedContent: [], isModalOpen: false };
   }
 
   getData = () => {
@@ -35,6 +36,16 @@ export default class CommnunityMain extends Component {
   componentDidMount() {
     this.getData();
   }
+
+  goUp = () => {
+    window.scrollTo(0, 0);
+  };
+
+  handleModal = () => {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen,
+    });
+  };
 
   render() {
     return (
@@ -68,6 +79,15 @@ export default class CommnunityMain extends Component {
           className="upScroll"
           onClick={this.goUp}
         />
+        <img
+          src="https://www.flaticon.com/svg/vstatic/svg/189/189689.svg?token=exp=1613538352~hmac=46f7b19be59420e6ad5cd995d78fa1ab"
+          alt="add"
+          className="createContent"
+          onClick={this.handleModal}
+        />
+        {this.state.isModalOpen && (
+          <CreateModal handleModal={this.handleModal} />
+        )}
         <Footer />
       </div>
     );
