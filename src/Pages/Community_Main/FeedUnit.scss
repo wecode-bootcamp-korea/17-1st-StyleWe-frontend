@@ -6,24 +6,31 @@ $feedUnitWidth: 220px;
   width: $feedUnitWidth;
   border: $border;
   border-radius: $border-radius;
+  margin-bottom: 20px;
+  margin-right: 20px;
+
   & > img {
     width: 100%;
   }
+
   .linkedProduct {
     display: flex;
     align-items: center;
     margin: 10px 0;
+
     img {
       width: 50px;
       height: 50px;
       margin: 0 15px;
       border-radius: $border-radius;
     }
+
     div {
       .productName {
         font-size: 15px;
         font-weight: 700;
       }
+
       .price {
         font-size: 13px;
         font-weight: 700;
@@ -34,12 +41,15 @@ $feedUnitWidth: 220px;
       }
     }
   }
+
   .productInformation {
     display: flex;
     flex-direction: column;
+
     .eachItem {
       display: flex;
       margin-bottom: 10px;
+      margin-top: 10px;
       img {
         width: 50px;
         height: 50px;
@@ -47,6 +57,7 @@ $feedUnitWidth: 220px;
         background-color: #e8ebed;
         border-radius: $border-radius;
       }
+
       .text {
         width: auto;
         font-size: 13px;

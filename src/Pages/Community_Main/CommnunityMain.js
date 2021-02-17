@@ -62,6 +62,12 @@ export default class CommnunityMain extends Component {
             );
           })}
         </div>
+        <img
+          src="https://www.flaticon.com/svg/vstatic/svg/633/633773.svg?token=exp=1613537376~hmac=81fad313487f80917104ace958e971ce"
+          alt="up"
+          className="upScroll"
+          onClick={this.goUp}
+        />
         <Footer />
       </div>
     );

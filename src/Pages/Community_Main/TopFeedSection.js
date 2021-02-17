@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './TopFeedSection.scss';
 import ColumnList from './ColumnList';
+import TextOverImage from './TextOverImage';
 
 export default class TopFeedSection extends Component {
   render() {
     return (
       <div className="TopFeedSection">
         <div className="bigColumn">
+          <TextOverImage />
           <img
             src="https://images.unsplash.com/photo-1565720495169-5c21cb335f13?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dGVlbiUyMGNvc21ldGljfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
             alt="bigColumnPicture"

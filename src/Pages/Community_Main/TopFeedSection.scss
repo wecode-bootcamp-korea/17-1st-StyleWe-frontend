@@ -8,6 +8,7 @@ $feedUnitWidth: 220px;
   height: 340px;
   flex-direction: row;
   .bigColumn {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 460px;
@@ -118,5 +119,15 @@ $feedUnitWidth: 220px;
       margin-right: 15px;
       margin-left: 0;
     }
+  }
+}
+.upScroll {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  left: 1600px;
+  bottom: 60px;
+  &:hover {
+    cursor: pointer;
   }
 }
