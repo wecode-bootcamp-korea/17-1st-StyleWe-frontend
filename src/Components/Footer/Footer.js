@@ -4,7 +4,7 @@ import './Footer.scss';
 export default class Footer extends Component {
   render() {
     return (
-      <div className="Footer">
+      <footer className="Footer">
         <div className="footerTop">
           <div className="csCenter">
             <p>고객센터 안내</p>
@@ -18,7 +18,7 @@ export default class Footer extends Component {
               1833-8879
             </p>
             <div>
-              <span style={{ fontWeight: '500' }}>평일</span>
+              <span>평일</span>
               <span>10:00 ~ 19:00(점심시간: 12:00 ~ 14:00)</span>
             </div>
           </div>
@@ -43,11 +43,11 @@ export default class Footer extends Component {
               <img
                 src="https://www.flaticon.com/svg/vstatic/svg/145/145802.svg?token=exp=1613484926~hmac=4f0686651e616aac2df4508af0ff794d"
                 alt="facebook"
-              ></img>
+              />
               <img
                 src="https://www.flaticon.com/svg/vstatic/svg/2111/2111463.svg?token=exp=1613484973~hmac=3d52c5d358bc7d766f474d85fff53a0e"
                 alt="instagram"
-              ></img>
+              />
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default class Footer extends Component {
             선릉로 24 | 대표자: 스타일 위 | 개인정보책임자: 스타일 위
           </p>
         </div>
-      </div>
+      </footer>
     );
   }
 }

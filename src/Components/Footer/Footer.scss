@@ -7,16 +7,24 @@ $border: 0.1rem solid #e8ebed;
   margin-top: 30px;
   padding-top: 30px;
   border-top: $border;
+
   .footerTop {
     display: flex;
     flex-direction: row;
+
     .csCenter {
       width: 50%;
       p:first-child {
         font-weight: 700;
         margin-bottom: 15px;
       }
+      div {
+        span:first-child {
+          font-weight: 600;
+        }
+      }
     }
+
     .companyinfo {
       width: 25%;
       margin-left: 20px;
@@ -29,6 +37,7 @@ $border: 0.1rem solid #e8ebed;
         font-size: 14px;
       }
     }
+
     .followus {
       margin-left: 20px;
       p {
@@ -42,6 +51,7 @@ $border: 0.1rem solid #e8ebed;
       }
     }
   }
+
   .footerBottom {
     background-color: #e8ebed;
     padding: 20px;
