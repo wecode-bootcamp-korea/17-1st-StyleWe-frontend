@@ -80,27 +80,33 @@ $feedUnitWidth: 220px;
     .summaryFeed {
       display: flex;
       padding: 10px;
+
       img {
         border-radius: 50%;
         width: 30px;
         height: 30px;
         margin-right: 5px;
       }
+
       .InnerBox {
         width: 100%;
+
         .topText {
           display: flex;
           justify-content: space-between;
           margin: 0px 5px;
+
           span:first-child {
             font-size: 15px;
             font-weight: 700;
           }
+
           span:last-child {
             font-size: 13px;
             color: gray;
           }
         }
+
         .bottomText {
           display: flex;
           justify-content: space-between;

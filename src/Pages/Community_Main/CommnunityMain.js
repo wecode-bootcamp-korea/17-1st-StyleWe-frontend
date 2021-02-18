@@ -53,7 +53,7 @@ export default class CommnunityMain extends Component {
     document.body.style.overflow = this.state.isModalOpen ? 'hidden' : 'auto';
 
     return (
-      <div className="CommunityMain">
+      <main className="CommunityMain">
         <div className={'overlay ' + (isModalOpen && 'active')}></div>
         <TopFeedSection />
         <p className="sectionTitle">지금의 트랜드</p>
@@ -95,7 +95,7 @@ export default class CommnunityMain extends Component {
           />
         )}
         <Footer />
-      </div>
+      </main>
     );
   }
 }
