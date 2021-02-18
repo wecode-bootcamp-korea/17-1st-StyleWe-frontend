@@ -34,7 +34,7 @@ export default class FeedUnit extends Component {
           </section>
         )}
 
-        {!isProductInformation && (
+        {isProductInformation && (
           <section className="productInformation">
             <div className="eachItem">
               <img

@@ -48,7 +48,7 @@ export default class CommnunityMain extends Component {
   };
 
   render() {
-    const { feedContent, isModalOpen } = this.state;
+    const { feedContent, comment, isModalOpen } = this.state;
 
     document.body.style.overflow = this.state.isModalOpen ? 'hidden' : 'auto';
 
@@ -71,7 +71,7 @@ export default class CommnunityMain extends Component {
                 sns={feed.sns}
                 feedtext={feed.FeedText}
                 likedNumber={feed.LikedNumber}
-                comment={this.state.comment}
+                comment={comment}
               />
             );
           })}
