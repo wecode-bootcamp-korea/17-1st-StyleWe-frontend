@@ -2,21 +2,22 @@ import React, { Component } from 'react';
 import './Footer.scss';
 
 export default class Footer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      companyInfos: ['회사소개', '공지사항', '이용약관', '개인정보처리방침'],
+    };
+  }
+
   render() {
+    const { companyInfos } = this.state;
+
     return (
       <footer className="Footer">
         <div className="footerTop">
           <div className="csCenter">
             <p>고객센터 안내</p>
-            <p
-              style={{
-                fontSize: '30px',
-                fontWeight: '700',
-                marginBottom: '20px',
-              }}
-            >
-              1833-8879
-            </p>
+            <p className="contact">1833-8879</p>
             <div>
               <span>평일</span>
               <span>10:00 ~ 19:00(점심시간: 12:00 ~ 14:00)</span>
@@ -24,18 +25,13 @@ export default class Footer extends Component {
           </div>
           <div className="companyinfo">
             <p>회사소개 및 약관 내용</p>
-            <p>
-              <a href="www.naver.com">회사소개</a>
-            </p>
-            <p>
-              <a href="www.naver.com">공지사항</a>
-            </p>
-            <p>
-              <a href="www.naver.com">이용약관</a>
-            </p>
-            <p>
-              <a href="www.naver.com">개인정보처리방침</a>
-            </p>
+            {companyInfos.map((info) => {
+              return (
+                <p>
+                  <a href="www.naver.com">{info}</a>
+                </p>
+              );
+            })}
           </div>
           <div className="followus">
             <p>Follow Us</p>
