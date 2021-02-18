@@ -108,7 +108,10 @@ $feedUnitWidth: 220px;
         }
 
         .bottomText {
-          display: flex;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
           justify-content: space-between;
           margin: 10px 5px;
           font-size: 13px;

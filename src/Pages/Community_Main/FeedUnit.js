@@ -80,7 +80,7 @@ export default class FeedUnit extends Component {
                 <span>{username}</span>
                 <span>21.02.14</span>
               </div>
-              <div className="bottomText">{feedtext.substring(0, 60)}</div>
+              <div className="bottomText">{feedtext}</div>
               <div className="icons">
                 <img
                   src="https://www.flaticon.com/svg/vstatic/svg/535/535234.svg?token=exp=1613459712~hmac=935c39c6a563cb7de13a57fea96e27f1"
