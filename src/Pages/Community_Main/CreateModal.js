@@ -4,31 +4,25 @@ import './CreateModal.scss';
 export default class CreateModal extends Component {
   constructor() {
     super();
-    this.state = { isStyleHover: false, isCollectionHover: false };
+    this.state = { isStyle: false, isCollection: false };
   }
 
-  styleToggleOn = () => {
+  toggleOn = (e) => {
+    const { name } = e.target;
+    console.log(e.target.name);
     this.setState({
-      isStyleHover: true,
+      [name]: true,
     });
+    console.log(this.state.isStyle);
   };
 
-  styleToggleOff = () => {
+  toggleOff = (e) => {
+    const { name } = e.target;
+    console.log(e.target.name);
     this.setState({
-      isStyleHover: false,
+      [name]: false,
     });
-  };
-
-  collectionToggleOn = () => {
-    this.setState({
-      isCollectionHover: true,
-    });
-  };
-
-  collectionToggleOff = () => {
-    this.setState({
-      isCollectionHover: false,
-    });
+    console.log(this.state.isStyle);
   };
 
   render() {
@@ -46,31 +40,29 @@ export default class CreateModal extends Component {
           <div>
             <img
               className="style"
+              name="isStyle"
               src={
-                this.state.isStyleHover
-                  ? 'images/style2.png'
-                  : 'images/style1.png'
+                this.state.isStyle ? 'images/style2.png' : 'images/style1.png'
               }
               alt="style"
-              // onMouseOver={this.handleStyleHover}
-              onMouseEnter={this.styleToggleOn}
-              onMouseLeave={this.styleToggleOff}
-            ></img>
+              onMouseEnter={this.toggleOn}
+              onMouseLeave={this.toggleOff}
+            />
             <p>스타일</p>
           </div>
           <div>
             <img
               className="collection"
+              name="isCollection"
               src={
-                this.state.isCollectionHover
+                this.state.isCollection
                   ? 'images/collection2.png'
                   : 'images/collection1.png'
               }
               alt="collection"
-              // onMouseOver={this.handleCollectionHover}
-              onMouseEnter={this.collectionToggleOn}
-              onMouseLeave={this.collectionToggleOff}
-            ></img>
+              onMouseEnter={this.toggleOn}
+              onMouseLeave={this.toggleOff}
+            />
             <p>콜렉션 만들기</p>
           </div>
         </div>

@@ -13,7 +13,7 @@ export default class CommnunityMain extends Component {
   }
 
   getData = () => {
-    fetch('http://localhost:3000/data/mockFeedData.json', {
+    fetch('/data/mockFeedData.json', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -22,7 +22,7 @@ export default class CommnunityMain extends Component {
           feedContent: data,
         })
       );
-    fetch('http://localhost:3000/data/mockComments.json', {
+    fetch('/data/mockComments.json', {
       method: 'GET',
     })
       .then((res) => res.json())
@@ -53,21 +53,10 @@ export default class CommnunityMain extends Component {
     document.body.style.overflow = this.state.isModalOpen ? 'hidden' : 'auto';
 
     return (
-      <div
-        className="CommunityMain"
-        style={{ overflow: isModalOpen && 'hidden' }}
-      >
-        <div
-          className="overlay"
-          style={{
-            opacity: isModalOpen ? '0.3' : '1',
-            backgroundColor: isModalOpen && 'gray',
-          }}
-        ></div>
+      <div className="CommunityMain">
+        <div className={'overlay ' + (isModalOpen && 'active')}></div>
         <TopFeedSection />
-        <p className="sectionTitle" style={{ alignSelf: 'flex-start' }}>
-          지금의 트랜드
-        </p>
+        <p className="sectionTitle">지금의 트랜드</p>
         <div className="Feeds">
           {feedContent.map((feed) => {
             return (
