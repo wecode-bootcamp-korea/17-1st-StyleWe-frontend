@@ -1,0 +1,159 @@
+.signinPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 939px;
+  }
+
+  .signinContainer {
+    position: absolute;
+    bottom: 260px;
+    opacity: 0.9;
+    .signinContainerWrapper {
+      .signinBox {
+        display: flex;
+        height: 400px;
+        width: 800px;
+        margin: 20px;
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 1px solid #dbdbdb;
+        background-color: #edebeb;
+        border-radius: 7px;
+
+        header {
+          width: 600px;
+          height: 100px;
+          .Logo {
+            text-align: center;
+            font-size: 50px;
+          }
+          .loginTitle {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #636162;
+          }
+        }
+
+        main {
+          display: flex;
+          opacity: 1;
+          .inputBox {
+            display: flex;
+            flex-direction: column;
+
+            .loginFormuserId input {
+              width: 280px;
+              height: 40px;
+              margin: 20px;
+              border-radius: 7px;
+              border: 1px solid #dbdbdb;
+              background-color: white;
+              outline-color: #4adaae;
+            }
+
+            .loginFormuserPassword input {
+              width: 280px;
+              height: 40px;
+              margin: 20px;
+              border-radius: 7px;
+              border: 1px solid #dbdbdb;
+              background-color: white;
+              outline-color: #4adaae;
+            }
+          }
+
+          .loginFormButton {
+            display: flex;
+            margin-left: 157px;
+            .loginButton {
+              width: 150px;
+              height: 52px;
+              margin-top: 30px;
+              color: white;
+              background-color: #4adaae;
+              border-radius: 7px;
+
+              &:hover {
+                background-color: #118a60;
+                cursor: pointer;
+              }
+            }
+          }
+          .snsLoginForm {
+            display: flex;
+            .snsLoginFormList {
+              button {
+                display: flex;
+                flex-direction: column;
+                width: 280px;
+                height: 45px;
+                margin: 18px 20px 0px 20px;
+                border-radius: 7px;
+                font-size: 15px;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+
+              .snsLoginFace {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #4564a2;
+                color: white;
+                outline: none;
+
+                &:focus {
+                  outline: 0;
+                }
+              }
+
+              .snsLoginTwit {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #5dabec;
+                color: white;
+              }
+
+              .snsLoginGoog {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #fff;
+              }
+
+              .snsLoginKakao {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f9e100;
+              }
+            }
+          }
+        }
+
+        footer {
+          display: flex;
+          .bottomText {
+            margin: 25px;
+            font-weight: bold;
+          }
+          .bottomLinkJoin {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+  }
+}
