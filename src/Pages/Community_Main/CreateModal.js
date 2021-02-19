@@ -9,25 +9,23 @@ export default class CreateModal extends Component {
 
   toggleOn = (e) => {
     const { name } = e.target;
-    console.log(e.target.name);
     this.setState({
       [name]: true,
     });
-    console.log(this.state.isStyle);
   };
 
   toggleOff = (e) => {
     const { name } = e.target;
-    console.log(e.target.name);
     this.setState({
       [name]: false,
     });
-    console.log(this.state.isStyle);
   };
 
   render() {
+    const { isStyle, isCollection } = this.state;
+
     return (
-      <div className="createModal">
+      <div className="CreateModal">
         <div className="top">
           <p>업로드</p>
           <img
@@ -41,9 +39,7 @@ export default class CreateModal extends Component {
             <img
               className="style"
               name="isStyle"
-              src={
-                this.state.isStyle ? 'images/style2.png' : 'images/style1.png'
-              }
+              src={isStyle ? 'images/style2.png' : 'images/style1.png'}
               alt="style"
               onMouseEnter={this.toggleOn}
               onMouseLeave={this.toggleOff}
@@ -55,7 +51,7 @@ export default class CreateModal extends Component {
               className="collection"
               name="isCollection"
               src={
-                this.state.isCollection
+                isCollection
                   ? 'images/collection2.png'
                   : 'images/collection1.png'
               }

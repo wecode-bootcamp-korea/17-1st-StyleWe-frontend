@@ -1,16 +1,16 @@
+@import '../../Styles/commons.scss';
+
 .CommunityMain {
-  display: flex;
+  @extend %flex-center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 1198px;
   margin: 20px auto;
 
   .Feeds {
-    width: inherit;
-    height: 2400px;
     display: flex;
     flex-flow: column wrap;
+    width: inherit;
+    height: 2400px;
     overflow: auto;
   }
 
@@ -19,7 +19,8 @@
     position: fixed;
     width: 50px;
     height: 50px;
-    left: 1600px;
+    left: 1350px;
+
     &:hover {
       cursor: pointer;
     }
@@ -34,11 +35,11 @@
   }
 
   .sectionTitle {
+    align-self: flex-start;
     margin-top: 50px;
     margin-bottom: 12px;
     font-size: 20px;
     font-weight: 600;
-    align-self: flex-start;
   }
 
   .overlay {

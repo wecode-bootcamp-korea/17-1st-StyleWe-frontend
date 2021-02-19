@@ -1,21 +1,25 @@
-$border: 0.1rem solid #e8ebed;
-$border-radius: 5px;
+@import '../../Styles/commons.scss';
+
 $feedUnitWidth: 220px;
+
+%textCut {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 
 .FeedUnit {
   width: $feedUnitWidth;
   border: $border;
   border-radius: $border-radius;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin: 0 20px 20px 0;
 
   & > img {
     width: 100%;
   }
 
   .linkedProduct {
-    display: flex;
-    align-items: center;
+    @extend %flex-center;
     margin: 10px 0;
 
     img {
@@ -34,13 +38,16 @@ $feedUnitWidth: 220px;
       .price {
         font-size: 13px;
         font-weight: 700;
+
         & :last-child {
           font-size: 11px;
           color: gray;
         }
+
         span {
           color: #70e2c0;
         }
+
         .old {
           text-decoration: line-through;
         }
@@ -54,8 +61,8 @@ $feedUnitWidth: 220px;
 
     .eachItem {
       display: flex;
-      margin-bottom: 10px;
-      margin-top: 10px;
+      margin: 10px 0;
+
       img {
         width: 50px;
         height: 50px;
@@ -108,9 +115,7 @@ $feedUnitWidth: 220px;
         }
 
         .bottomText {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
+          @extend %textCut;
           overflow: hidden;
           justify-content: space-between;
           margin: 10px 5px;
@@ -118,6 +123,7 @@ $feedUnitWidth: 220px;
           color: gray;
         }
       }
+
       .icons {
         img {
           width: 13px;
@@ -132,18 +138,23 @@ $feedUnitWidth: 220px;
       }
     }
   }
+
   .comments {
     display: flex;
     padding: 10px;
+
     img {
       border-radius: 50%;
       width: 30px;
       height: 30px;
       margin-right: 5px;
     }
+
     p {
+      @extend %textCut;
       font-size: 13px;
     }
+
     span {
       font-size: 13px;
       font-weight: 700;

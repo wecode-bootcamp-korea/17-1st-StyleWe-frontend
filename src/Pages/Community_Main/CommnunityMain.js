@@ -13,18 +13,14 @@ export default class CommnunityMain extends Component {
   }
 
   getData = () => {
-    fetch('/data/mockFeedData.json', {
-      method: 'GET',
-    })
+    fetch('/data/mockFeedData.json')
       .then((res) => res.json())
       .then((data) =>
         this.setState({
           feedContent: data,
         })
       );
-    fetch('/data/mockComments.json', {
-      method: 'GET',
-    })
+    fetch('/data/mockComments.json')
       .then((res) => res.json())
       .then((data) =>
         this.setState({
@@ -50,7 +46,7 @@ export default class CommnunityMain extends Component {
   render() {
     const { feedContent, comment, isModalOpen } = this.state;
 
-    document.body.style.overflow = this.state.isModalOpen ? 'hidden' : 'auto';
+    document.body.style.overflow = isModalOpen ? 'hidden' : 'auto';
 
     return (
       <main className="CommunityMain">
@@ -71,7 +67,7 @@ export default class CommnunityMain extends Component {
                 sns={feed.sns}
                 feedtext={feed.FeedText}
                 likedNumber={feed.LikedNumber}
-                comment={comment}
+                comments={comment}
               />
             );
           })}
@@ -88,7 +84,7 @@ export default class CommnunityMain extends Component {
           className="createContent"
           onClick={this.handleModal}
         />
-        {this.state.isModalOpen && (
+        {isModalOpen && (
           <CreateModal
             handleModal={this.handleModal}
             isModalOpen={isModalOpen}
