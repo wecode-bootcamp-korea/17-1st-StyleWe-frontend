@@ -10,9 +10,8 @@ export default class UploadContent extends Component {
   handleAttatchment = (event) => {
     let reader = new FileReader();
 
-    reader.onloadend = (e) => {
+    reader.onloadend = () => {
       const base64 = reader.result;
-      console.log(base64);
 
       if (base64) {
         this.setState({
@@ -41,7 +40,7 @@ export default class UploadContent extends Component {
         <div className="mainBox">
           <form action="" method="POST">
             <p>스타일 이미지</p>
-            {this.state.imgBase64 ? (
+            {this.state.imgBase64 && (
               <>
                 <img src={this.state.imgBase64} alt="shownImage" />
                 <img
@@ -51,8 +50,6 @@ export default class UploadContent extends Component {
                   alt="close"
                 />
               </>
-            ) : (
-              <div></div>
             )}
             <label for="imgFile"></label>
             <input
