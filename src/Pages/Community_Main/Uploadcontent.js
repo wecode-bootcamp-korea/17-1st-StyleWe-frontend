@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Uploadcontent.scss';
 
 export default class UploadContent extends Component {
@@ -8,10 +9,26 @@ export default class UploadContent extends Component {
   }
 
   handleAttatchment = (event) => {
+    const img = event.target.files[0];
+    const formData = new FormData();
+
+    formData.append('file', img);
+
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    };
+
+    axios.post('~', formData, config);
+
+    for (const key of formData) console.log(key);
+
     let reader = new FileReader();
 
     reader.onloadend = () => {
       const base64 = reader.result;
+      // console.log(base64);
 
       if (base64) {
         this.setState({
@@ -20,12 +37,17 @@ export default class UploadContent extends Component {
       }
     };
     if (event.target.files[0]) {
+      // console.log(event.target.files);
+
       reader.readAsDataURL(event.target.files[0]);
+
       this.setState({
         imgFile: event.target.files[0],
       });
     }
   };
+
+  sendForm = () => {};
 
   handleRemove = () => {
     this.setState({
@@ -58,6 +80,7 @@ export default class UploadContent extends Component {
               accept="image/png, image/jpeg, image/jpg"
               onChange={this.handleAttatchment}
               required
+              multiple
             />
             <hr />
             <p className="description">설명</p>
@@ -66,9 +89,12 @@ export default class UploadContent extends Component {
               rows="5"
               cols="97"
               placeholder="내용을 입력해주세요"
+              required
             />
             <hr />
-            <button> 올리기 </button>
+            <button type="button" onClick={this.sendForm}>
+              올리기
+            </button>
           </form>
         </div>
       </div>
