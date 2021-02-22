@@ -1,0 +1,163 @@
+@import '../../Styles/commons.scss';
+
+$feedUnitWidth: 220px;
+
+%textCut {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.FeedUnit {
+  width: $feedUnitWidth;
+  border: $border;
+  border-radius: $border-radius;
+  margin: 0 20px 20px 0;
+
+  & > img {
+    width: 100%;
+  }
+
+  .linkedProduct {
+    @extend %flex-center;
+    margin: 10px 0;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin: 0 15px;
+      border-radius: $border-radius;
+    }
+
+    div {
+      .productName {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .price {
+        font-size: 13px;
+        font-weight: 700;
+
+        & :last-child {
+          font-size: 11px;
+          color: gray;
+        }
+
+        span {
+          color: #70e2c0;
+        }
+
+        .old {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  .productInformation {
+    display: flex;
+    flex-direction: column;
+
+    .eachItem {
+      display: flex;
+      margin: 10px 0;
+
+      img {
+        width: 50px;
+        height: 50px;
+        margin: 0 15px;
+        background-color: #e8ebed;
+        border-radius: $border-radius;
+      }
+
+      .text {
+        width: auto;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .summary {
+    border-top: $border;
+    border-bottom: $border;
+
+    .summaryFeed {
+      display: flex;
+      padding: 10px;
+
+      img {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+      }
+
+      .InnerBox {
+        width: 100%;
+
+        .topText {
+          display: flex;
+          justify-content: space-between;
+          margin: 0px 5px;
+
+          span:first-child {
+            font-size: 15px;
+            font-weight: 700;
+          }
+
+          span:last-child {
+            font-size: 13px;
+            color: gray;
+          }
+        }
+
+        .bottomText {
+          @extend %textCut;
+          overflow: hidden;
+          justify-content: space-between;
+          margin: 10px 5px;
+          font-size: 13px;
+          color: gray;
+        }
+      }
+
+      .icons {
+        img {
+          width: 13px;
+          height: 13px;
+          filter: opacity(0.2);
+          margin-left: 5px;
+        }
+        span {
+          font-size: 13px;
+          color: gray;
+        }
+      }
+    }
+  }
+
+  .comments {
+    display: flex;
+    padding: 10px;
+
+    img {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }
+
+    p {
+      @extend %textCut;
+      font-size: 13px;
+    }
+
+    span {
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+}

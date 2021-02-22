@@ -8,8 +8,7 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={StoreNav} />
-          <Route exact path="/1" component={CommunityNav} />
+          <Route exact path="/" component={CommunityMain} />
         </Switch>
       </Router>
     );

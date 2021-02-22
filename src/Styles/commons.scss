@@ -2,11 +2,15 @@
 
 $border: 0.1rem solid #e8ebed;
 $border-radius: 5px;
-​ html,
+
+html,
+body,
 * {
   font-family: "Noto Sans KR", sans-serif;
+  box-sizing: content-box;
 }
-​%flex-center {
+
+%flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
