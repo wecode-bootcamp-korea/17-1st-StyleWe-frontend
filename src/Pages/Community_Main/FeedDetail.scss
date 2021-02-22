@@ -1,0 +1,118 @@
+@import '../../Styles/commons.scss';
+
+.FeedDetail {
+  margin: auto;
+  width: 960px;
+  .leftContainer {
+    float: left;
+    .carousel {
+      border-bottom: $border;
+      .topSection {
+        position: relative;
+        width: 600px;
+        .presentImg {
+          width: 600px;
+          height: 600px;
+        }
+        .arrow {
+          // display: none;
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          opacity: 0.7;
+          &:hover {
+            background-color: white;
+            box-shadow: 0 0 5px 2px white;
+            cursor: pointer;
+          }
+          &-left {
+            top: 280px;
+            left: 10px;
+          }
+          &-right {
+            top: 280px;
+            right: 10px;
+          }
+        }
+      }
+      .bottomSection {
+        display: flex;
+        justify-content: center;
+        width: 600px;
+        margin: 20px 0;
+        img {
+          width: 40px;
+          height: 40px;
+          margin: 5px;
+          border-radius: 5px;
+        }
+      }
+    }
+    .collections {
+      display: flex;
+      flex-direction: column;
+
+      .topLine {
+        margin: 15px 10px;
+        span {
+          float: left;
+          font-size: 13px;
+          line-height: 30px;
+          color: gray;
+          strong {
+            color: black;
+            font-weight: 700;
+          }
+        }
+        .arrow {
+          float: right;
+          border: $border;
+          border-radius: 20%;
+          &-left {
+            border-right: $border;
+          }
+          img {
+            width: 13px;
+            height: 13px;
+            padding: 7px;
+            opacity: 0.6;
+          }
+        }
+      }
+      .collection {
+        width: 200px;
+        height: 125px;
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  aside {
+    float: right;
+    width: 360px;
+    span {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 40px;
+    }
+    .productContent {
+      display: flex;
+    }
+
+    .brand,
+    .product {
+      img {
+        width: 80px;
+        height: 80px;
+        margin: 0 10px;
+      }
+    }
+    .boxInFeed {
+      margin: 20px 24px;
+      width: 312px;
+      border: $border;
+      border-radius: $border-radius;
+    }
+  }
+}
