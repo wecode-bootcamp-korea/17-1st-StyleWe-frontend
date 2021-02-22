@@ -1,0 +1,223 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    width: 1300px;
+    height: 939px;
+    background-image: cover;
+  }
+
+  .signupContainer {
+    position: absolute;
+    bottom: 260px;
+
+    .signupBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 420px;
+      width: 615px;
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #dbdbdb;
+      background-color: rgba(240, 238, 238, 0.8);
+      border-radius: 7px;
+
+      header {
+        width: 600px;
+        height: 100px;
+
+        .Logo {
+          text-align: center;
+          font-size: 50px;
+        }
+
+        .signupBoxTitle {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+          font-size: 20px;
+          color: #636162;
+        }
+      }
+
+      main {
+        display: flex;
+
+        .signupInputBox {
+          display: flex;
+          flex-direction: column;
+
+          .signupUserId input {
+            width: 280px;
+            height: 40px;
+            margin: 5px 20px;
+            padding-left: 10px;
+            border-radius: 7px;
+            border: 1px solid #dbdbdb;
+            background-color: white;
+            outline: none;
+
+            &:focus {
+              border-color: #4adaae;
+            }
+          }
+
+          .signupUserPw input {
+            width: 280px;
+            height: 40px;
+            margin: 5px 20px;
+            padding-left: 10px;
+            border-radius: 7px;
+            border: 1px solid #dbdbdb;
+            background-color: white;
+            outline: none;
+
+            &:focus {
+              border-color: #4adaae;
+            }
+          }
+
+          .signinUserNick input {
+            width: 280px;
+            height: 40px;
+            margin: 5px 20px;
+            padding-left: 10px;
+            border-radius: 7px;
+            border: 1px solid #dbdbdb;
+            background-color: white;
+            outline: none;
+
+            &:focus {
+              border-color: #4adaae;
+            }
+          }
+
+          .signinUsermail input {
+            width: 280px;
+            height: 40px;
+            margin: 5px 20px;
+            padding-left: 10px;
+            border-radius: 7px;
+            border: 1px solid #dbdbdb;
+            background-color: white;
+            outline: none;
+
+            &:focus {
+              border-color: #4adaae;
+            }
+          }
+        }
+
+        .signupFormButton {
+          display: flex;
+          margin-left: 157px;
+
+          .signupbtn {
+            width: 150px;
+            height: 52px;
+            margin-top: 5px;
+            color: white;
+            background-color: #4adaae;
+            border: 1px solid #4adaae;
+            border-radius: 7px;
+            outline: none;
+
+            &:hover {
+              background-color: #118a60;
+              border: 1px solid #118a60;
+              cursor: pointer;
+            }
+          }
+        }
+        .snsSignupForm {
+          display: flex;
+
+          .snsSignupList {
+            button {
+              display: flex;
+              flex-direction: column;
+              width: 280px;
+              height: 45px;
+              margin: 6px 20px 5px;
+              padding: 10px;
+              border-radius: 7px;
+              font-size: 15px;
+
+              &:hover {
+                cursor: pointer;
+              }
+            }
+
+            .snsSignupFace {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #4564a2;
+              color: white;
+              border: none;
+
+              &:focus {
+                outline: 0;
+              }
+            }
+
+            .snsSignupTwit {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #5dabec;
+              color: white;
+              border: none;
+
+              &:focus {
+                outline: 0;
+              }
+            }
+
+            .snsSignupGoog {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #fff;
+              border: none;
+
+              &:focus {
+                outline: 0;
+              }
+            }
+
+            .snsSignupKakao {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: #f9e100;
+              border: none;
+
+              &:focus {
+                outline: 0;
+              }
+            }
+          }
+        }
+      }
+
+      footer {
+        display: flex;
+
+        .bottomText {
+          margin: 25px;
+          font-weight: bold;
+        }
+
+        .bottomLinkSignin {
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./signin.scss";
 
 class Signin extends React.Component {
@@ -12,7 +12,6 @@ class Signin extends React.Component {
   }
 
   handleInput = (e) => {
-    // console.log("onChange");
     const { value, name } = e.target;
     this.setState({
       [name]: value,
@@ -24,7 +23,7 @@ class Signin extends React.Component {
   };
 
   clickSignin = () => {
-    fetch("http://10.58.1.192:8000/user/signin", {
+    fetch("http://10.90.206.147:8000/user/signin/", {
       method: "POST",
       body: JSON.stringify({
         user_name: this.state.user_name,
@@ -32,31 +31,26 @@ class Signin extends React.Component {
       }),
     })
       .then((res) => res.json())
-      // .then((result) => console.log("결과: ", result));
-      .then((res) => this.testSignin(res));
+      .then((res) => this.respoSignin(res));
+    // .then((result) => console.log("결과: ", result));
   };
 
-  testSignin = (res) => {
-    //console.log(res)
-    if (res.message === "SIGNIN_SUCCESS") {
-      alert("로그인 성공");
-    } else {
-      alert("로그인 실패");
-    }
+  respoSignin = (res) => {
+    // console.log("onClick");
+    alert(res.message === "SIGNIN_SUCCESS" ? "로그인 성공" : "로그인 실패");
   };
 
-  testSignin = () => {
+  respoSignin = () => {
     this.goToMain();
   };
 
   render() {
-    //console.log()
     // const { user_name, password } = this.state;
     return (
-      <div className="signinPage">
+      <div className="signin">
         <img
-          alt=""
-          src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+          alt="backgroundphoto"
+          src="https://images.unsplash.com/photo-1569748079281-dc67c9569015?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTkzfHxzdHJlZXQlMjBmYXNoaW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
         />
         <div className="signinContainer">
           <div className="signinContainerWrapper">
@@ -66,8 +60,7 @@ class Signin extends React.Component {
                 <p className="loginTitle">로그인</p>
               </header>
               <main>
-                {/* id,pw 유효성검사 추가구현으로 만들기 */}
-                <div className="inputBox">
+                <div className="loginInputBox">
                   <div className="loginFormuserId">
                     <input
                       name="user_name"
@@ -92,8 +85,8 @@ class Signin extends React.Component {
                       //     ? "loginButton activeBtn"
                       //     : "loginButton inactiveBtn"
                       // }
-                      // onClick={this.clickSignin}
-                      onClick={this.goToMain}
+                      onClick={this.clickSignin}
+                      // onClick={this.goToMain}
                       type="button"
                     >
                       Signin
@@ -121,12 +114,9 @@ class Signin extends React.Component {
               </main>
               <footer>
                 <div className="bottomText">ID가 없으세요?</div>
-                <a
-                  className="bottomLinkJoin"
-                  href="http://localhost:3000/signup"
-                >
-                  여기서가입
-                </a>
+                <div className="bottomListSignup">
+                  <Link to="/signup">여기서 가입</Link>
+                </div>
               </footer>
             </div>
           </div>

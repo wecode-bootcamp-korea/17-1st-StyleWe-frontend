@@ -1,0 +1,153 @@
+.signUpLast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    width: 1300px;
+    height: 939px;
+    background-image: cover;
+  }
+
+  .signupLastContainer {
+    position: absolute;
+    bottom: 260px;
+
+    .signupLastBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 420px;
+      width: 615px;
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #dbdbdb;
+      background-color: rgba(240, 238, 238, 0.8);
+      border-radius: 7px;
+
+      .profilePicturebox {
+        width: 200px;
+        height: 200px;
+        margin-top: 15px;
+        margin-left: 30px;
+        margin-bottom: 250px;
+
+        .profileUploadBox {
+          display: flex;
+          padding: 60px;
+          margin: 20px;
+          background-color: white;
+          border-radius: 50px;
+        }
+
+        .profileUploadbtn {
+          margin-left: 41px;
+          width: 100px;
+          height: 30px;
+          border-radius: 7px;
+        }
+      }
+
+      .profiledesk {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 450px;
+        height: 450px;
+        margin-bottom: 50px;
+        margin-left: 100px;
+
+        .profileSnsBtn {
+          width: 150px;
+          height: 150px;
+
+          .profileSnsBox button {
+            width: 315px;
+            height: 40px;
+            margin: 40px 50px 20px 0px;
+            border-radius: 7px;
+            background-color: #4564a2;
+            color: white;
+            border: none;
+
+            &:focus {
+              outline: 0;
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .profileinfo {
+            .genderWrapper {
+              width: 315px;
+              height: 40px;
+              border: 1px solid #dbdbdb;
+              background-color: white;
+              border-radius: 7px;
+
+              input {
+                margin: 14px 15px 0 10px;
+              }
+            }
+
+            .checkBirth {
+              display: flex;
+              width: 315px;
+              height: 40px;
+
+              p {
+                width: 50px;
+                height: 45px;
+                line-height: 40px;
+                border: 1px solid #dbdbdb;
+                background-color: white;
+                border-radius: 7px 0 0 7px;
+              }
+
+              input {
+                display: flex;
+                width: 295px;
+                height: 40px;
+                margin-top: 1px;
+                border: 1px solid #fff;
+                border-radius: 0 7px 7px 0;
+                outline: none;
+              }
+            }
+          }
+
+          .agreeAllBox {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+
+            .agreeAllBtn {
+              display: flex;
+              flex-direction: column;
+              width: 450px;
+              height: 400px;
+              margin-top: 200px;
+            }
+
+            .signupLastBtn {
+              display: flex;
+              width: 200px;
+              height: 50px;
+
+              button {
+                justify-content: center;
+                align-items: center;
+                padding: 30px;
+                margin-top: 300px;
+                background-color: #4adaae;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
