@@ -16,6 +16,9 @@ $feedUnitWidth: 220px;
 
   & > img {
     width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .linkedProduct {

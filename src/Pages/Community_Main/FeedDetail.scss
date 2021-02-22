@@ -3,13 +3,17 @@
 .FeedDetail {
   margin: auto;
   width: 960px;
+
   .leftContainer {
     float: left;
+
     .carousel {
       border-bottom: $border;
+
       .topSection {
         position: relative;
         width: 600px;
+
         .presentImg {
           width: 600px;
           height: 600px;
@@ -21,15 +25,18 @@
           height: 30px;
           border-radius: 50%;
           opacity: 0.7;
+
           &:hover {
             background-color: white;
             box-shadow: 0 0 5px 2px white;
             cursor: pointer;
           }
+
           &-left {
             top: 280px;
             left: 10px;
           }
+
           &-right {
             top: 280px;
             right: 10px;
@@ -41,6 +48,7 @@
         justify-content: center;
         width: 600px;
         margin: 20px 0;
+
         img {
           width: 40px;
           height: 40px;
@@ -49,22 +57,26 @@
         }
       }
     }
+
     .collections {
       display: flex;
       flex-direction: column;
 
       .topLine {
         margin: 15px 10px;
+
         span {
           float: left;
           font-size: 13px;
           line-height: 30px;
           color: gray;
+
           strong {
             color: black;
             font-weight: 700;
           }
         }
+
         .arrow {
           float: right;
           border: $border;
@@ -72,6 +84,7 @@
           &-left {
             border-right: $border;
           }
+
           img {
             width: 13px;
             height: 13px;
@@ -80,6 +93,7 @@
           }
         }
       }
+
       .collection {
         width: 200px;
         height: 125px;
@@ -91,11 +105,13 @@
   aside {
     float: right;
     width: 360px;
+
     span {
       font-size: 14px;
       font-weight: 700;
       line-height: 40px;
     }
+
     .productContent {
       display: flex;
     }
@@ -108,6 +124,7 @@
         margin: 0 10px;
       }
     }
+
     .boxInFeed {
       margin: 20px 24px;
       width: 312px;
