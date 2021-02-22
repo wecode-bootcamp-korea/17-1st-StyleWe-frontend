@@ -1,16 +1,19 @@
-.ColumnContent {
+.ColumnList {
   display: flex;
-  flex-direction: row;
   padding: 7px 8px;
+
   .imgs {
     border-radius: 10px;
   }
+
   img {
     width: 20px;
     height: 30px;
   }
+
   p {
     margin-left: 10px;
+
     &:first-child {
       font-size: 13px;
       font-weight: 700;
