@@ -4,8 +4,10 @@ $border: 0.1rem solid #e8ebed;
 $border-radius: 5px;
 
 html,
+body,
 * {
   font-family: 'Noto Sans KR', sans-serif;
+  box-sizing: content-box;
 }
 
 %flex-center {
