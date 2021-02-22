@@ -1,8 +1,22 @@
 @import '../../Styles/commons.scss';
 
+#asideBox {
+  margin: 20px 24px;
+  width: 312px;
+  border: $border;
+  border-radius: $border-radius;
+}
+
 .FeedDetail {
+  position: absolute;
   margin: auto;
   width: 960px;
+  height: auto;
+  top: 30px;
+  margin-left: auto;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 10;
 
   .leftContainer {
     float: left;
@@ -17,7 +31,9 @@
         .presentImg {
           width: 600px;
           height: 600px;
+          border-radius: 5px;
         }
+
         .arrow {
           // display: none;
           position: absolute;
@@ -43,6 +59,7 @@
           }
         }
       }
+
       .bottomSection {
         display: flex;
         justify-content: center;
@@ -61,6 +78,7 @@
     .collections {
       display: flex;
       flex-direction: column;
+      margin: 0 0 50px 20px;
 
       .topLine {
         margin: 15px 10px;
@@ -107,6 +125,7 @@
     width: 360px;
 
     span {
+      margin-left: 5px;
       font-size: 14px;
       font-weight: 700;
       line-height: 40px;
@@ -116,20 +135,206 @@
       display: flex;
     }
 
-    .brand,
+    .contentInBox {
+      @extend #asideBox;
+    }
+
+    .product,
+    .brand {
+      display: flex;
+      margin: 5px;
+    }
+
     .product {
+      font-size: 14px;
       img {
-        width: 80px;
-        height: 80px;
-        margin: 0 10px;
+        width: 65px;
+        height: 65px;
+      }
+      .productName {
+        font-weight: 700;
+      }
+      div {
+        margin-left: 10px;
+        .price {
+          color: #60deb9;
+          font-weight: 700;
+          span {
+            font-weight: 500;
+            color: gray;
+            text-decoration: line-through;
+          }
+        }
       }
     }
 
-    .boxInFeed {
-      margin: 20px 24px;
+    .brand {
+      div {
+        margin-left: 10px;
+        font-size: 14px;
+        p:first-child {
+          line-height: 20px;
+        }
+        p:last-child {
+          line-height: 20px;
+          font-weight: 600;
+        }
+      }
+      img {
+        width: 35px;
+        height: 35px;
+        padding: 15px;
+        margin: 0;
+        background-color: #f7f8f9;
+        border-radius: $border-radius;
+      }
+    }
+
+    .feedContents {
+      padding: 5px;
+      .profile {
+        display: flex;
+        height: 60px;
+
+        .profileImg {
+          width: 40px;
+          height: 40px;
+          margin-top: 10px;
+          border-radius: 50%;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 10px;
+
+          p:first-child {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          p:last-child {
+            font-size: 12px;
+          }
+        }
+
+        .follow {
+          width: 30px;
+          height: 25px;
+          margin: auto;
+          padding: 5px;
+          border: 1px solid #60deb9;
+          border-radius: 5px;
+          filter: opacity(0.6) drop-shadow(0 0 0 #60deb9);
+        }
+      }
+
+      p {
+        font-size: 13px;
+        span {
+          color: #70b7ff;
+          font-size: 13px;
+          line-height: 15px;
+          font-weight: 400;
+        }
+      }
+    }
+    .feedicons {
+      display: flex;
       width: 312px;
-      border: $border;
-      border-radius: $border-radius;
+      margin: 20px 24px;
+      opacity: 0.5;
+
+      div {
+        display: flex;
+        width: 90px;
+        height: auto;
+        border: 1px solid gray;
+        border-radius: 5px;
+
+        img {
+          width: 20px;
+          height: 20px;
+          padding: 10px;
+        }
+        span {
+          padding-left: 10px;
+          font-size: 15px;
+          font-weight: 800;
+          border-left: 1px solid gray;
+        }
+      }
+      img {
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+      }
+      .collectionImage {
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      .moreImage {
+        margin-left: auto;
+      }
+    }
+
+    .comments {
+      width: 312px;
+      margin: 20px 24px;
+      border-top: $border;
+      .topRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        span {
+          font-size: 13px;
+          font-weight: 800;
+          opacity: 0.6;
+        }
+        a {
+          font-size: 12px;
+        }
+      }
+      .commentsArea {
+        margin: 0 10px;
+        padding-bottom: 20px;
+        border-bottom: $border;
+
+        .singleComment {
+          display: flex;
+          flex-direction: row;
+
+          img {
+            width: 30px;
+            height: 30px;
+            margin: auto;
+
+            border-radius: 50%;
+          }
+          .commentText {
+            width: 100%;
+            font-size: 13px;
+            margin-left: 10px;
+            span {
+              font-size: 13px;
+              margin-right: 10px;
+            }
+            .writtenDate {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+      input {
+        width: 100%;
+        height: 40px;
+        margin-top: 10px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        opacity: 0.5;
+      }
     }
   }
 }

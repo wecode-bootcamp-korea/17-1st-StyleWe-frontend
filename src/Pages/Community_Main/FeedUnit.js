@@ -13,11 +13,17 @@ export default class FeedUnit extends Component {
       sns,
       feedtext,
       likedNumber,
+      handleFeedModal,
     } = this.props;
 
     return (
       <div className="FeedUnit">
-        <img src={img[0]} alt="snsPicture"></img>
+        <img
+          className="mainImage"
+          src={img[0]}
+          alt="snsPicture"
+          onClick={handleFeedModal}
+        />
 
         {!isLinked && (
           <section className="linkedProduct">
