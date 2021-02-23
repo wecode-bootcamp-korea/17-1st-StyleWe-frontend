@@ -6,13 +6,14 @@ export default class FeedDetail extends Component {
     super();
     this.state = {
       isHoverOnImage: false,
-      presentImageSrc: [
+      imageSrc: [
         'https://usercontents-c.styleshare.io/images/48754196/640x640',
         'https://usercontents-c.styleshare.io/images/48754197/640x640',
         'https://usercontents-c.styleshare.io/images/48754198/640x640',
         'https://usercontents-c.styleshare.io/images/48754199/640x640',
         'https://usercontents-c.styleshare.io/images/48754200/640x640',
       ],
+      slideNum: 0,
     };
   }
 
@@ -28,30 +29,36 @@ export default class FeedDetail extends Component {
     });
   };
 
-  // handlePresentImage = (e) => {
-  //   console.log(e.target.src);
+  handlePresentImage = (e) => {
+    console.log(e.target);
+    this.setState({
+      slideNum: e.target.data,
+    });
+  };
 
-  //   let slideNum = this.state.presentImageSrc.indexOf(e.target.src);
+  prevImage = () => {
+    this.setState({
+      slideNum: this.state.slideNum - 1,
+    });
 
-  //   this.setState({
-  //     presentImageSrc: this.state.presentImageSrc[slideNum],
-  //   });
-  // };
+    // if (this.state.slideNum >= this.state.imageSrc.length) {
+    //   this.setState({
+    //     slideNum: this.state.imageSrc.length,
+    //   });
+    // }
+  };
 
-  componentDidMount() {}
+  nextImage = () => {
+    this.setState({
+      slideNum: this.state.slideNum + 1,
+    });
 
-  // prevImage = () => {
-
-  //   this.setState({
-  //     presentImageSrc: this.presentImageSrc[index],
-  //   });
-  // };
-
-  // nextImage = () => {
-  //   this.setState({
-  //     presentImageSrc: ,
-  //   });
-  // };
+    // if (this.state.slideNum <= 0) {
+    //   this.setState({
+    //     slideNum: 0,
+    //   });
+    // }
+  };
 
   render() {
     return (
@@ -61,7 +68,7 @@ export default class FeedDetail extends Component {
             <div className="topSection">
               <img
                 className="presentImg"
-                // src={this.state.presentImageSrc[slideNum]}
+                src={this.state.imageSrc[this.state.slideNum]}
                 alt="presentImg"
                 onMouseEnter={this.hoverImageOn}
                 onMouseLeave={this.hoverImageOff}
@@ -90,22 +97,26 @@ export default class FeedDetail extends Component {
 
             <div className="bottomSection">
               <img
-                src={this.state.presentImageSrc[1]}
+                src={this.state.imageSrc[1]}
+                data-id="1"
                 alt="image1"
                 onClick={this.handlePresentImage}
               />
               <img
-                src={this.state.presentImageSrc[2]}
+                src={this.state.imageSrc[2]}
+                data-id="2"
                 alt="image2"
                 onClick={this.handlePresentImage}
               />
               <img
-                src={this.state.presentImageSrc[3]}
+                src={this.state.imageSrc[3]}
+                data-id="3"
                 alt="image3"
                 onClick={this.handlePresentImage}
               />
               <img
-                src={this.state.presentImageSrc[4]}
+                src={this.state.imageSrc[4]}
+                data-id="4"
                 alt="image4"
                 onClick={this.handlePresentImage}
               />
