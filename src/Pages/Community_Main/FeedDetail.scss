@@ -39,22 +39,21 @@
           position: absolute;
           width: 30px;
           height: 30px;
+          top: 280px;
           border-radius: 50%;
           opacity: 0.5;
 
-          &.hover {
+          &.hoverOnImage {
             display: block;
             box-shadow: 0 0 5px 2px white;
             cursor: pointer;
           }
 
           &-left {
-            top: 280px;
             left: 10px;
           }
 
           &-right {
-            top: 280px;
             right: 10px;
           }
         }

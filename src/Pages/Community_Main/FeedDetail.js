@@ -5,24 +5,55 @@ export default class FeedDetail extends Component {
   constructor() {
     super();
     this.state = {
-      isHover: false,
+      isHoverOnImage: false,
+      presentImageSrc: [
+        'https://usercontents-c.styleshare.io/images/48754196/640x640',
+        'https://usercontents-c.styleshare.io/images/48754197/640x640',
+        'https://usercontents-c.styleshare.io/images/48754198/640x640',
+        'https://usercontents-c.styleshare.io/images/48754199/640x640',
+        'https://usercontents-c.styleshare.io/images/48754200/640x640',
+      ],
     };
   }
 
-  hoverOn = () => {
+  hoverImageOn = () => {
     this.setState({
-      isHover: true,
+      isHoverOnImage: true,
     });
   };
 
-  hoverOff = () => {
+  hoverImageOff = () => {
     this.setState({
-      isHover: false,
+      isHoverOnImage: false,
     });
   };
+
+  // handlePresentImage = (e) => {
+  //   console.log(e.target.src);
+
+  //   let slideNum = this.state.presentImageSrc.indexOf(e.target.src);
+
+  //   this.setState({
+  //     presentImageSrc: this.state.presentImageSrc[slideNum],
+  //   });
+  // };
+
+  componentDidMount() {}
+
+  // prevImage = () => {
+
+  //   this.setState({
+  //     presentImageSrc: this.presentImageSrc[index],
+  //   });
+  // };
+
+  // nextImage = () => {
+  //   this.setState({
+  //     presentImageSrc: ,
+  //   });
+  // };
 
   render() {
-    console.log(this.state.isHover);
     return (
       <div className="FeedDetail">
         <div className="leftContainer">
@@ -30,42 +61,53 @@ export default class FeedDetail extends Component {
             <div className="topSection">
               <img
                 className="presentImg"
-                src="https://usercontents-c.styleshare.io/images/48754196/640x640"
+                // src={this.state.presentImageSrc[slideNum]}
                 alt="presentImg"
-                onMouseEnter={this.hoverOn}
-                onMouseLeave={this.hoverOff}
+                onMouseEnter={this.hoverImageOn}
+                onMouseLeave={this.hoverImageOff}
               />
               <img
                 className={
-                  'arrow arrow-left' + (this.state.isHover && ' hover')
+                  'arrow arrow-left' +
+                  (this.state.isHoverOnImage && ' hoverOnImage')
                 }
                 src="https://www.flaticon.com/svg/vstatic/svg/570/570220.svg?token=exp=1613828052~hmac=35c0c1dd0f7c208b276be6606331f1fa"
                 alt="leftArrow"
+                onMouseEnter={this.hoverImageOn}
+                onClick={this.prevImage}
               />
               <img
                 className={
-                  'arrow arrow-right' + (this.state.isHover && ' hover')
+                  'arrow arrow-right' +
+                  (this.state.isHoverOnImage && ' hoverOnImage')
                 }
                 src="https://www.flaticon.com/svg/vstatic/svg/467/467152.svg?token=exp=1613828027~hmac=aff396c8c4913f626e820244943aa723"
                 alt="rightArrow"
+                onMouseEnter={this.hoverImageOn}
+                onClick={this.nextImage}
               />
             </div>
+
             <div className="bottomSection">
               <img
-                src="https://usercontents-c.styleshare.io/images/48754197/640x640"
+                src={this.state.presentImageSrc[1]}
                 alt="image1"
+                onClick={this.handlePresentImage}
               />
               <img
-                src="https://usercontents-c.styleshare.io/images/48754198/640x640"
+                src={this.state.presentImageSrc[2]}
                 alt="image2"
+                onClick={this.handlePresentImage}
               />
               <img
-                src="https://usercontents-c.styleshare.io/images/48754199/640x640"
+                src={this.state.presentImageSrc[3]}
                 alt="image3"
+                onClick={this.handlePresentImage}
               />
               <img
-                src="https://usercontents-c.styleshare.io/images/48754200/640x640"
+                src={this.state.presentImageSrc[4]}
                 alt="image4"
+                onClick={this.handlePresentImage}
               />
             </div>
           </section>

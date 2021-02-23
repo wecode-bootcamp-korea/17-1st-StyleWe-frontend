@@ -14,27 +14,20 @@ export default class CommnunityMain extends Component {
     super();
     this.state = {
       comment: [],
-      feedContent: [],
       isCreateModalOpen: false,
       isFeedDetailModalOpen: false,
     };
   }
 
   getData = () => {
-    fetch('/data/mockFeedData.json')
+    fetch('http://10.58.5.80:8000/feed')
       .then((res) => res.json())
-      .then((data) =>
+      .then((data) => {
+        console.log(data);
         this.setState({
           feedContent: data,
-        })
-      );
-    fetch('/data/mockComments.json')
-      .then((res) => res.json())
-      .then((data) =>
-        this.setState({
-          comment: data,
-        })
-      );
+        });
+      });
   };
 
   componentDidMount() {
@@ -60,7 +53,6 @@ export default class CommnunityMain extends Component {
   render() {
     const {
       feedContent,
-      comment,
       isCreateModalOpen,
       isFeedDetailModalOpen,
     } = this.state;
@@ -85,12 +77,10 @@ export default class CommnunityMain extends Component {
             return (
               <FeedUnit
                 className="FeedUnit"
-                key={feed.id}
-                username={feed.username}
-                img={feed.feedImages}
-                isLinked={feed.isLinkedProduct}
-                isProductInformation={feed.isProductInformation}
-                isCollected={feed.isCollected}
+                key={feed.feed_basic_data.feed_id}
+                username={feed.feed_basic_data.feed_user}
+                mainimg={feed.feed_basic_data.feed_main_image}
+                linkedProduct={feed.feed_basic_data.product_data}
                 sns={feed.sns}
                 feedtext={feed.FeedText}
                 likedNumber={feed.LikedNumber}
