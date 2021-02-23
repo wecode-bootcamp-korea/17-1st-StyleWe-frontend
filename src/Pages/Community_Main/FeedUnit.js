@@ -14,7 +14,8 @@ export default class FeedUnit extends Component {
       commentsNum,
       createdTime,
     } = this.props;
-    console.log(mainimg);
+
+    // console.log(mainimg);
 
     return (
       <div className="FeedUnit">

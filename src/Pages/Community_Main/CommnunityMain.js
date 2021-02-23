@@ -71,7 +71,7 @@ export default class CommnunityMain extends Component {
         <p className="sectionTitle">지금의 트랜드</p>
         <div className="Feeds">
           {feedContent.map((feed) => {
-            console.log(feed.feed_comment_data);
+            console.log(feed.feed_basic_data.feed_main_image.image_url);
 
             return (
               <FeedUnit
