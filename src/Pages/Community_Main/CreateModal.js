@@ -31,7 +31,7 @@ export default class CreateModal extends Component {
           <img
             src="https://www.flaticon.com/svg/vstatic/svg/748/748122.svg?token=exp=1613546046~hmac=b11675180900eff861173f8ea0b78727"
             alt="close"
-            onClick={this.props.handleModal}
+            onClick={this.props.handleCreateModal}
           />
         </div>
         <div className="boxContent">

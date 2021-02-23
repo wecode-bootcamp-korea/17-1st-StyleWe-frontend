@@ -2,7 +2,27 @@ import React, { Component } from 'react';
 import './FeedDetail.scss';
 
 export default class FeedDetail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isHover: false,
+    };
+  }
+
+  hoverOn = () => {
+    this.setState({
+      isHover: true,
+    });
+  };
+
+  hoverOff = () => {
+    this.setState({
+      isHover: false,
+    });
+  };
+
   render() {
+    console.log(this.state.isHover);
     return (
       <div className="FeedDetail">
         <div className="leftContainer">
@@ -12,14 +32,20 @@ export default class FeedDetail extends Component {
                 className="presentImg"
                 src="https://usercontents-c.styleshare.io/images/48754196/640x640"
                 alt="presentImg"
+                onMouseEnter={this.hoverOn}
+                onMouseLeave={this.hoverOff}
               />
               <img
-                className="arrow arrow-left"
+                className={
+                  'arrow arrow-left' + (this.state.isHover && ' hover')
+                }
                 src="https://www.flaticon.com/svg/vstatic/svg/570/570220.svg?token=exp=1613828052~hmac=35c0c1dd0f7c208b276be6606331f1fa"
                 alt="leftArrow"
               />
               <img
-                className="arrow arrow-right"
+                className={
+                  'arrow arrow-right' + (this.state.isHover && ' hover')
+                }
                 src="https://www.flaticon.com/svg/vstatic/svg/467/467152.svg?token=exp=1613828027~hmac=aff396c8c4913f626e820244943aa723"
                 alt="rightArrow"
               />
