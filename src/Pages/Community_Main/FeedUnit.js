@@ -11,14 +11,15 @@ export default class FeedUnit extends Component {
       feedtext,
       likedNumber,
       comments,
-      createdTime,
       commentsNum,
+      createdTime,
     } = this.props;
+    console.log(mainimg);
 
     return (
       <div className="FeedUnit">
         <img src={mainimg} alt="snsPicture" />
-        {linkedProduct && (
+        {linkedProduct.product_name && (
           <section className="linkedProduct">
             <img src={linkedProduct.product_image} alt="productimg" />
             <div>
@@ -102,16 +103,21 @@ export default class FeedUnit extends Component {
         </section>
 
         {comments.map((comment) => {
-          return (
-            <div className="comments">
-              <img src="" alt="profile" />
-              <div>
-                <p>
-                  <span>{comment.user}</span> {comment.content}
-                </p>
+          if (comment.user) {
+            return (
+              <div className="comments">
+                <img
+                  src="https://usercontents-c.styleshare.io/images/48380668/120x120"
+                  alt="profile"
+                />
+                <div>
+                  <p>
+                    <span>{comment.user}</span> {comment.content}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
+            );
+          }
         })}
       </div>
     );

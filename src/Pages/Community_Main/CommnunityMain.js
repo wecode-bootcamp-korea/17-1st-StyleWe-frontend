@@ -19,7 +19,7 @@ export default class CommnunityMain extends Component {
   }
 
   getData = () => {
-    fetch('http://10.58.5.80:8000/feed')
+    fetch(`http://10.58.5.80:8000/feed`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -71,14 +71,14 @@ export default class CommnunityMain extends Component {
         <p className="sectionTitle">지금의 트랜드</p>
         <div className="Feeds">
           {feedContent.map((feed) => {
-            console.log(feed.feed_comment_data.feed_comment_count);
+            console.log(feed.feed_comment_data);
 
             return (
               <FeedUnit
                 className="FeedUnit"
                 key={feed.feed_basic_data.feed_id}
                 username={feed.feed_basic_data.feed_user}
-                mainimg={feed.feed_basic_data.feed_main_image}
+                mainimg={feed.feed_basic_data.feed_main_image.image_url}
                 linkedProduct={feed.product_data}
                 feedtext={feed.feed_basic_data.description}
                 likedNumber={feed.feed_basic_data.like_number}
