@@ -1,0 +1,94 @@
+@import '/src/Styles/commons.scss';
+@import '/src/Styles/reset.scss';
+
+.uploadContent {
+  background-color: #e8ebed;
+  width: 100%;
+  height: 100vh;
+  padding-top: 100px;
+
+  .mainBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    width: 700px;
+    height: 470px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #e8e9ea;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 5px #cccfd1;
+  }
+
+  p {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 50px;
+    margin-bottom: 15px;
+  }
+
+  hr {
+    height: '2px';
+    opacity: 0.2;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #f7f8f9;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 3px;
+    opacity: 0.3;
+    background: {
+      image: url('https://www.flaticon.com/svg/vstatic/svg/748/748113.svg?token=exp=1613651959~hmac=f5931f74bfc73efa268d308b5f44e42d');
+      position: center;
+      repeat: no-repeat;
+      size: 30%;
+    }
+  }
+
+  input {
+    width: 0px;
+    height: 0px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  form {
+    position: relative;
+    .closeButton {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 80px;
+      cursor: pointer;
+    }
+  }
+
+  textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    width: 100px;
+    height: 45px;
+    margin: 0 290px;
+    font-size: 14px;
+    background-color: #4cd398;
+    color: white;
+    border-width: 0px;
+    border-radius: 3px;
+    &:hover {
+      background-color: #37b37f;
+    }
+  }
+}
