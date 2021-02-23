@@ -1,41 +1,39 @@
 import React, { Component } from 'react';
+import CreateModal from './CreateModal';
 import './FeedUnit.scss';
 
 export default class FeedUnit extends Component {
   render() {
     const {
-      comments,
       username,
-      img,
-      isLinked,
-      isProductInformation,
-      isCollected,
-      sns,
+      mainimg,
+      linkedProduct,
       feedtext,
       likedNumber,
+      comments,
+      createdTime,
+      commentsNum,
     } = this.props;
 
     return (
       <div className="FeedUnit">
-        <img src={img[0]} alt="snsPicture"></img>
-
-        {!isLinked && (
+        <img src={mainimg} alt="snsPicture" />
+        {linkedProduct && (
           <section className="linkedProduct">
-            <img
-              src="https://images.unsplash.com/photo-1573461169389-77e57deb64cd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8bGlwJTIwYmFsbXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              alt="lipbalm"
-            />
+            <img src={linkedProduct.product_image} alt="productimg" />
             <div>
-              <p className="productName">포인트 셔클 스웨트 셔츠</p>
+              <p className="productName">{linkedProduct.product_name}</p>
               <p className="price">
-                <span className="new">15,400</span>
-                <span className="old">18,000</span>
+                <span className="new">
+                  {linkedProduct.price * (1 - linkedProduct.discount_rate)}
+                </span>
+                <span className="old">{linkedProduct.price}</span>
               </p>
             </div>
           </section>
         )}
 
-        {isProductInformation && (
+        {linkedProduct.product_name && (
           <section className="productInformation">
             <div className="eachItem">
               <img
@@ -79,7 +77,7 @@ export default class FeedUnit extends Component {
             <div className="InnerBox">
               <div className="topText">
                 <span>{username}</span>
-                <span>21.02.14</span>
+                <span>{createdTime}</span>
               </div>
               <div className="bottomText">{feedtext}</div>
               <div className="icons">
@@ -92,7 +90,7 @@ export default class FeedUnit extends Component {
                   src="https://www.flaticon.com/svg/vstatic/svg/1946/1946412.svg?token=exp=1613459738~hmac=b547f11c148adcbdb8091f96eba8410d"
                   alt="comment"
                 />
-                <span>16</span>
+                <span>{commentsNum}</span>
                 <img
                   src="https://www.flaticon.com/svg/vstatic/svg/747/747415.svg?token=exp=1613459784~hmac=2bf5999c77810265176b6788c1002937"
                   alt="collection"
@@ -103,19 +101,17 @@ export default class FeedUnit extends Component {
           </div>
         </section>
 
-        {comments.map((comment, index) => {
-          if (index && index < 3) {
-            return (
-              <div key={comment.id} className="comments">
-                <img src={comment.profileImgSrc} alt="profile" />
-                <div>
-                  <p>
-                    <span>{comment.cmtUsername}</span> {comment.commentText}
-                  </p>
-                </div>
+        {comments.map((comment) => {
+          return (
+            <div className="comments">
+              <img src="" alt="profile" />
+              <div>
+                <p>
+                  <span>{comment.user}</span> {comment.content}
+                </p>
               </div>
-            );
-          }
+            </div>
+          );
         })}
       </div>
     );
