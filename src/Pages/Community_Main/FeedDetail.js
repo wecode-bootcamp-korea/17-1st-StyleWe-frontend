@@ -4,27 +4,26 @@ import './FeedDetail.scss';
 export default class FeedDetail extends Component {
   state = {
     isHoverOnImage: false,
-    imageSrc: [
-      'https://usercontents-c.styleshare.io/images/48754196/640x640',
-      'https://usercontents-c.styleshare.io/images/48754197/640x640',
-      'https://usercontents-c.styleshare.io/images/48754198/640x640',
-      'https://usercontents-c.styleshare.io/images/48754199/640x640',
-      'https://usercontents-c.styleshare.io/images/48754200/640x640',
-    ],
     slideMove: 0,
+    feedData: [],
   };
 
   getData = () => {
-    fetch('http://10.582.215:8000/feed/2')
+    fetch('http://10.58.2.215:8000/feed/45')
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) =>
+        this.setState({
+          feedData: data,
+        })
+      );
   };
 
   componentDidMount() {
     this.getData();
-    // this.setState({
-    //   slideMove: 0,
-    // });
+
+    this.setState({
+      slideMove: 0,
+    });
   }
 
   hoverImageOn = () => {
@@ -40,9 +39,8 @@ export default class FeedDetail extends Component {
   };
 
   handlePresentImage = (e) => {
-    this.state.imageSrc.indexOf(e.target.src);
     this.setState({
-      slideMove: this.state.imageSrc.indexOf(e.target.src) * -100,
+      slideMove: e.target.dataset.id * -100,
     });
   };
 
@@ -59,78 +57,47 @@ export default class FeedDetail extends Component {
   };
 
   nextImage = () => {
-    if (this.state.slideMove > -(this.state.imageSrc.length - 1) * 100) {
+    if (
+      this.state.slideMove >
+      -(this.state.feedData.feed_image_data.length - 1) * 100
+    ) {
       this.setState({
         slideMove: this.state.slideMove - 100,
       });
     } else {
       this.setState({
-        slideMove: -(this.state.imageSrc.length - 1) * 100,
+        slideMove: -(this.state.feedData.feed_image_data.length - 1) * 100,
       });
     }
   };
 
   render() {
+    const { feedData, slideMove, isHoverOnImage } = this.state;
+
     return (
       <div className="FeedDetail">
         <div className="leftContainer">
           <section className="carousel">
             <div className="topSection">
-              <img
-                src={this.state.imageSrc[0]}
-                className="presentImg"
-                alt="presentImg"
-                style={{
-                  transform: `translateX(${this.state.slideMove}%)`,
-                }}
-                onMouseEnter={this.hoverImageOn}
-                onMouseLeave={this.hoverImageOff}
-              />
-              <img
-                src={this.state.imageSrc[1]}
-                className="presentImg"
-                alt="presentImg"
-                style={{
-                  transform: `translateX(${this.state.slideMove}%)`,
-                }}
-                onMouseEnter={this.hoverImageOn}
-                onMouseLeave={this.hoverImageOff}
-              />
-              <img
-                src={this.state.imageSrc[2]}
-                className="presentImg"
-                alt="presentImg"
-                style={{
-                  transform: `translateX(${this.state.slideMove}%)`,
-                }}
-                onMouseEnter={this.hoverImageOn}
-                onMouseLeave={this.hoverImageOff}
-              />
-              <img
-                src={this.state.imageSrc[3]}
-                className="presentImg"
-                alt="presentImg"
-                style={{
-                  transform: `translateX(${this.state.slideMove}%)`,
-                }}
-                onMouseEnter={this.hoverImageOn}
-                onMouseLeave={this.hoverImageOff}
-              />
-              <img
-                src={this.state.imageSrc[4]}
-                className="presentImg"
-                alt="presentImg"
-                style={{
-                  transform: `translateX(${this.state.slideMove}%)`,
-                }}
-                onMouseEnter={this.hoverImageOn}
-                onMouseLeave={this.hoverImageOff}
-              />
+              {feedData.feed_image_data &&
+                feedData.feed_image_data.map((image, index) => {
+                  return (
+                    <img
+                      src={image[index]}
+                      className="presentImg"
+                      alt="presentImg"
+                      style={{
+                        transform: `translateX(${slideMove}%)`,
+                      }}
+                      onMouseEnter={this.hoverImageOn}
+                      onMouseLeave={this.hoverImageOff}
+                    />
+                  );
+                })}
 
               <img
                 className={
-                  'arrow arrow-left' +
-                  (this.state.isHoverOnImage && ' hoverOnImage')
+                  'arrow arrow-left' + (isHoverOnImage && ' hoverOnImage')
                 }
                 src="https://www.flaticon.com/svg/vstatic/svg/570/570220.svg?token=exp=1613828052~hmac=35c0c1dd0f7c208b276be6606331f1fa"
                 alt="leftArrow"
@@ -139,8 +106,7 @@ export default class FeedDetail extends Component {
               />
               <img
                 className={
-                  'arrow arrow-right' +
-                  (this.state.isHoverOnImage && ' hoverOnImage')
+                  'arrow arrow-right' + (isHoverOnImage && ' hoverOnImage')
                 }
                 src="https://www.flaticon.com/svg/vstatic/svg/467/467152.svg?token=exp=1613828027~hmac=aff396c8c4913f626e820244943aa723"
                 alt="rightArrow"
@@ -150,36 +116,17 @@ export default class FeedDetail extends Component {
             </div>
 
             <div className="bottomSection">
-              <img
-                src={this.state.imageSrc[0]}
-                data-id="0"
-                alt="image1"
-                onClick={this.handlePresentImage}
-              />
-              <img
-                src={this.state.imageSrc[1]}
-                data-id="1"
-                alt="image1"
-                onClick={this.handlePresentImage}
-              />
-              <img
-                src={this.state.imageSrc[2]}
-                data-id="2"
-                alt="image2"
-                onClick={this.handlePresentImage}
-              />
-              <img
-                src={this.state.imageSrc[3]}
-                data-id="3"
-                alt="image3"
-                onClick={this.handlePresentImage}
-              />
-              <img
-                src={this.state.imageSrc[4]}
-                data-id="4"
-                alt="image4"
-                onClick={this.handlePresentImage}
-              />
+              {feedData.feed_image_data &&
+                feedData.feed_image_data.map((image, index) => {
+                  return (
+                    <img
+                      src={image[index]}
+                      data-id={index}
+                      alt="smallimage"
+                      onClick={this.handlePresentImage}
+                    />
+                  );
+                })}
             </div>
           </section>
 
@@ -210,22 +157,28 @@ export default class FeedDetail extends Component {
         </div>
 
         <aside>
-          <section className="contentInBox productBox">
-            <span>StyleWe에서 구입가능한 제품</span>
-            <div className="product">
-              <img
-                src="https://usercontents-c.styleshare.io/images/fea85142-4803-43aa-816d-cffde52f68b0/80x80"
-                alt=""
-              />
-              <div>
-                <p className="productName">캠퍼스 레터 후드 풀오버</p>
-                <p className="price">
-                  35,900원 <span>29,000</span>
-                </p>
+          {feedData.product_data && (
+            <section className="contentInBox productBox">
+              <span>StyleWe에서 구입가능한 제품</span>
+              <div className="product">
+                <img src={feedData.product_data.product_image} alt="" />
+                <div>
+                  <p className="productName">
+                    {feedData.product_data.product_name}
+                  </p>
+                  <p className="price">
+                    {`${feedData.product_data.price.split('.')[0]} 원`}{' '}
+                    <span>
+                      {Math.round(
+                        feedData.product_data.price *
+                          (1 - feedData.product_data.discount_rate)
+                      )}
+                    </span>
+                  </p>
+                </div>
               </div>
-            </div>
-          </section>
-
+            </section>
+          )}
           <section className="contentInBox brandBox">
             <div className="brand">
               <img
@@ -247,8 +200,8 @@ export default class FeedDetail extends Component {
                 alt="profileImg"
               />
               <div>
-                <p>안녕 하정훈</p>
-                <p>Insta - hi_hoooon 협찬/문의 DM....</p>
+                <p>{feedData.feed_basic_data?.feed_user}</p>
+                <p>{feedData.feed_basic_data?.feed_writer_about}</p>
               </div>
               <img
                 className="follow"
@@ -257,7 +210,7 @@ export default class FeedDetail extends Component {
               />
             </div>
             <p>
-              요즘 베레모 내 모자 일순위야...
+              {feedData.feed_basic_data?.description}
               <br />
               <br /> insta - hi_hooooon <br />
               <br />
@@ -275,7 +228,7 @@ export default class FeedDetail extends Component {
                 src="https://www.flaticon.com/svg/vstatic/svg/1077/1077086.svg?token=exp=1613994381~hmac=d6d142f3b5733fbc8570b1e69b05015e"
                 alt="heart"
               />
-              <span>40</span>
+              <span>{feedData.feed_basic_data?.like_number}</span>
             </div>
             <img
               className="collectionImage"
@@ -288,37 +241,33 @@ export default class FeedDetail extends Component {
               alt="more"
             />
           </section>
-
           <section className="comments">
             <div className="topRow">
-              <span>댓글(10)</span>
+              <span>
+                댓글({feedData.feed_comment_data?.feed_comment_count})
+              </span>
               <a href="www.naver.com">더보기</a>
             </div>
             <div className="commentsArea">
-              <div className="singleComment">
-                <img
-                  src="https://usercontents-c.styleshare.io/images/48671419/30x30"
-                  alt="profileImg"
-                />
-                <div class="commentText">
-                  <p>
-                    <span>채미</span>좋아요 누르고 가요
-                  </p>
-                  <p className="writtenDate">21.02.06</p>
-                </div>
-              </div>
-              <div className="singleComment">
-                <img
-                  src="https://usercontents-c.styleshare.io/images/48671419/30x30"
-                  alt="profileImg"
-                />
-                <div class="commentText">
-                  <p>
-                    <span>채미</span>좋아요 누르고 가요
-                  </p>
-                  <p className="writtenDate">21.02.06</p>
-                </div>
-              </div>
+              {feedData.feed_comment_data?.comment_list.map((comment) => {
+                return (
+                  <div className="singleComment">
+                    <img
+                      src="https://usercontents-c.styleshare.io/images/48671419/30x30"
+                      alt="profileImg"
+                    />
+                    <div class="commentText">
+                      <p>
+                        <span>{comment.user}</span>
+                        {comment.content}
+                      </p>
+                      <p className="writtenDate">
+                        {comment.created_at.split('T')[0]}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <input type="text" placeholder="댓글을 남기세요" />
           </section>
