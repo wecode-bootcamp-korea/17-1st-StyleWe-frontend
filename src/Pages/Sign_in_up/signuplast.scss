@@ -27,10 +27,9 @@
 
       .settingPicBox {
         display: flex;
-        // width: 150px;
-        // height: 180px;
-        margin-bottom: 280px;
-        margin-right: 100px;
+        flex-direction: column;
+        margin-bottom: 150px;
+        margin-right: 80px;
 
         .profilePicture {
           display: flex;
@@ -44,16 +43,109 @@
         }
 
         .profilePicBtn {
-          // width: 90px;
-          // height: 30px;
-          margin-top: 140px;
-          margin-right: 100px;
+          width: 90px;
+          height: 30px;
+          margin-top: 50px;
+          margin-left: 9px;
           border-radius: 4px;
           border: 1px solid #666565;
           color: #666565;
           outline: none;
 
           &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .profileInputBox {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 400px;
+
+        .snsBtn {
+          display: flex;
+          width: 286px;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          background-color: #4564a2;
+          color: white;
+          border: none;
+          border-radius: 7px;
+          font-size: 15px;
+        }
+
+        .genderfield {
+          display: flex;
+          height: 48px;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+        }
+
+        .birthfield {
+          display: flex;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+
+          input {
+            width: 200px;
+            height: 28px;
+            border: 1px solid #fff;
+            outline: none;
+          }
+        }
+
+        .webSitefield {
+          display: flex;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+
+          input {
+            width: 200px;
+            height: 28px;
+            border: 1px solid #fff;
+            outline: none;
+          }
+        }
+
+        .aboutfield {
+          display: flex;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+
+          textarea {
+            width: 200px;
+            outline: none;
+            border: none;
+          }
+        }
+
+        .btnDone {
+          height: 35px;
+          margin-top: 20px;
+          color: white;
+          background-color: #4adaae;
+          border: 1px solid #4adaae;
+          border-radius: 7px;
+          outline: none;
+
+          &:hover {
+            background-color: #118a60;
+            border: 1px solid #118a60;
             cursor: pointer;
           }
         }

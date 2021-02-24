@@ -1,4 +1,3 @@
-// import { render } from "@testing-library/react";
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import "./signup.scss";
@@ -9,32 +8,28 @@ class Signup extends React.Component {
     this.state = {
       user_name: "",
       password: "",
-      // confirm_password: "",
       nickname: "",
       alertMessage: "",
     };
   }
 
   handleInput = (e) => {
-    // console.log("onChange");
     const { value, name } = e.target;
     this.setState({
       [name]: value,
     });
   };
 
+  handleKeyPress = (e) => {
+    console.log("onKeyPress");
+    if (e.key === "Enter") {
+      this.clickSignup();
+    }
+  };
+
   goToSignupLast = () => {
     this.props.history.push("/SignupLast");
   };
-
-  //   handleValidation = () => {
-  //     console.log(this.state);
-  //     // console.log(this.setstate);
-  //     this.state.password === this.state.passwordConfirm
-  //       ? this.setState({ alertMessage: "비밀번호 일치" })
-  //       : this.setState({ alertMessage: "비밀번호가 일치 하지 않습니다." });
-  //   };
-  //password 일치만 나옴. 다시 찾아보기.
 
   clickSignup = () => {
     fetch("http://10.58.6.91:8000/user/signup/initial", {
@@ -65,10 +60,6 @@ class Signup extends React.Component {
           alert("비밀번호가 짧습니다.");
         }
       });
-  };
-
-  respoSignin = () => {
-    this.goToSignupLast();
   };
 
   render() {
@@ -119,9 +110,8 @@ class Signup extends React.Component {
                     <button
                       className="signupbtn"
                       onClick={this.clickSignup}
-                      // onClick={this.goToSignupLast}
+                      onKeyPress={this.handleKeyPress}
                       type="button"
-                      // token={this.clickSignup.res.token}
                     >
                       Signup
                     </button>

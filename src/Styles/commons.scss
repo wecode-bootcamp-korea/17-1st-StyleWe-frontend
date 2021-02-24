@@ -1,27 +1,16 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&family=Roboto&display=swap");
-=======
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&family=Roboto&display=swap');
->>>>>>> main
 
 $border: 0.1rem solid #e8ebed;
 $border-radius: 5px;
 
 html,
-<<<<<<< HEAD
-* {
-  font-family: "Noto Sans KR", sans-serif;
-}
-​ %flex-center {
-=======
 body,
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   box-sizing: content-box;
 }
 
 %flex-center {
->>>>>>> main
   display: flex;
   justify-content: center;
   align-items: center;

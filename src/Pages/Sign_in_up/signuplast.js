@@ -7,17 +7,16 @@ class Signuplast extends React.Component {
     super();
     this.state = {
       birth: "",
-      // about(textarea으로)
-      // website(url input으로)
-      // input만들어서 와야됨
+      website: "",
+      about: "",
     };
   }
 
   handleInput = (e) => {
-    console.log("onChange", e.target.value);
-
+    console.log("onChange");
+    const { value, name } = e.target;
     this.setState({
-      birth: e.target.value,
+      [name]: value,
     });
   };
 
@@ -38,14 +37,6 @@ class Signuplast extends React.Component {
         this.props.history.push("/Main");
       });
   };
-
-  // goToMain = () => {
-  //   if (this.state.birth) {
-  //     this.props.history.push("/Main");
-  //   } else {
-  //     alert("다시 입력해 주세요.");
-  //   }
-  // };
 
   render() {
     return (
@@ -86,7 +77,6 @@ class Signuplast extends React.Component {
                     onChange={this.handleInput}
                     name="website"
                     placeholder="URL을 입력해주세요."
-                    tabindex="1"
                     maxLength="256"
                   />
                 </fieldset>
@@ -96,9 +86,8 @@ class Signuplast extends React.Component {
                     name="bio"
                     onChange={this.handleInput}
                     placeholder="본인에 대해 알려주세요."
-                    tabindex="1"
                     rows="4"
-                    maxLength="200"
+                    maxLength="100"
                   ></textarea>
                 </fieldset>
               </div>

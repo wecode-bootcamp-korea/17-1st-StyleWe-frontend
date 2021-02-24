@@ -18,12 +18,8 @@ class Signin extends React.Component {
     });
   };
 
-  // goToMain = () => {
-  //   this.props.history.push("/Main");
-  // };
-
   clickSignin = () => {
-    fetch("http://10.58.6.91:8000/user/signin", {
+    fetch("http://10.58.2.161:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
         user_name: this.state.user_name,
@@ -31,7 +27,6 @@ class Signin extends React.Component {
       }),
     })
       .then((res) => res.json())
-      // .then((result) => console.log("결과: ", result));
       .then((result) => {
         console.log(result);
         if (result.message === "SUCCESS") {
@@ -45,17 +40,7 @@ class Signin extends React.Component {
       });
   };
 
-  // respoSignin = (res) => {
-  //   alert(res.message === "SUCCESS" ? "로그인 성공" : "로그인 실패");
-  //   res.message === "SUCCESS" && this.goToMain();
-  // };
-
-  // respoSignin = () => {
-  //   this.goToMain();
-  // };
-
   render() {
-    // const { user_name, password } = this.state;
     return (
       <div className="signin">
         <div className="signinContainer">
@@ -86,13 +71,7 @@ class Signin extends React.Component {
                   <div className="loginFormButton">
                     <button
                       className="loginButton"
-                      // className={
-                      //   user_name.length > 2 && password.length > 5
-                      //     ? "loginButton activeBtn"
-                      //     : "loginButton inactiveBtn"
-                      // }
                       onClick={this.clickSignin}
-                      // onClick={this.goToMain}
                       type="button"
                     >
                       Signin
