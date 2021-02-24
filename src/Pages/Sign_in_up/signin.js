@@ -18,12 +18,12 @@ class Signin extends React.Component {
     });
   };
 
-  goToMain = () => {
-    this.props.history.push("/Main");
-  };
+  // goToMain = () => {
+  //   this.props.history.push("/Main");
+  // };
 
   clickSignin = () => {
-    fetch("http://10.90.206.147:8000/user/signin/", {
+    fetch("http://10.58.6.91:8000/user/signin", {
       method: "POST",
       body: JSON.stringify({
         user_name: this.state.user_name,
@@ -31,27 +31,33 @@ class Signin extends React.Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => this.respoSignin(res));
-    // .then((result) => console.log("결과: ", result));
+      // .then((result) => console.log("결과: ", result));
+      .then((result) => {
+        console.log(result);
+        if (result.message === "SUCCESS") {
+          localStorage.setItem("access_token", result.Authorization);
+          this.props.history.push("/main");
+        } else if (result.message === "INVALID_USER") {
+          alert("아이디를 확인해주세요.");
+        } else if (result.message === "SIGNIN_FAIL") {
+          alert("비밀번호를 확인해주세요.");
+        }
+      });
   };
 
-  respoSignin = (res) => {
-    // console.log("onClick");
-    alert(res.message === "SIGNIN_SUCCESS" ? "로그인 성공" : "로그인 실패");
-  };
+  // respoSignin = (res) => {
+  //   alert(res.message === "SUCCESS" ? "로그인 성공" : "로그인 실패");
+  //   res.message === "SUCCESS" && this.goToMain();
+  // };
 
-  respoSignin = () => {
-    this.goToMain();
-  };
+  // respoSignin = () => {
+  //   this.goToMain();
+  // };
 
   render() {
     // const { user_name, password } = this.state;
     return (
       <div className="signin">
-        <img
-          alt="backgroundphoto"
-          src="https://images.unsplash.com/photo-1569748079281-dc67c9569015?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTkzfHxzdHJlZXQlMjBmYXNoaW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-        />
         <div className="signinContainer">
           <div className="signinContainerWrapper">
             <div className="signinBox">

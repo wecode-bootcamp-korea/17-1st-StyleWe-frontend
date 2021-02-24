@@ -37,7 +37,7 @@ class Signup extends React.Component {
   //password 일치만 나옴. 다시 찾아보기.
 
   clickSignup = () => {
-    fetch("http://10.90.206.147:8000/user/signupinitial/", {
+    fetch("http://10.58.6.91:8000/user/signup/initial", {
       method: "POST",
       body: JSON.stringify({
         user_name: this.state.user_name,
@@ -47,12 +47,24 @@ class Signup extends React.Component {
       }),
     })
       .then((res) => res.json())
-      // .then((result) => console.log("결과: ", result));
-      .then((res) => {
-        console.log("백엔드 응답 메시지 >>>>", res, res.token);
-        localStorage.setItem("token", res.token);
+      .then((result) => {
+        console.log("result: ", result);
+        if (result.message === "SUCCESS") {
+          console.log("회원가입 성공");
+          localStorage.setItem("access_token", result.access_token);
+          this.props.history.push("/signuplast");
+        } else if (result.message === "USER_NAME_ALREADY_EXITS") {
+          alert("아이디가 중복됩니다.");
+        } else if (result.message === "EMAIL_ALREADY_EXISTS") {
+          alert("이메일이 중복됩니다.");
+        } else if (result.message === "SHORT_ID") {
+          alert("아이디가 짧습니다");
+        } else if (result.message === "LONG_ID") {
+          alert("아이디가 깁니다");
+        } else if (result.message === "SHORT_PASSWORD") {
+          alert("비밀번호가 짧습니다.");
+        }
       });
-    this.props.history.push("/SignupLast");
   };
 
   respoSignin = () => {
@@ -62,10 +74,6 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="signup">
-        <img
-          alt="backgroundphoto"
-          src="https://images.unsplash.com/photo-1569748079281-dc67c9569015?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTkzfHxzdHJlZXQlMjBmYXNoaW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-        />
         <div className="signupContainer">
           <div className="signupContainerWrapper">
             <div className="signupBox">
@@ -107,14 +115,6 @@ class Signup extends React.Component {
                       placeholder="이메일을 입력하세요"
                     />
                   </div>
-                  {/* <input
-          className="userSignupPwCheck"
-          name="passwordConfirm"
-          onKeyPress={this.handlePwCheck}
-          onChange={this.handleValidation}
-          type="password"
-          placeholder="비밀번호 확인"
-        /> */}
                   <div className="signupFormButton">
                     <button
                       className="signupbtn"

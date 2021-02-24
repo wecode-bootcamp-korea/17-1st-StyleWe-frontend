@@ -1,24 +1,23 @@
 .signUpLast {
   display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1569748079281-dc67c9569015?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTkzfHxzdHJlZXQlMjBmYXNoaW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-repeat: no-repeat;
 
-  img {
-    width: 1300px;
-    height: 939px;
-    background-image: cover;
-  }
-
-  .signupLastContainer {
+  .signUpLastWrapper {
     position: absolute;
-    bottom: 260px;
+    bottom: 200px;
 
-    .signupLastBox {
+    .settingBox {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 420px;
+      flex-direction: row;
+      height: 500px;
       width: 615px;
       margin: 20px;
       padding: 15px;
@@ -26,125 +25,36 @@
       background-color: rgba(240, 238, 238, 0.8);
       border-radius: 7px;
 
-      .profilePicturebox {
-        width: 200px;
-        height: 200px;
-        margin-top: 15px;
-        margin-left: 30px;
-        margin-bottom: 250px;
-
-        .profileUploadBox {
-          display: flex;
-          padding: 60px;
-          margin: 20px;
-          background-color: white;
-          border-radius: 50px;
-        }
-
-        .profileUploadbtn {
-          margin-left: 41px;
-          width: 100px;
-          height: 30px;
-          border-radius: 7px;
-        }
-      }
-
-      .profiledesk {
+      .settingPicBox {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 450px;
-        height: 450px;
-        margin-bottom: 50px;
-        margin-left: 100px;
+        // width: 150px;
+        // height: 180px;
+        margin-bottom: 280px;
+        margin-right: 100px;
 
-        .profileSnsBtn {
-          width: 150px;
-          height: 150px;
+        .profilePicture {
+          display: flex;
+          width: 120px;
+          height: 120px;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #fff;
+          border-radius: 50%;
+          background-color: rgb(247, 170, 170);
+        }
 
-          .profileSnsBox button {
-            width: 315px;
-            height: 40px;
-            margin: 40px 50px 20px 0px;
-            border-radius: 7px;
-            background-color: #4564a2;
-            color: white;
-            border: none;
+        .profilePicBtn {
+          // width: 90px;
+          // height: 30px;
+          margin-top: 140px;
+          margin-right: 100px;
+          border-radius: 4px;
+          border: 1px solid #666565;
+          color: #666565;
+          outline: none;
 
-            &:focus {
-              outline: 0;
-            }
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-
-          .profileinfo {
-            .genderWrapper {
-              width: 315px;
-              height: 40px;
-              border: 1px solid #dbdbdb;
-              background-color: white;
-              border-radius: 7px;
-
-              input {
-                margin: 14px 15px 0 10px;
-              }
-            }
-
-            .checkBirth {
-              display: flex;
-              width: 315px;
-              height: 40px;
-
-              p {
-                width: 50px;
-                height: 45px;
-                line-height: 40px;
-                border: 1px solid #dbdbdb;
-                background-color: white;
-                border-radius: 7px 0 0 7px;
-              }
-
-              input {
-                display: flex;
-                width: 295px;
-                height: 40px;
-                margin-top: 1px;
-                border: 1px solid #fff;
-                border-radius: 0 7px 7px 0;
-                outline: none;
-              }
-            }
-          }
-
-          .agreeAllBox {
-            display: flex;
-            flex-direction: column;
-            height: 500px;
-
-            .agreeAllBtn {
-              display: flex;
-              flex-direction: column;
-              width: 450px;
-              height: 400px;
-              margin-top: 200px;
-            }
-
-            .signupLastBtn {
-              display: flex;
-              width: 200px;
-              height: 50px;
-
-              button {
-                justify-content: center;
-                align-items: center;
-                padding: 30px;
-                margin-top: 300px;
-                background-color: #4adaae;
-              }
-            }
+          &:hover {
+            cursor: pointer;
           }
         }
       }
