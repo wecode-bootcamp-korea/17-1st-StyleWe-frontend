@@ -1,0 +1,27 @@
+
+{ 
+  "product_basic" : {
+                      "brandId": 1,
+                      "brandName": "나이키",
+                      "productName": "나이키 상품명",
+                      "thumbnailImages": "images/thumbnail.jpeg",
+                      "salePercent": 0.30,
+                      "noSalePrice": 1000000,
+                      "firstOptionName": "옵션",
+                      "firstOptions": ["01. 나이키 운동화", "02. 나이키 축구화", "03. 나이키 슬리퍼", "04. 나이키 캐주얼 운동화"],
+                      "secondOptionName": "사이즈",
+                      "secondOptions": ["230","240","250","260","270","280","290"]
+                      },
+  "product_sample" : {
+                      "brandId": 2,
+                      "brandName": "나이키",
+                      "productName": "나이키 상품명 1",
+                      "thumbnailImages": "images/thumbnail.jpeg",
+                      "salePercent": 0.30,
+                      "noSalePrice": 1000000,
+                      "firstOptionName": "옵션",
+                      "firstOptions": ["01. 나이키 운동화", "02. 나이키 축구화", "03. 나이키 슬리퍼", "04. 나이키 캐주얼 운동화"],
+                      "secondOptionName": "사이즈",
+                      "secondOptions": ["230","240","250","260","270","280","290"]
+                      }
+  }
