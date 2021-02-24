@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500&family=Roboto&display=swap");
 
 $border: 0.1rem solid #e8ebed;
 $border-radius: 5px;
@@ -6,7 +6,7 @@ $border-radius: 5px;
 html,
 body,
 * {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   box-sizing: content-box;
 }
 
@@ -14,4 +14,8 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body {
+  overflow-y: scroll;
 }
