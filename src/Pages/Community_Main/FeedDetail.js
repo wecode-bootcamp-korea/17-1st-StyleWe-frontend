@@ -2,25 +2,29 @@ import React, { Component } from 'react';
 import './FeedDetail.scss';
 
 export default class FeedDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isHoverOnImage: false,
-      imageSrc: [
-        'https://usercontents-c.styleshare.io/images/48754196/640x640',
-        'https://usercontents-c.styleshare.io/images/48754197/640x640',
-        'https://usercontents-c.styleshare.io/images/48754198/640x640',
-        'https://usercontents-c.styleshare.io/images/48754199/640x640',
-        'https://usercontents-c.styleshare.io/images/48754200/640x640',
-      ],
-      slideMove: 0,
-    };
-  }
+  state = {
+    isHoverOnImage: false,
+    imageSrc: [
+      'https://usercontents-c.styleshare.io/images/48754196/640x640',
+      'https://usercontents-c.styleshare.io/images/48754197/640x640',
+      'https://usercontents-c.styleshare.io/images/48754198/640x640',
+      'https://usercontents-c.styleshare.io/images/48754199/640x640',
+      'https://usercontents-c.styleshare.io/images/48754200/640x640',
+    ],
+    slideMove: 0,
+  };
+
+  getData = () => {
+    fetch('http://10.582.215:8000/feed/2')
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
 
   componentDidMount() {
-    this.setState({
-      slideMove: 0,
-    });
+    this.getData();
+    // this.setState({
+    //   slideMove: 0,
+    // });
   }
 
   hoverImageOn = () => {
