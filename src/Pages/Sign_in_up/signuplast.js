@@ -13,7 +13,6 @@ class Signuplast extends React.Component {
   }
 
   handleInput = (e) => {
-    console.log("onChange");
     const { value, name } = e.target;
     this.setState({
       [name]: value,
@@ -21,24 +20,29 @@ class Signuplast extends React.Component {
   };
 
   clickSignuplast = () => {
-    fetch("http://10.58.6.91:8000/user/signup/final", {
+    console.log(typeof "birth");
+    fetch("http://10.58.2.161:8000/user/signup", {
       method: "PATCH",
       headers: {
         Authorization: localStorage.getItem("access_token"),
       },
       body: JSON.stringify({
         birth: this.state.birth,
+        website: this.state.website,
+        about: this.state.about,
       }),
     })
       .then((res) => res.json())
       .then((res) => {
         console.log("result:", res);
-        localStorage.getItem("token", res.token);
+        localStorage.getItem("access_token", res.token);
         this.props.history.push("/Main");
       });
   };
 
   render() {
+    console.log(this.state.about);
+    console.log(this.state.birth);
     return (
       <div className="signUpLast">
         <div className="signUpLastWrapper">
@@ -66,7 +70,7 @@ class Signuplast extends React.Component {
                   <input
                     type="text"
                     onChange={this.handleInput}
-                    name="birthDate"
+                    name="birth"
                     placeholder="ex)YYYY-MM-DD"
                   />
                 </fieldset>
@@ -83,7 +87,7 @@ class Signuplast extends React.Component {
                 <fieldset className="aboutfield">
                   <legend>자기소개</legend>
                   <textarea
-                    name="bio"
+                    name="about"
                     onChange={this.handleInput}
                     placeholder="본인에 대해 알려주세요."
                     rows="4"

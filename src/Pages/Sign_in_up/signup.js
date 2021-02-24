@@ -32,7 +32,7 @@ class Signup extends React.Component {
   };
 
   clickSignup = () => {
-    fetch("http://10.58.6.91:8000/user/signup/initial", {
+    fetch("http://10.58.2.161:8000/user/signup", {
       method: "POST",
       body: JSON.stringify({
         user_name: this.state.user_name,
