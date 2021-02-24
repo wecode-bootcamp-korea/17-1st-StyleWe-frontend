@@ -5,7 +5,7 @@ import TopFeedSection from "./TopFeedSection";
 import FeedUnit from "./FeedUnit";
 import CreateModal from "./CreateModal";
 import Footer from "../../Components/Footer/Footer";
-import CommunityNav from "../../Components/Nav/CommunityNav/CommunityNav";
+import StoreNav from "../../Components/Nav/StoreNav/StoreNav";
 
 export default class CommnunityMain extends Component {
   constructor() {
@@ -51,7 +51,7 @@ export default class CommnunityMain extends Component {
 
     return (
       <>
-        <CommunityNav />
+        <StoreNav />
         <main className="CommunityMain">
           <div className={"overlay " + (isModalOpen && "active")}></div>
           <TopFeedSection />

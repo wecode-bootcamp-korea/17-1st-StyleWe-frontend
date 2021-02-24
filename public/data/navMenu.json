@@ -2,17 +2,17 @@
   {
     "id": 1,
     "catergoriesName": "홈",
-    "subCatergoriesName": null
+    "subCatergoriesName": []
   },
   {
     "id": 2,
     "catergoriesName": "브랜드",
-    "subCatergoriesName": null
+    "subCatergoriesName": []
   },
   {
     "id": 3,
     "catergoriesName": "랭킹",
-    "subCatergoriesName": null
+    "subCatergoriesName":[]
   },
   {
     "id": 4,

@@ -10,7 +10,7 @@
 
 .storeNav {
   position: fixed;
-  z-index: 1000v;
+  z-index: 1000;
   width: 100vmax;
   height: 100vmax;
   background-color: transparent;
@@ -219,7 +219,7 @@
 
       &:hover .detailMenuTab {
         position: absolute;
-        top: -21px;
+        top: -26px;
         display: flex;
         justify-content: center;
         background-color: white;

@@ -70,9 +70,7 @@ class StoreNav extends React.Component {
               <img className="logo" alt="Logo" src="/images/styleWeLogo.png" />
               <div className="menuWrapper">
                 <input type="submit" value="#OOTD" />
-                {/* 커뮤니티 메인 페이지 완성 후, <Link>태그 사용 예정 */}
                 <input type="submit" value="STORE" />
-                {/* 스토어 상세 페이지 완성 후, <Link>태그 사용 예정 */}
               </div>
             </div>
             <div className="navSearchBarWrapper">
@@ -139,7 +137,7 @@ class StoreNav extends React.Component {
                     {mainCategory.catergoriesName}
                   </li>
                   {hoverValue === mainCategory.catergoriesName &&
-                    mainCategory.subCatergoriesName !== null && (
+                    mainCategory.subCatergoriesName !== [] && (
                       <div
                         className="detailMenuTab"
                         onMouseLeave={this.handleCategoriesMouseHover}
