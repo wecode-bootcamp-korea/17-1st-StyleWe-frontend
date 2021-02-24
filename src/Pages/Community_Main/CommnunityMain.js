@@ -19,7 +19,10 @@ export default class CommnunityMain extends Component {
   }
 
   getData = () => {
-    fetch(`http://10.58.5.80:8000/feed`)
+    const LIMIT = 30;
+    const OFFSET = 0;
+
+    fetch(`http://10.58.1.214:8000/feed?limit=${LIMIT}&offset=${OFFSET}`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -29,7 +32,7 @@ export default class CommnunityMain extends Component {
   };
 
   componentDidMount() {
-    this.getData();
+    // this.getData();
   }
 
   goUp = () => {
@@ -71,8 +74,6 @@ export default class CommnunityMain extends Component {
         <p className="sectionTitle">지금의 트랜드</p>
         <div className="Feeds">
           {feedContent.map((feed) => {
-            console.log(feed.feed_basic_data.feed_main_image.image_url);
-
             return (
               <FeedUnit
                 className="FeedUnit"
@@ -84,7 +85,7 @@ export default class CommnunityMain extends Component {
                 likedNumber={feed.feed_basic_data.like_number}
                 comments={feed.feed_comment_data.comment_list}
                 commentsNum={feed.feed_comment_data.feed_comment_count}
-                createdTime={feed.feed_basic_data.created_at}
+                createdTime={feed.feed_basic_data.created_at.split('T')[0]}
                 handleFeedModal={this.handleFeedModal}
               />
             );
@@ -92,7 +93,7 @@ export default class CommnunityMain extends Component {
         </div>
 
         <img
-          src="https://www.flaticon.com/svg/vstatic/svg/633/633773.svg?token=exp=1613537376~hmac=81fad313487f80917104ace958e971ce"
+          src="https://www.flaticon.com/svg/vstatic/svg/992/992703.svg?token=exp=1614145828~hmac=fab6e6a27940e0f8d9d96bfbc29aa2fb"
           alt="up"
           className="upScroll"
           onClick={this.goUp}

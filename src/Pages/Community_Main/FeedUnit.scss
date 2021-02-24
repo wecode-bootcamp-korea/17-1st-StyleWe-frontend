@@ -20,6 +20,7 @@ $feedUnitWidth: 220px;
 
   .linkedProduct {
     @extend %flex-center;
+    width: 100%;
     margin: 10px 0;
 
     img {
@@ -30,6 +31,7 @@ $feedUnitWidth: 220px;
     }
 
     div {
+      width: 100%;
       .productName {
         font-size: 15px;
         font-weight: 700;

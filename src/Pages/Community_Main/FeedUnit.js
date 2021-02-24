@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CreateModal from './CreateModal';
 import './FeedUnit.scss';
 
 export default class FeedUnit extends Component {
@@ -15,11 +14,10 @@ export default class FeedUnit extends Component {
       createdTime,
     } = this.props;
 
-    // console.log(mainimg);
-
     return (
       <div className="FeedUnit">
         <img src={mainimg} alt="snsPicture" />
+
         {linkedProduct.product_name && (
           <section className="linkedProduct">
             <img src={linkedProduct.product_image} alt="productimg" />
@@ -27,9 +25,13 @@ export default class FeedUnit extends Component {
               <p className="productName">{linkedProduct.product_name}</p>
               <p className="price">
                 <span className="new">
-                  {linkedProduct.price * (1 - linkedProduct.discount_rate)}
+                  {`${Math.round(
+                    linkedProduct.price * (1 - linkedProduct.discount_rate)
+                  )} 원`}
                 </span>
-                <span className="old">{linkedProduct.price}</span>
+                <span className="old">{`${
+                  linkedProduct.price.split('.')[0]
+                } 원`}</span>
               </p>
             </div>
           </section>
@@ -53,8 +55,8 @@ export default class FeedUnit extends Component {
                 alt="pants"
               />
               <div className="text">
-                <p>Pants</p>
-                <p>빈티지</p>
+                <p>Shoes</p>
+                <p>소다</p>
               </div>
             </div>
             <div className="eachItem">
