@@ -1,5 +1,10 @@
 //https://meyerweb.com/eric/tools/css/reset/
+<<<<<<< HEAD
 ​ html,
+=======
+
+html,
+>>>>>>> main
 body,
 div,
 span,
@@ -82,9 +87,15 @@ audio,
 video {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   border: 0;
   font-size: 100%;
   font: inherit;
+=======
+  // border: 0;
+  font-size: 100%;
+  // font: inherit;
+>>>>>>> main
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -116,7 +127,11 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
+<<<<<<< HEAD
   content: "";
+=======
+  content: '';
+>>>>>>> main
   content: none;
 }
 table {

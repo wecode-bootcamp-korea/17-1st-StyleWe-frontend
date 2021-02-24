@@ -1,0 +1,141 @@
+@import '../../Styles/commons.scss';
+$feedUnitWidth: 220px;
+
+.TopFeedSection {
+  display: flex;
+  width: 100%;
+  height: 340px;
+  flex-direction: row;
+
+  .bigColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+    height: 100%;
+    border: $border;
+    border-radius: $border-radius;
+
+    img {
+      width: 100%;
+      height: 270px;
+      z-index: -1;
+    }
+
+    .bigColumnContent {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+
+      img {
+        height: 40px;
+        width: 40px;
+      }
+
+      .author {
+        width: 60%;
+        margin-left: 10px;
+
+        p:last-child {
+          font-size: 16px;
+        }
+      }
+
+      .styleNum,
+      .followNum {
+        width: 15%;
+      }
+
+      div p:first-child {
+        font-size: 12px;
+        color: gray;
+      }
+
+      div p:last-child {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      & * {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  .smallColumn,
+  .columnList {
+    width: $feedUnitWidth;
+    border: $border;
+    border-radius: $border-radius;
+    margin-left: 20px;
+  }
+
+  .smallColumn {
+    img {
+      width: 100%;
+      height: 115px;
+    }
+
+    .textContent {
+      padding: 15px;
+      font-size: 13px;
+      line-height: 17px;
+    }
+
+    .smallColumnContent {
+      display: flex;
+      align-items: center;
+      padding: 2px 15px;
+      border-bottom: 0.1rem solid #e8ebed;
+      padding: 0;
+      margin: 0;
+
+      img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+    }
+    .styleWe {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+
+      img {
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+      }
+
+      .author p:first-child {
+        font-size: 12px;
+        color: gray;
+      }
+
+      .author p:last-child {
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+
+    .styleNum,
+    .followNum {
+      width: 35%;
+      margin: 10px 15px 10px 15px;
+
+      p:first-child {
+        font-size: 12px;
+        color: gray;
+      }
+      p:last-child {
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+    .followNum {
+      margin-right: 15px;
+      margin-left: 0;
+    }
+  }
+}
