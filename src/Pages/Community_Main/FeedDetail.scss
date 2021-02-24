@@ -1,12 +1,5 @@
 @import '../../Styles/commons.scss';
 
-#asideBox {
-  margin: 20px 24px;
-  width: 312px;
-  border: $border;
-  border-radius: $border-radius;
-}
-
 .FeedDetail {
   position: absolute;
   margin: auto;
@@ -27,11 +20,14 @@
       .topSection {
         position: relative;
         width: 600px;
+        display: flex;
+        overflow: hidden;
 
         .presentImg {
           width: 600px;
           height: 600px;
           border-radius: 5px;
+          transition: transform 0.5s ease-in-out 0.1s;
         }
 
         .arrow {
@@ -98,6 +94,7 @@
           float: right;
           border: $border;
           border-radius: 20%;
+
           &-left {
             border-right: $border;
           }
@@ -135,7 +132,10 @@
     }
 
     .contentInBox {
-      @extend #asideBox;
+      margin: 20px 24px;
+      width: 312px;
+      border: $border;
+      border-radius: $border-radius;
     }
 
     .product,
@@ -146,18 +146,23 @@
 
     .product {
       font-size: 14px;
+
       img {
         width: 65px;
         height: 65px;
       }
+
       .productName {
         font-weight: 700;
       }
+
       div {
         margin-left: 10px;
+
         .price {
           color: #60deb9;
           font-weight: 700;
+
           span {
             font-weight: 500;
             color: gray;
@@ -171,14 +176,17 @@
       div {
         margin-left: 10px;
         font-size: 14px;
+
         p:first-child {
           line-height: 20px;
         }
+
         p:last-child {
           line-height: 20px;
           font-weight: 600;
         }
       }
+
       img {
         width: 35px;
         height: 35px;
@@ -191,6 +199,7 @@
 
     .feedContents {
       padding: 5px;
+
       .profile {
         display: flex;
         height: 60px;
@@ -230,6 +239,7 @@
 
       p {
         font-size: 13px;
+
         span {
           color: #70b7ff;
           font-size: 13px;
@@ -257,6 +267,7 @@
           height: 20px;
           padding: 10px;
         }
+
         span {
           padding-left: 10px;
           font-size: 15px;
@@ -264,16 +275,19 @@
           border-left: 1px solid gray;
         }
       }
+
       img {
         width: 20px;
         height: 20px;
         padding: 10px;
       }
+
       .collectionImage {
         border: 1px solid gray;
         border-radius: 5px;
         margin-left: 10px;
       }
+
       .moreImage {
         margin-left: auto;
       }
@@ -283,16 +297,19 @@
       width: 312px;
       margin: 20px 24px;
       border-top: $border;
+
       .topRow {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+
         span {
           font-size: 13px;
           font-weight: 800;
           opacity: 0.6;
         }
+
         a {
           font-size: 12px;
         }
@@ -315,20 +332,24 @@
 
             border-radius: 50%;
           }
+
           .commentText {
             width: 100%;
             font-size: 13px;
             margin-left: 10px;
+
             span {
               font-size: 13px;
               margin-right: 10px;
             }
+
             .writtenDate {
               opacity: 0.5;
             }
           }
         }
       }
+
       input {
         width: 100%;
         height: 40px;

@@ -13,8 +13,14 @@ export default class FeedDetail extends Component {
         'https://usercontents-c.styleshare.io/images/48754199/640x640',
         'https://usercontents-c.styleshare.io/images/48754200/640x640',
       ],
-      slideNum: 0,
+      slideMove: 0,
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      slideMove: 0,
+    });
   }
 
   hoverImageOn = () => {
@@ -30,34 +36,34 @@ export default class FeedDetail extends Component {
   };
 
   handlePresentImage = (e) => {
-    console.log(e.target);
+    this.state.imageSrc.indexOf(e.target.src);
     this.setState({
-      slideNum: e.target.data,
+      slideMove: this.state.imageSrc.indexOf(e.target.src) * -100,
     });
   };
 
   prevImage = () => {
-    this.setState({
-      slideNum: this.state.slideNum - 1,
-    });
-
-    // if (this.state.slideNum >= this.state.imageSrc.length) {
-    //   this.setState({
-    //     slideNum: this.state.imageSrc.length,
-    //   });
-    // }
+    if (this.state.slideMove < 0) {
+      this.setState({
+        slideMove: this.state.slideMove + 100,
+      });
+    } else {
+      this.setState({
+        slideMove: 0,
+      });
+    }
   };
 
   nextImage = () => {
-    this.setState({
-      slideNum: this.state.slideNum + 1,
-    });
-
-    // if (this.state.slideNum <= 0) {
-    //   this.setState({
-    //     slideNum: 0,
-    //   });
-    // }
+    if (this.state.slideMove > -(this.state.imageSrc.length - 1) * 100) {
+      this.setState({
+        slideMove: this.state.slideMove - 100,
+      });
+    } else {
+      this.setState({
+        slideMove: -(this.state.imageSrc.length - 1) * 100,
+      });
+    }
   };
 
   render() {
@@ -67,12 +73,56 @@ export default class FeedDetail extends Component {
           <section className="carousel">
             <div className="topSection">
               <img
+                src={this.state.imageSrc[0]}
                 className="presentImg"
-                src={this.state.imageSrc[this.state.slideNum]}
                 alt="presentImg"
+                style={{
+                  transform: `translateX(${this.state.slideMove}%)`,
+                }}
                 onMouseEnter={this.hoverImageOn}
                 onMouseLeave={this.hoverImageOff}
               />
+              <img
+                src={this.state.imageSrc[1]}
+                className="presentImg"
+                alt="presentImg"
+                style={{
+                  transform: `translateX(${this.state.slideMove}%)`,
+                }}
+                onMouseEnter={this.hoverImageOn}
+                onMouseLeave={this.hoverImageOff}
+              />
+              <img
+                src={this.state.imageSrc[2]}
+                className="presentImg"
+                alt="presentImg"
+                style={{
+                  transform: `translateX(${this.state.slideMove}%)`,
+                }}
+                onMouseEnter={this.hoverImageOn}
+                onMouseLeave={this.hoverImageOff}
+              />
+              <img
+                src={this.state.imageSrc[3]}
+                className="presentImg"
+                alt="presentImg"
+                style={{
+                  transform: `translateX(${this.state.slideMove}%)`,
+                }}
+                onMouseEnter={this.hoverImageOn}
+                onMouseLeave={this.hoverImageOff}
+              />
+              <img
+                src={this.state.imageSrc[4]}
+                className="presentImg"
+                alt="presentImg"
+                style={{
+                  transform: `translateX(${this.state.slideMove}%)`,
+                }}
+                onMouseEnter={this.hoverImageOn}
+                onMouseLeave={this.hoverImageOff}
+              />
+
               <img
                 className={
                   'arrow arrow-left' +
@@ -96,6 +146,12 @@ export default class FeedDetail extends Component {
             </div>
 
             <div className="bottomSection">
+              <img
+                src={this.state.imageSrc[0]}
+                data-id="0"
+                alt="image1"
+                onClick={this.handlePresentImage}
+              />
               <img
                 src={this.state.imageSrc[1]}
                 data-id="1"

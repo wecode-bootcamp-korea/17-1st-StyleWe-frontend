@@ -24,7 +24,6 @@ export default class CommnunityMain extends Component {
     fetch('/data/mockFeedData.json')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         this.setState({
           feedContent: data,
         });
@@ -32,7 +31,6 @@ export default class CommnunityMain extends Component {
     fetch('/data/mockComments.json')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         this.setState({
           comment: data,
         });
