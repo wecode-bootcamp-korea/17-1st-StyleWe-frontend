@@ -65,12 +65,13 @@ $lightGrayBorder: solid 1px lightgray;
               .salePercent {
                 margin-right: 5px;
                 color: red;
-                font-size: 32px;
+                font-size: 28px;
                 font-weight: bold;
               }
+
               .salePrice {
                 color: black;
-                font-size: 32px;
+                font-size: 28px;
                 font-weight: bold;
               }
             }
@@ -257,6 +258,39 @@ $lightGrayBorder: solid 1px lightgray;
 
                 &:hover {
                   background-color: lightgrey;
+                }
+              }
+            }
+          }
+          .addProductList {
+            width: 450px;
+            margin: 20px 0px;
+
+            p {
+              margin: 10px 0px;
+              color: black;
+              font-size: 16px;
+              font-weight: bold;
+            }
+            .countContainer {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .btnContainer {
+                .countBtn {
+                  width: 24px;
+                  height: 24px;
+                  padding: 0;
+                  border: 0;
+                  border-radius: 12px;
+                  background-color: none;
+                  outline: none;
+                  font-size: 16px;
+                }
+
+                span {
+                  margin: 10px;
                 }
               }
             }

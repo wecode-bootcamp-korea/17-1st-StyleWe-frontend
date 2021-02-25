@@ -1,0 +1,82 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$lightGrayBorder: solid 1px lightgray;
+
+.slideContainer {
+  width: 100%;
+  box-sizing: border-box;
+
+  section {
+    width: 1320px;
+    margin: auto;
+
+    .slideComponent {
+      img {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    .reviewImageHover {
+      height: 300px;
+      width: 300px;
+      margin: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+
+      .reviewImage {
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+        transform: scale(1);
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.2);
+          transition: transform 0.3s;
+        }
+      }
+    }
+
+    .commentContainer {
+      display: flex;
+      overflow: hidden;
+      margin-bottom: 10px;
+
+      .userImage {
+        width: 34px;
+        height: 34px;
+        border-radius: 17px;
+
+        margin: 0px 15px;
+      }
+
+      .userName {
+        width: 250px;
+        height: 34px;
+        margin-right: 10px;
+        overflow: hidden;
+        font-weight: bolder;
+      }
+
+      .description {
+        font-weight: normal;
+        line-height: 16px;
+      }
+    }
+
+    .likeReviewNumber {
+      margin-left: 64px;
+      color: gray;
+      font-size: 13px;
+    }
+  }
+}

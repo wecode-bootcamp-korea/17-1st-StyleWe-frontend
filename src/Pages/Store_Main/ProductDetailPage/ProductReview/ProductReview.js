@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SimpleSlider from "../Slide/Slide";
 import "../ProductReview/ProductReview.scss";
 
 export default class ProductReview extends Component {
@@ -30,36 +31,7 @@ export default class ProductReview extends Component {
             <span className="nextBtn">{dropdownIcon}</span>
           </div>
         </div>
-        <div className="reviewComponentsContainer">
-          {productReview.map((reviewData, idx) => {
-            return (
-              <div key={idx} className="reviewComponent">
-                <img
-                  className="reviewImage"
-                  alt="review"
-                  src={reviewData["main_image"]}
-                />
-                <div className="commentContainer">
-                  <img
-                    className="userProfileImage"
-                    alt="review"
-                    src={reviewData["main_image"]}
-                  />
-                  <div className="userName">
-                    {reviewData["user_name"]}{" "}
-                    <span className="description">
-                      {reviewData["description"]}
-                    </span>
-                  </div>
-                </div>
-                <span className="likeReviewNumber">
-                  좋아요 {reviewData["like_number"]} 댓글{" "}
-                  {reviewData["comment_number"]}
-                </span>
-              </div>
-            );
-          })}
-        </div>
+        <SimpleSlider productReview={productReview} />
         <div className="reviewBtnBox">
           <div className="btnDivider">
             <button className="moreReviewBtn" type="button">
