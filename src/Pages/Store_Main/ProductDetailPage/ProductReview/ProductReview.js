@@ -2,27 +2,6 @@ import React, { Component } from "react";
 import "../ProductReview/ProductReview.scss";
 
 export default class ProductReview extends Component {
-  constructor() {
-    super();
-    this.state = {
-      productReview: [],
-    };
-  }
-
-  componentDidMount() {
-    this.getProductData();
-  }
-
-  getProductData = () => {
-    fetch("/data/mockProductDetail.json")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          productReview: data["product_review"].feed_basic,
-        });
-      });
-  };
-
   render() {
     const dropdownIcon = (
       <svg
@@ -39,7 +18,7 @@ export default class ProductReview extends Component {
       </svg>
     );
 
-    const { productReview } = this.state;
+    const { productReview } = this.props;
 
     return (
       <section className="reviewSection">
@@ -52,9 +31,9 @@ export default class ProductReview extends Component {
           </div>
         </div>
         <div className="reviewComponentsContainer">
-          {productReview.map((reviewData) => {
+          {productReview.map((reviewData, idx) => {
             return (
-              <div className="reviewComponent">
+              <div key={idx} className="reviewComponent">
                 <img
                   className="reviewImage"
                   alt="review"

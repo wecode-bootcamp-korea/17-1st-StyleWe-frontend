@@ -17,9 +17,9 @@ class Routes extends React.Component {
           <Route exact path="/product" component={ProductDetailPage} />{" "}
           {/* /product/detail/1 */}
           <Route exact path="/CommunityMain" component={CommunityMain} />
-          <Route exact path="/signin" component={Signin} />
+          {/* <Route exact path="/signin" component={Signin} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/signuplast" component={Signuplast} />
+          <Route exact path="/signuplast" component={Signuplast} /> */}
           <Route exact path="/" component={CommunityMain} />
           <Route exact path="/upload" component={UploadContent} />
           {/* <Route exact path="/feed" component={FeedDetail} /> */}

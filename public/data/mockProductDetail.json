@@ -2,7 +2,6 @@
 {
   "result":  {
     "product_basic": {
-        "brand_id": 1,
         "brand_name": "유승현",
         "product_name": "나는야 목데이터",
         "discount_rate": "0.243888888",
@@ -19,80 +18,81 @@
         "second_option_name": "Size",
         "second_options" : ["a","b","c","d"],
         "thumbnail_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg"
+    },
+    "product_review": {
+      "feed_basic": [
+        {
+          "comment_number": 1,
+          "description": "1번 콘텐츠 test test test test   test test test test",
+          "like_number": 10,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user09"
+        },
+        {
+          "comment_number": 2,
+          "description": "2번 콘텐츠 test test test test   test test test test 2번 콘텐츠 test test test test   test test test test",
+          "like_number": 90,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user06"
+        },
+        {
+          "comment_number": 3,
+          "description": "3번 콘텐츠 test test test test   test test test test",
+          "like_number": 1,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user09"
+        },
+        {
+          "comment_number": 4,
+          "description": "4번 콘텐츠 test test test test   test test test test",
+          "like_number": 200,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user06"
+        },
+        {
+          "comment_number": 5,
+          "description": "5번 콘텐츠 test test test test   test test test test",
+          "like_number": 609,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user09"
+        },
+        {
+          "comment_number": 6,
+          "description": "6번 콘텐츠 test test test test   test test test test",
+          "like_number": 32,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user06"
+        },
+        {
+          "comment_number": 7,
+          "description": "7번 콘텐츠 test test test test   test test test test",
+          "like_number": 16,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user09"
+        },
+        {
+          "comment_number": 8,
+          "description": "8번 콘텐츠 test test test test   test test test test",
+          "like_number": 14,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user06"
+        },
+        {
+          "comment_number": 9,
+          "description": "9번 콘텐츠 test test test test   test test test test",
+          "like_number": 40,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user09"
+        },
+        {
+          "comment_number": 10,
+          "description": "10번 콘텐츠 test test test test   test test test test",
+          "like_number": 1930,
+          "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
+          "user_name": "user06"
+        }
+      ]
     }
-  },
-  "product_review": {
-    "feed_basic": [
-      {
-        "comment_number": 1,
-        "description": "1번 콘텐츠 test test test test   test test test test",
-        "like_number": 10,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user09"
-      },
-      {
-        "comment_number": 2,
-        "description": "2번 콘텐츠 test test test test   test test test test 2번 콘텐츠 test test test test   test test test test",
-        "like_number": 90,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user06"
-      },
-      {
-        "comment_number": 3,
-        "description": "3번 콘텐츠 test test test test   test test test test",
-        "like_number": 1,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user09"
-      },
-      {
-        "comment_number": 4,
-        "description": "4번 콘텐츠 test test test test   test test test test",
-        "like_number": 200,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user06"
-      },
-      {
-        "comment_number": 5,
-        "description": "5번 콘텐츠 test test test test   test test test test",
-        "like_number": 609,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user09"
-      },
-      {
-        "comment_number": 6,
-        "description": "6번 콘텐츠 test test test test   test test test test",
-        "like_number": 32,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user06"
-      },
-      {
-        "comment_number": 7,
-        "description": "7번 콘텐츠 test test test test   test test test test",
-        "like_number": 16,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user09"
-      },
-      {
-        "comment_number": 8,
-        "description": "8번 콘텐츠 test test test test   test test test test",
-        "like_number": 14,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user06"
-      },
-      {
-        "comment_number": 9,
-        "description": "9번 콘텐츠 test test test test   test test test test",
-        "like_number": 40,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user09"
-      },
-      {
-        "comment_number": 10,
-        "description": "10번 콘텐츠 test test test test   test test test test",
-        "like_number": 1930,
-        "main_image": "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpgfB%2FbtqYiCInixv%2FYknPt161R5P2QwBikMwCIK%2Fimg.jpg",
-        "user_name": "user06"
-      }
-    ]
   }
+
 }

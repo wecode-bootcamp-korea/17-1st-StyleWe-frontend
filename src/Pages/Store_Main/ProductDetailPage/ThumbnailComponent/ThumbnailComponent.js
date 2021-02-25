@@ -2,51 +2,23 @@ import React, { Component } from "react";
 import "../ThumbnailComponent/ThumbnailComponent.scss";
 
 export default class ThumbnailComponent extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isOptionDropdownBtn: false,
-      isSizeDropdownBtn: false,
-      isDeliveryDropdown: false,
-      optionPlaceholder: "",
-      sizePlaceholder: "",
-      productInfo: [],
-    };
-  }
-
-  componentDidMount() {
-    this.getProductData();
-  }
-
-  getProductData = () => {
-    fetch("/data/mockProductDetail.json")
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({
-          productInfo: [data["result"].product_basic],
-          optionPlaceholder: data["result"].product_basic.first_option_name,
-          sizePlaceholder: data["result"].product_basic.second_option_name,
-        });
-      });
-  };
-
   handleOptionDropdownEvent = (e) => {
     this.setState({
-      isOptionDropdownBtn: !this.state.isOptionDropdownBtn,
+      isOptionDropdownBtn: !this.props.isOptionDropdownBtn,
       optionPlaceholder: e.target.innerText,
     });
   };
 
   handleSizeDropdownEvent = (e) => {
     this.setState({
-      isSizeDropdownBtn: !this.state.isSizeDropdownBtn,
+      isSizeDropdownBtn: !this.props.isSizeDropdownBtn,
       sizePlaceholder: e.target.innerText,
     });
   };
 
   handleDeliveryDropdownEvent = () => {
     this.setState({
-      isDeliveryDropdown: !this.state.isDeliveryDropdown,
+      isDeliveryDropdown: !this.props.isDeliveryDropdown,
     });
   };
 
@@ -86,11 +58,11 @@ export default class ThumbnailComponent extends Component {
       isSizeDropdownBtn,
       sizePlaceholder,
       isDeliveryDropdown,
-    } = this.state;
+    } = this.props;
 
     return (
       <main className="thumbnailComponent">
-        {productInfo.map((productData) => {
+        {productInfo.map((productData, idx) => {
           const originalPrice =
             Math.round(
               Number(
@@ -100,7 +72,6 @@ export default class ThumbnailComponent extends Component {
                 )
               ) / 10
             ) * 10;
-
           const discountRate = Number(
             Number(productData.discount_rate).toFixed(2)
           );
@@ -112,7 +83,7 @@ export default class ThumbnailComponent extends Component {
             ) * 10
           ).toLocaleString();
           return (
-            <section key={productData.brand_id} className="productInfoSection">
+            <section key={idx} className="productInfoSection">
               <h1>{productData.brand_name}</h1>
               <h2>{productData.product_name}</h2>
               <section className="productInfo">
@@ -196,12 +167,9 @@ export default class ThumbnailComponent extends Component {
                             onClick={this.handleOptionDropdownEvent}
                           >
                             {productData.first_options.map(
-                              (firstOptionData) => {
+                              (firstOptionData, idx) => {
                                 return (
-                                  <li
-                                    key={firstOptionData.brand_id}
-                                    className="option"
-                                  >
+                                  <li key={idx} className="option">
                                     {firstOptionData}
                                   </li>
                                 );
