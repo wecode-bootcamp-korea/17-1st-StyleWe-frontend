@@ -61,7 +61,9 @@ export default class CreateModal extends Component {
               alt="collection"
               onMouseEnter={this.toggleOn}
               onMouseLeave={this.toggleOff}
+              onClick=""
             />
+
             <p>콜렉션 만들기</p>
           </div>
         </div>

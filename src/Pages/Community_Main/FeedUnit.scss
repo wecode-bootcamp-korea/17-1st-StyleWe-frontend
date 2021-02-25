@@ -14,8 +14,11 @@ $feedUnitWidth: 220px;
   border-radius: $border-radius;
   margin: 0 20px 20px 0;
 
-  & > img {
+  .mainImage {
     width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .linkedProduct {

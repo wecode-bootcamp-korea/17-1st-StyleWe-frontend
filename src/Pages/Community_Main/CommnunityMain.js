@@ -1,20 +1,25 @@
+
 import React, { Component } from 'react';
 import '../../Styles/commons.scss';
 import './CommunityMain.scss';
+
 import TopFeedSection from './TopFeedSection';
 import FeedUnit from './FeedUnit';
 import CreateModal from './CreateModal';
 import Footer from '../../Components/Footer/Footer';
 import StoreNav from '../../Components/Nav/StoreNav/StoreNav';
+import FeedDetail from './FeedDetail';
+
+
 
 export default class CommnunityMain extends Component {
   constructor() {
     super();
     this.state = {
-      feedContent: [],
+     feedContent: [],
       isCreateModalOpen: false,
       isFeedDetailModalOpen: false,
-      limit: 16,
+      limit: 30,
       offset: 0,
       feedContainerHeight: 2400,
     };
@@ -29,12 +34,12 @@ export default class CommnunityMain extends Component {
         this.setState({
           feedContent: [...this.state.feedContent, ...data.feed_list],
         });
+        window.addEventListener('scroll', this.infiniteScroll, true);
       });
   };
 
   componentDidMount() {
     this.getData();
-    window.addEventListener('scroll', this.infiniteScroll, true);
   }
 
   infiniteScroll = () => {
@@ -83,16 +88,17 @@ export default class CommnunityMain extends Component {
       feedContainerHeight,
     } = this.state;
 
+
     document.body.style.overflow = isCreateModalOpen ? 'hidden' : 'auto';
 
     return (
       <>
         <StoreNav />
-
         <main className="CommunityMain">
           {(isCreateModalOpen || isFeedDetailModalOpen) && (
             <div
               className={'overlay active'}
+              style={{ height: `${feedContainerHeight}px` }}
               onClick={this.handleFeedModal}
             ></div>
           )}
@@ -102,11 +108,12 @@ export default class CommnunityMain extends Component {
           <p className="sectionTitle">지금의 트랜드</p>
           <div className="Feeds" style={{ height: `${feedContainerHeight}px` }}>
             {feedContent.map((feed) => {
+              console.log(feed.feed_basic_data?.feed_id);
               return (
                 <FeedUnit
-                  key={feed.feed_basic_data.feed_id}
+                  key={feed.feed_basic_data?.feed_id}
                   username={feed.feed_basic_data.feed_user}
-                  mainimg={feed.feed_basic_data.feed_main_image.image_url}
+                  mainimg={feed.feed_basic_data.feed_main_image?.image_url}
                   linkedProduct={feed.product_data}
                   feedtext={feed.feed_basic_data.description}
                   likedNumber={feed.feed_basic_data.like_number}
@@ -139,6 +146,6 @@ export default class CommnunityMain extends Component {
           <Footer />
         </main>
       </>
-    );
+    )
   }
 }
