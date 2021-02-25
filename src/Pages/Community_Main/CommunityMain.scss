@@ -29,7 +29,12 @@
 
   .upScroll {
     bottom: 120px;
-    opacity: 0.5;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.4;
+    &.topEnd {
+      display: none;
+    }
   }
 
   .createContent {

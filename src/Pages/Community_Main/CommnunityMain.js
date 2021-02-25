@@ -17,24 +17,25 @@ export default class CommnunityMain extends Component {
       limit: 30,
       offset: 0,
       feedContainerHeight: 2400,
+      isScollTopZero: false,
     };
   }
 
   getData = () => {
     const { limit, offset } = this.state;
 
-    fetch(`http://10.58.6.61:8000/feed?limit=${limit}&offset=${offset}`)
+    fetch(`http://10.58.2.215:8000/feed?limit=${limit}&offset=${offset}`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
           feedContent: [...this.state.feedContent, ...data.feed_list],
         });
+        window.addEventListener('scroll', this.infiniteScroll, true);
       });
   };
 
   componentDidMount() {
     this.getData();
-    window.addEventListener('scroll', this.infiniteScroll, true);
   }
 
   infiniteScroll = () => {
@@ -57,6 +58,12 @@ export default class CommnunityMain extends Component {
 
       this.componentDidMount();
     }
+
+    console.log(scrollTop, this.state.isScollTopZero);
+
+    this.setState({
+      isScollTopZero: scrollTop === 0 ? true : false,
+    });
   };
 
   goUp = () => {
@@ -81,12 +88,12 @@ export default class CommnunityMain extends Component {
       isCreateModalOpen,
       isFeedDetailModalOpen,
       feedContainerHeight,
+      isScollTopZero,
     } = this.state;
 
     document.body.style.overflow = isCreateModalOpen ? 'hidden' : 'auto';
 
-    console.log('isCreateModalOpen =>', isCreateModalOpen);
-    console.log('isFeedDetailModalOpen =>', isFeedDetailModalOpen);
+    console.log(this.state.isScollTopZero);
 
     return (
       <>
@@ -107,9 +114,9 @@ export default class CommnunityMain extends Component {
             {feedContent.map((feed) => {
               return (
                 <FeedUnit
-                  key={feed.feed_basic_data.feed_id}
+                  key={feed.feed_basic_data?.feed_id}
                   username={feed.feed_basic_data.feed_user}
-                  mainimg={feed.feed_basic_data.feed_main_image.image_url}
+                  mainimg={feed.feed_basic_data.feed_main_image?.image_url}
                   linkedProduct={feed.product_data}
                   feedtext={feed.feed_basic_data.description}
                   likedNumber={feed.feed_basic_data.like_number}
@@ -125,7 +132,7 @@ export default class CommnunityMain extends Component {
           <img
             src="https://www.flaticon.com/svg/vstatic/svg/992/992703.svg?token=exp=1614145828~hmac=fab6e6a27940e0f8d9d96bfbc29aa2fb"
             alt="up"
-            className="upScroll"
+            className={'upScroll' + (isScollTopZero ? ` topEnd` : '')}
             onClick={this.goUp}
           />
           <img

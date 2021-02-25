@@ -16,6 +16,11 @@ export default class FeedUnit extends Component {
     });
   }
 
+  addComma = (num) => {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
+  };
+
   render() {
     const {
       key,
@@ -29,8 +34,6 @@ export default class FeedUnit extends Component {
       createdTime,
     } = this.props;
 
-    console.log(profileImgs[this.state.imgNum]);
-
     return (
       <div className="FeedUnit" key={key}>
         <img src={mainimg} alt="snsPicture" />
@@ -42,13 +45,15 @@ export default class FeedUnit extends Component {
               <p className="productName">{linkedProduct.product_name}</p>
               <p className="price">
                 <span className="new">
-                  {`${Math.round(
-                    linkedProduct.price * (1 - linkedProduct.discount_rate)
+                  {`${this.addComma(
+                    Math.round(
+                      linkedProduct.price * (1 - linkedProduct.discount_rate)
+                    )
                   )} 원`}
                 </span>
-                <span className="old">{`${
-                  linkedProduct.price.split('.')[0]
-                } 원`}</span>
+                <span className="old">{`${this.addComma(
+                  Number(linkedProduct.price.split('.')[0])
+                )} 원`}</span>
               </p>
             </div>
           </section>
