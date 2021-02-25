@@ -14,6 +14,7 @@ export default class ProductDetailPage extends Component {
       sizePlaceholder: "",
       productInfo: [],
       productReview: [],
+      productCount: 1,
     };
   }
 
@@ -25,10 +26,9 @@ export default class ProductDetailPage extends Component {
   // "/data/mockProductDetail.json"
 
   getProductData = () => {
-    fetch("http://10.58.6.1:8000/product/6")
+    fetch("/data/mockProductDetail.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log("ThumbnailComponent >>>>> ", data);
         this.setState({
           productInfo: [data["result"].product_basic],
           optionPlaceholder: data["result"].product_basic.first_option_name,
@@ -38,27 +38,90 @@ export default class ProductDetailPage extends Component {
       });
   };
 
+  handleSizeDropdownEvent = (e) => {
+    this.setState({
+      isSizeDropdownBtn: !this.state.isSizeDropdownBtn,
+      sizePlaceholder: e.target.innerText,
+    });
+  };
+
+  handleOptionDropdownEvent = (e) => {
+    this.setState({
+      isOptionDropdownBtn: !this.state.isOptionDropdownBtn,
+      optionPlaceholder: e.target.innerText,
+    });
+  };
+
+  handleSizeDropdownEvent = (e) => {
+    this.setState({
+      isSizeDropdownBtn: !this.state.isSizeDropdownBtn,
+      sizePlaceholder: e.target.innerText,
+    });
+  };
+
+  handleDeliveryDropdownEvent = () => {
+    this.setState({
+      isDeliveryDropdown: !this.state.isDeliveryDropdown,
+    });
+  };
+
+  addProductList = () => {
+    const { productInfo } = this.state;
+
+    const newProductData = [
+      ...productInfo,
+      {
+        firstOption: this.state.optionPlaceholder,
+        secondOption: this.state.sizePlaceholder,
+      },
+    ];
+    this.setState({
+      productInfo: newProductData,
+    });
+    console.log("newProductData >>>>", newProductData);
+  };
+
+  countEvent = () => {
+    this.setState({
+      productCount: +1,
+    });
+  };
+
   render() {
     const {
       productInfo,
       optionPlaceholder,
+      sizePlaceholder,
+      productReview,
       isOptionDropdownBtn,
       isSizeDropdownBtn,
-      sizePlaceholder,
       isDeliveryDropdown,
-      productReview,
+      productCount,
     } = this.state;
+
     return (
       <>
         <ThumbnailComponent
           productInfo={productInfo}
           optionPlaceholder={optionPlaceholder}
+          sizePlaceholder={sizePlaceholder}
           isOptionDropdownBtn={isOptionDropdownBtn}
           isSizeDropdownBtn={isSizeDropdownBtn}
-          sizePlaceholder={sizePlaceholder}
           isDeliveryDropdown={isDeliveryDropdown}
+          handleOptionDropdownEvent={this.handleOptionDropdownEvent}
+          handleSizeDropdownEvent={this.handleSizeDropdownEvent}
+          handleDeliveryDropdownEvent={this.handleDeliveryDropdownEvent}
+          addProductList={this.addProductList}
+          countEvent={this.countEvent}
+          productCount={productCount}
         />
-        <ProductReview productReview={productReview} />
+        <ProductReview
+          productReview={productReview}
+          hoverImageOn={this.hoverImageOn}
+          hoverImageOff={this.hoverImageOff}
+          handlePresentImage={this.handlePresentImage}
+          prevImage={this.prevImage}
+        />
       </>
     );
   }

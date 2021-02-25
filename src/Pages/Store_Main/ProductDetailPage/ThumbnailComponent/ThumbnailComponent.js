@@ -2,26 +2,6 @@ import React, { Component } from "react";
 import "../ThumbnailComponent/ThumbnailComponent.scss";
 
 export default class ThumbnailComponent extends Component {
-  handleOptionDropdownEvent = (e) => {
-    this.setState({
-      isOptionDropdownBtn: !this.props.isOptionDropdownBtn,
-      optionPlaceholder: e.target.innerText,
-    });
-  };
-
-  handleSizeDropdownEvent = (e) => {
-    this.setState({
-      isSizeDropdownBtn: !this.props.isSizeDropdownBtn,
-      sizePlaceholder: e.target.innerText,
-    });
-  };
-
-  handleDeliveryDropdownEvent = () => {
-    this.setState({
-      isDeliveryDropdown: !this.props.isDeliveryDropdown,
-    });
-  };
-
   render() {
     const dropdownIcon = (
       <svg
@@ -56,8 +36,14 @@ export default class ThumbnailComponent extends Component {
       optionPlaceholder,
       isOptionDropdownBtn,
       isSizeDropdownBtn,
-      sizePlaceholder,
       isDeliveryDropdown,
+      sizePlaceholder,
+      handleDeliveryDropdownEvent,
+      handleOptionDropdownEvent,
+      handleSizeDropdownEvent,
+      addProductList,
+      productCount,
+      countEvent,
     } = this.props;
 
     return (
@@ -132,7 +118,7 @@ export default class ThumbnailComponent extends Component {
                         <input type="checkbox" id="deliveryDropDownBtn" />
                         <label
                           htmlFor="deliveryDropDownBtn"
-                          onClick={this.handleDeliveryDropdownEvent}
+                          onClick={handleDeliveryDropdownEvent}
                         >
                           {dropdownIcon}
                         </label>
@@ -155,16 +141,16 @@ export default class ThumbnailComponent extends Component {
                       <button
                         type="button"
                         className="optionSelectBox"
-                        onClick={this.handleOptionDropdownEvent}
+                        onClick={handleOptionDropdownEvent}
                       >
                         <span>{optionPlaceholder}</span>
                         {dropdownIcon}
                       </button>
                       {isOptionDropdownBtn && (
-                        <div onClick={this.handleOptionDropdownEvent}>
+                        <div onClick={handleOptionDropdownEvent}>
                           <ul
                             className="optionList"
-                            onClick={this.handleOptionDropdownEvent}
+                            onClick={handleOptionDropdownEvent}
                           >
                             {productData.first_options.map(
                               (firstOptionData, idx) => {
@@ -181,7 +167,7 @@ export default class ThumbnailComponent extends Component {
                       <button
                         type="button"
                         className="sizeSelectBox"
-                        onClick={this.handleSizeDropdownEvent}
+                        onClick={handleSizeDropdownEvent}
                         disabled={
                           optionPlaceholder === productData.first_option_name &&
                           "disabled"
@@ -191,18 +177,15 @@ export default class ThumbnailComponent extends Component {
                         {dropdownIcon}
                       </button>
                       {isSizeDropdownBtn && (
-                        <div onClick={this.handleSizeDropdownEvent}>
+                        <div onClick={handleSizeDropdownEvent}>
                           <ul
                             className="sizeList"
-                            onClick={this.handleSizeDropdownEvent}
+                            onClick={handleSizeDropdownEvent}
                           >
                             {productData.second_options.map(
-                              (secondOptionData) => {
+                              (secondOptionData, idx) => {
                                 return (
-                                  <li
-                                    key={secondOptionData.brand_id}
-                                    className="option"
-                                  >
+                                  <li key={idx} className="option">
                                     {secondOptionData}
                                   </li>
                                 );
@@ -213,7 +196,22 @@ export default class ThumbnailComponent extends Component {
                       )}
                     </div>
                     {sizePlaceholder !== productData.second_option_name && (
-                      <div>{sizePlaceholder}</div>
+                      <div className="addProductList">
+                        <p>
+                          {optionPlaceholder} / {sizePlaceholder}
+                        </p>
+                        <div className="countContainer">
+                          <div className="btnContainer">
+                            <button className="countBtn">-</button>
+                            <span>{productCount}</span>
+                            <button className="countBtn" onClick={countEvent}>
+                              +
+                            </button>
+                          </div>
+
+                          <span>{discountPrice}</span>
+                        </div>
+                      </div>
                     )}
                     <div className="submitSection">
                       <button type="submit" className="buyBtn">
