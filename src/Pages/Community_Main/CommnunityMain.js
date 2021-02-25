@@ -14,7 +14,7 @@ export default class CommnunityMain extends Component {
       feedContent: [],
       isCreateModalOpen: false,
       isFeedDetailModalOpen: false,
-      limit: 16,
+      limit: 30,
       offset: 0,
       feedContainerHeight: 2400,
     };
@@ -85,14 +85,17 @@ export default class CommnunityMain extends Component {
 
     document.body.style.overflow = isCreateModalOpen ? 'hidden' : 'auto';
 
+    console.log('isCreateModalOpen =>', isCreateModalOpen);
+    console.log('isFeedDetailModalOpen =>', isFeedDetailModalOpen);
+
     return (
       <>
         <StoreNav />
-
         <main className="CommunityMain">
           {(isCreateModalOpen || isFeedDetailModalOpen) && (
             <div
               className={'overlay active'}
+              style={{ height: `${feedContainerHeight}px` }}
               onClick={this.handleFeedModal}
             ></div>
           )}
