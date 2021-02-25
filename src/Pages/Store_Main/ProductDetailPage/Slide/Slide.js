@@ -27,7 +27,7 @@ export default class SimpleSlider extends Component {
       );
     }
     const settings = {
-      dots: false,
+      dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 4,
