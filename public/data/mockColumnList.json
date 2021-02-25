@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "imgSrc1": "https://cdn.shopify.com/s/files/1/0006/0420/9215/files/fashion_styles_streetwear_1000.jpg?v=1592292334",
+    "imgSrc2": "https://global-uploads.webflow.com/5eca30fd2b50b671e2107b06/5edbee702f7ba2625ad1eb98_Sophisticated%20Fashion%20Style.png",
+    "content": "신학기 매치전 스니커즈 V...",
+    "author": "by StyleWe"
+  },
+  {
+    "id": 2,
+    "imgSrc1": "https://cdn.shopify.com/s/files/1/0006/0420/9215/files/fashion_styles_garconne_1000.jpg?v=1592291703",
+    "imgSrc2": "https://blog.stylewe.com/wp-content/uploads/2016/11/vintage-fashion-style-3.jpg",
+    "content": "퍼플단독 선발매!👍",
+    "author": "by StyleWe"
+  },
+  {
+    "id": 3,
+    "imgSrc1": "https://sewguide.com/wp-content/uploads/2018/11/spotswear23.jpg",
+    "imgSrc2": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/guest-is-seen-wearing-blouse-white-button-shirt-green-bag-news-photo-1603743781.jpg?crop=0.770xw:0.806xh;0.133xw,0.147xh&resize=480:*",
+    "content": "스쉐러의 최애브랜드💕",
+    "author": "by StyleWe"
+  },
+  {
+    "id": 4,
+    "imgSrc1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrwSaYalUabDJZAIRDLsfWEJeDAdO1Y7dx1g&usqp=CAU",
+    "imgSrc2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQymUDcB5jMnjbG9Qw0_vV1rlQgsEv3iFacTw&usqp=CAU",
+    "content": " 파마컬렉션 봄신상 선발매...",
+    "author": "by StyleWe"
+  },
+  {
+    "id": 5,
+    "imgSrc1": "https://cdn.shopify.com/s/files/1/0006/0420/9215/files/fashion_styles_streetwear_1000.jpg?v=1592292334",
+    "imgSrc2": "https://global-uploads.webflow.com/5eca30fd2b50b671e2107b06/5edbee702f7ba2625ad1eb98_Sophisticated%20Fashion%20Style.png",
+    "content": "신학기 매치전 스니커즈 V...",
+    "author": "by StyleWe"
+  },
+  {
+    "id": 6,
+    "imgSrc1": "https://cf.ltkcdn.net/womens-fashion/images/std/186889-283x425-stripes-with-layering.jpg",
+    "imgSrc2": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/street-style-2-1596101273.jpg?resize=480:*",
+    "content": "신학기를 위한 필수 준비...",
+    "author": "by StyleWe"
+  },
+  {
+    "id": 7,
+    "imgSrc1": "https://fashionista.com/.image/t_share/MTYxNDgyMzQ3NjMwMzA2NTE2/olivia-culpo-fashion-style.jpg",
+    "imgSrc2": "https://blog.stylewe.com/wp-content/uploads/2016/11/Artsy-Fashion-Style-1.jpg",
+    "content": "매일 입고 싶은 디키즈 스...",
+    "author": "by StyleWe"
+  }
+]

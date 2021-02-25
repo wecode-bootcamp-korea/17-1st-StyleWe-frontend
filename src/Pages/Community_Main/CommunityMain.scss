@@ -1,17 +1,18 @@
-@import "../../Styles/commons.scss";
+@import '../../Styles/commons.scss';
 
 .CommunityMain {
   @extend %flex-center;
   flex-direction: column;
   width: 1198px;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding-top: 150px;
 
   .Feeds {
     display: flex;
     flex-flow: column wrap;
     width: inherit;
     height: 2400px;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .upScroll,
@@ -19,8 +20,8 @@
     position: fixed;
     width: 50px;
     height: 50px;
-    left: 1570px;
-
+    right: 60px;
+    z-index: 1000;
     &:hover {
       cursor: pointer;
     }
@@ -30,6 +31,7 @@
     background-color: white;
     border-radius: 50%;
     bottom: 120px;
+    opacity: 0.5;
   }
 
   .createContent {

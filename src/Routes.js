@@ -18,9 +18,9 @@ class Routes extends React.Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/signuplast" component={Signuplast} />
           <Route exact path="/" component={CommunityMain} />
-
           <Route exact path="/upload" component={UploadContent} />
           <Route exact path="/feed" component={FeedDetail} />
+
 
         </Switch>
       </Router>
