@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 
 import '../../Styles/commons.scss';
@@ -8,6 +9,7 @@ import FeedUnit from './FeedUnit';
 import CreateModal from './CreateModal';
 import Footer from '../../Components/Footer/Footer';
 import FeedDetail from './FeedDetail';
+
 
 export default class CommnunityMain extends Component {
   constructor() {
@@ -21,7 +23,7 @@ export default class CommnunityMain extends Component {
   }
 
   getData = () => {
-    fetch('/data/mockFeedData.json')
+    fetch("/data/mockFeedData.json")
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -29,6 +31,7 @@ export default class CommnunityMain extends Component {
         });
       });
     fetch('/data/mockComments.json')
+
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -64,6 +67,7 @@ export default class CommnunityMain extends Component {
       isCreateModalOpen,
       isFeedDetailModalOpen,
     } = this.state;
+
 
     document.body.style.overflow = isCreateModalOpen ? 'hidden' : 'auto';
 
@@ -119,6 +123,7 @@ export default class CommnunityMain extends Component {
 
         <Footer />
       </main>
+
     );
   }
 }
