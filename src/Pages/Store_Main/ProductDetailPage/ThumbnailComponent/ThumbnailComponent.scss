@@ -4,6 +4,8 @@
   align-items: center;
 }
 
+$lightGrayBorder: solid 1px lightgray;
+
 .thumbnailComponent {
   @extend %flexCenter;
   width: 100%;
@@ -37,7 +39,7 @@
           height: 700px;
           margin-right: 100px;
           border-radius: 8px;
-          border: 1px solid lightgray;
+          border: $lightGrayBorder;
           object-fit: cover;
         }
 
@@ -46,7 +48,7 @@
           height: fit-content;
           padding: 32px 24px;
           border-radius: 8px;
-          border: 1px solid lightgray;
+          border: $lightGrayBorder;
 
           p {
             color: #757d86;
@@ -104,9 +106,10 @@
                 transition: transform 0.25s ease-in-out 0s;
               }
             }
+
             .couponDownloadBtn {
-              position: relative;
               @extend %flexCenter;
+              position: relative;
               width: 110px;
               height: 36px;
               border: 0;
@@ -185,8 +188,8 @@
 
           .optionDropdownContainer {
             position: relative;
-            width: 450px;
             justify-content: center;
+            width: 450px;
 
             .optionSelectBox,
             .sizeSelectBox {
@@ -197,7 +200,7 @@
               height: 30px;
               margin-bottom: 10px;
               padding: 12px 20px;
-              border: 1px solid lightgrey;
+              border: $lightGrayBorder;
               border-radius: 8px;
               outline: none;
               background-color: lightgray;
@@ -225,19 +228,19 @@
 
             .optionList {
               position: absolute;
-              top: 40px;
+              top: 60px;
               z-index: 1;
             }
 
             .sizeList {
               position: absolute;
-              top: 90px;
+              top: 130px;
               z-index: 1;
             }
 
             .optionList,
             .sizeList {
-              width: 410px;
+              width: 450px;
               max-height: 200px;
               height: fit-content;
               border: 1px solid rgb(231, 231, 231);
@@ -263,9 +266,7 @@
 
             .buyBtn,
             .bucketBtn {
-              display: flex;
-              justify-content: center;
-              align-items: center;
+              @extend %flexCenter;
               width: 410px;
               height: 56px;
               margin-top: 10px;
@@ -301,14 +302,14 @@
         }
       }
     }
+
     .brandSection {
       display: flex;
       align-items: center;
-
       width: 700px;
       height: 120px;
       margin-top: 24px;
-      border: solid 1px lightgrey;
+      border: $lightGrayBorder;
       border-radius: 8px;
       font-weight: bolder;
 

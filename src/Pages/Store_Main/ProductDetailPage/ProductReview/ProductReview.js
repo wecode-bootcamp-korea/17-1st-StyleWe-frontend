@@ -14,17 +14,9 @@ export default class ProductReview extends Component {
   }
 
   getProductData = () => {
-    console.log("fetch 위에 프로덕트 리뷰 >>>>", this.state.productReview);
-    fetch("/data/mockProductDetail.json", {
-      method: "GET",
-    })
+    fetch("/data/mockProductDetail.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(
-          "fetch함수 속 리뷰 콘솔 >>>>>",
-          data["product_review"].feed_basic
-        );
-
         this.setState({
           productReview: data["product_review"].feed_basic,
         });
@@ -48,7 +40,6 @@ export default class ProductReview extends Component {
     );
 
     const { productReview } = this.state;
-    console.log("productReview >>> ", productReview.comment_number);
 
     return (
       <section className="reviewSection">
@@ -62,7 +53,6 @@ export default class ProductReview extends Component {
         </div>
         <div className="reviewComponentsContainer">
           {productReview.map((reviewData) => {
-            console.log("리뷰데이터 맵 속 >>>", reviewData["comment_number"]);
             return (
               <div className="reviewComponent">
                 <img

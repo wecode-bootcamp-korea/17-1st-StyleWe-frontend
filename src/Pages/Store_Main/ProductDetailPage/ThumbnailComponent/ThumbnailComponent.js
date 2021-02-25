@@ -19,17 +19,13 @@ export default class ThumbnailComponent extends Component {
   }
 
   getProductData = () => {
-    fetch("/data/mockProductDetail.json", {
-      method: "GET",
-    })
+    fetch("/data/mockProductDetail.json")
       .then((res) => res.json())
       .then((data) => {
-        // console.log("fetch함수 속 콘솔 >>>>>", [data["result"].product_basic]);
-        // console.log("fetch함수 속 콘솔(소수점) >>>>>", [
-        //   data["result"].product_basic.discount_rate,
-        // ]);
         this.setState({
           productInfo: [data["result"].product_basic],
+          optionPlaceholder: data["result"].product_basic.first_option_name,
+          sizePlaceholder: data["result"].product_basic.second_option_name,
         });
       });
   };
@@ -37,24 +33,13 @@ export default class ThumbnailComponent extends Component {
   handleOptionDropdownEvent = (e) => {
     this.setState({
       isOptionDropdownBtn: !this.state.isOptionDropdownBtn,
+      optionPlaceholder: e.target.innerText,
     });
   };
 
   handleSizeDropdownEvent = (e) => {
     this.setState({
       isSizeDropdownBtn: !this.state.isSizeDropdownBtn,
-    });
-  };
-
-  ChangeOptionEvent = (e) => {
-    console.log(e.target.innerText);
-    this.setState({
-      optionPlaceholder: e.target.innerText,
-    });
-  };
-
-  ChangeSizeEvent = (e) => {
-    this.setState({
       sizePlaceholder: e.target.innerText,
     });
   };
@@ -108,28 +93,24 @@ export default class ThumbnailComponent extends Component {
         {productInfo.map((productData) => {
           const originalPrice =
             Math.round(
-              (productData.original_price.slice(
-                0,
-                productData.original_price.indexOf(".")
-              ) -
-                "") /
-                10
+              Number(
+                productData.original_price.slice(
+                  0,
+                  productData.original_price.indexOf(".")
+                )
+              ) / 10
             ) * 10;
 
-          const discountRate = (productData.discount_rate - "").toFixed(2) - "";
+          const discountRate = Number(
+            Number(productData.discount_rate).toFixed(2)
+          );
 
           const discountPrice = (
             Math.round(
-              ((originalPrice - originalPrice * discountRate).toFixed(0) - "") /
+              Number(originalPrice - originalPrice * discountRate).toFixed(0) /
                 10
             ) * 10
           ).toLocaleString();
-
-          // console.log("discountPrice >>>", discountPrice);
-          // console.log("콘솔(소수점) >>>>>", productData.discount_rate - "");
-          // console.log("originalPrice >>>", originalPrice);
-          // console.log("맵 속 productData 매개변수 >>>", productData);
-
           return (
             <section key={productData.brand_id} className="productInfoSection">
               <h1>{productData.brand_name}</h1>
@@ -200,34 +181,22 @@ export default class ThumbnailComponent extends Component {
                       </div>
                     </div>
                     <div className="optionDropdownContainer">
-                      {!optionPlaceholder ? (
-                        <button
-                          type="button"
-                          className="optionSelectBox"
-                          onClick={this.handleOptionDropdownEvent}
-                        >
-                          <span>{productData.first_option_name}</span>
-                          {dropdownIcon}
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="optionSelectBox"
-                          onClick={this.handleOptionDropdownEvent}
-                        >
-                          <span>{optionPlaceholder}</span>
-                          {dropdownIcon}
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="optionSelectBox"
+                        onClick={this.handleOptionDropdownEvent}
+                      >
+                        <span>{optionPlaceholder}</span>
+                        {dropdownIcon}
+                      </button>
                       {isOptionDropdownBtn && (
                         <div onClick={this.handleOptionDropdownEvent}>
                           <ul
                             className="optionList"
-                            onClick={this.ChangeOptionEvent}
+                            onClick={this.handleOptionDropdownEvent}
                           >
                             {productData.first_options.map(
                               (firstOptionData) => {
-                                console.log(firstOptionData);
                                 return (
                                   <li
                                     key={firstOptionData.brand_id}
@@ -241,35 +210,26 @@ export default class ThumbnailComponent extends Component {
                           </ul>
                         </div>
                       )}
-                      {!sizePlaceholder ? (
-                        <button
-                          type="button"
-                          className="sizeSelectBox"
-                          onClick={this.handleSizeDropdownEvent}
-                          disabled={optionPlaceholder === "" && "disabled"}
-                        >
-                          <span>{productData.second_option_name}</span>
-                          {dropdownIcon}
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="sizeSelectBox"
-                          onClick={this.handleSizeDropdownEvent}
-                        >
-                          <span>{sizePlaceholder}</span>
-                          {dropdownIcon}
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="sizeSelectBox"
+                        onClick={this.handleSizeDropdownEvent}
+                        disabled={
+                          optionPlaceholder === productData.first_option_name &&
+                          "disabled"
+                        }
+                      >
+                        <span>{sizePlaceholder}</span>
+                        {dropdownIcon}
+                      </button>
                       {isSizeDropdownBtn && (
                         <div onClick={this.handleSizeDropdownEvent}>
                           <ul
                             className="sizeList"
-                            onClick={this.ChangeSizeEvent}
+                            onClick={this.handleSizeDropdownEvent}
                           >
                             {productData.second_options.map(
                               (secondOptionData) => {
-                                console.log(secondOptionData);
                                 return (
                                   <li
                                     key={secondOptionData.brand_id}
@@ -284,7 +244,9 @@ export default class ThumbnailComponent extends Component {
                         </div>
                       )}
                     </div>
-
+                    {sizePlaceholder !== productData.second_option_name && (
+                      <div>{sizePlaceholder}</div>
+                    )}
                     <div className="submitSection">
                       <button type="submit" className="buyBtn">
                         바로 구매
