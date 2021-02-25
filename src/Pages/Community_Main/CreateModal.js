@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './CreateModal.scss';
 
 export default class CreateModal extends Component {
@@ -31,19 +32,21 @@ export default class CreateModal extends Component {
           <img
             src="https://www.flaticon.com/svg/vstatic/svg/748/748122.svg?token=exp=1613546046~hmac=b11675180900eff861173f8ea0b78727"
             alt="close"
-            onClick={this.props.handleModal}
+            onClick={this.props.handleCreateModal}
           />
         </div>
         <div className="boxContent">
           <div>
-            <img
-              className="style"
-              name="isStyle"
-              src={isStyle ? 'images/style2.png' : 'images/style1.png'}
-              alt="style"
-              onMouseEnter={this.toggleOn}
-              onMouseLeave={this.toggleOff}
-            />
+            <Link to="/upload">
+              <img
+                className="style"
+                name="isStyle"
+                src={isStyle ? 'images/style2.png' : 'images/style1.png'}
+                alt="style"
+                onMouseEnter={this.toggleOn}
+                onMouseLeave={this.toggleOff}
+              />
+            </Link>
             <p>스타일</p>
           </div>
           <div>
@@ -58,7 +61,9 @@ export default class CreateModal extends Component {
               alt="collection"
               onMouseEnter={this.toggleOn}
               onMouseLeave={this.toggleOff}
+              onClick=""
             />
+
             <p>콜렉션 만들기</p>
           </div>
         </div>
