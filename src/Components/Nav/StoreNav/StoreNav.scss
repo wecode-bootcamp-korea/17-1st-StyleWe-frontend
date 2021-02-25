@@ -1,0 +1,267 @@
+@import "../../../Styles/commons.scss";
+@import "../../../Styles/reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+
+%flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.storeNav {
+  position: fixed;
+  z-index: 1000;
+  width: 100vmax;
+  height: 100vmax;
+  background-color: transparent;
+
+  .storeNavSection {
+    position: relative;
+    width: 100vmax;
+    height: 130px;
+    margin: auto;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px -8px darkgray;
+    background-color: white;
+
+    &:hover + .hoverBackgroudColor {
+      position: relative;
+      z-index: -2;
+      width: 100vmax;
+      height: 100vmax;
+      background-color: black;
+      opacity: 0.2;
+    }
+
+    .searchSection {
+      @extend %flex-space-between;
+      position: relative;
+      width: 90%;
+      margin: auto;
+      padding-top: 10px;
+
+      .navMenuWrapper {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+
+        .logo {
+          width: 40px;
+          height: 40px;
+          margin-right: 20px;
+          cursor: pointer;
+        }
+
+        .menuWrapper {
+          display: flex;
+          width: fit-content;
+
+          input {
+            margin: 0px 10px;
+            padding: 3px 0px;
+            border: 0;
+            border-bottom: solid 2px transparent;
+            outline: none;
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: bolder;
+            cursor: pointer;
+
+            &:focus {
+              border-bottom: solid 2px black;
+              transition: all 0.5s linear;
+            }
+
+            &:hover {
+              color: lightgray;
+            }
+          }
+        }
+      }
+
+      .navSearchBarWrapper {
+        @extend %flex-space-between;
+        position: relative;
+        width: 100vmax;
+        margin: auto;
+
+        .searchBar {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 55%;
+          height: 40px;
+          margin: auto;
+          padding: 0px 5px;
+          border: 0.5px solid #e9edeb;
+          border-radius: 22px;
+          background-color: #f7f8f9;
+
+          .searchInput {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 40px;
+            margin: auto;
+            padding-right: 5px;
+            padding-left: 5px;
+            border: 0;
+            border-radius: 22px;
+            outline: none;
+            background-color: transparent;
+            text-align: center;
+          }
+
+          .displayOnPlaceHolder {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .searchIcon {
+              width: 18px;
+              height: 18px;
+              margin-right: 10px;
+              opacity: 0.8;
+            }
+
+            span {
+              color: #1b1d1f;
+              font-size: 13px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      .nonMemberDisplay {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 200px;
+
+        .bucketIcon {
+          width: 24px;
+          height: 24px;
+          padding-right: 20px;
+          cursor: pointer;
+        }
+
+        .signBtn {
+          width: 110px;
+          height: 40px;
+          padding-bottom: 5px;
+          border: 0;
+          border-radius: 22px;
+          outline: none;
+          background-color: #1b1d1f;
+          color: white;
+          text-align: center;
+          font-size: 13.5px;
+          font-weight: bolder;
+          cursor: pointer;
+        }
+      }
+
+      .memberDisplay {
+        position: relative;
+        justify-content: flex-end;
+        align-items: center;
+        width: 200px;
+        padding-right: 20px;
+
+        .bellIcon,
+        .bucketIcon {
+          width: 24px;
+          height: 24px;
+          margin-right: 20px;
+          cursor: pointer;
+        }
+
+        .profileImageBtn {
+          width: 28px;
+          height: 28px;
+          border: 0;
+          border-radius: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .catergoiesSection {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 58px;
+      margin: auto;
+
+      .storeCategories {
+        position: relative;
+        top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        height: 58px;
+        margin: 20px 10px 0px 10px;
+        font-size: 16px;
+        font-weight: bolder;
+        cursor: pointer;
+
+        &:hover {
+          color: lightgray;
+        }
+      }
+
+      &:hover .detailMenuTab {
+        position: absolute;
+        top: -26px;
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        color: black;
+        transition: all 0.3s linear;
+        transform: translateY(100px);
+        animation-fill-mode: forwards;
+      }
+
+      .detailMenuTab {
+        position: absolute;
+        z-index: -1;
+        top: -33px;
+        width: 100%;
+        background-color: transparent;
+        color: transparent;
+        border: transparent;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(0px);
+
+        .wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 48%;
+          height: inherit;
+          margin: auto;
+
+          .subCategory {
+            width: fit-content;
+            margin: 20px 15px;
+            font-size: 16px;
+
+            &:hover {
+              font-weight: bolder;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
