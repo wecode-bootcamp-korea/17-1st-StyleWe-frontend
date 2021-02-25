@@ -5,8 +5,6 @@ export default class ColumnList extends Component {
   render() {
     const { imgSrc1, imgSrc2, content, author } = this.props;
 
-    console.log(this.props);
-
     return (
       <div className="ColumnList">
         <div className="imgs">

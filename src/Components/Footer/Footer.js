@@ -5,7 +5,12 @@ export default class Footer extends Component {
   constructor() {
     super();
     this.state = {
-      companyInfos: ['회사소개', '공지사항', '이용약관', '개인정보처리방침'],
+      companyInfos: [
+        [1, '회사소개'],
+        [2, '공지사항'],
+        [3, '이용약관'],
+        [4, '개인정보처리방침'],
+      ],
     };
   }
 
@@ -27,8 +32,8 @@ export default class Footer extends Component {
             <p>회사소개 및 약관 내용</p>
             {companyInfos.map((info) => {
               return (
-                <p>
-                  <a href="www.naver.com">{info}</a>
+                <p key={info[0]}>
+                  <a href="www.naver.com">{info[1]}</a>
                 </p>
               );
             })}

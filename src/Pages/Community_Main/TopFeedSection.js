@@ -42,11 +42,11 @@ export default class TopFeedSection extends Component {
             </div>
             <div className="styleNum">
               <p>스타일</p>
-              <p>21</p>
+              <p>40</p>
             </div>
             <div className="followNum">
               <p>팔로워</p>
-              <p>60</p>
+              <p>100</p>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default class TopFeedSection extends Component {
             </div>
             <div className="followNum">
               <p>팔로워</p>
-              <p>60</p>
+              <p>24</p>
             </div>
             <img
               src="https://www.flaticon.com/svg/vstatic/svg/875/875068.svg?token=exp=1613445331~hmac=bcc6c406f4f5d836ba3b140bbd094f79"
@@ -93,11 +93,11 @@ export default class TopFeedSection extends Component {
           <div className="smallColumnContent">
             <div className="styleNum">
               <p>스타일</p>
-              <p>21</p>
+              <p>15</p>
             </div>
             <div className="followNum">
               <p>팔로워</p>
-              <p>60</p>
+              <p>10</p>
             </div>
             <img
               src="https://www.flaticon.com/svg/vstatic/svg/875/875068.svg?token=exp=1613445331~hmac=bcc6c406f4f5d836ba3b140bbd094f79"
@@ -114,13 +114,15 @@ export default class TopFeedSection extends Component {
         </div>
         <div className="columnList">
           {this.state.columnContent.map((content) => {
-            <ColumnList
-              key={content.id}
-              imgSrc1={content.imgSrc1}
-              imgSrc2={content.imgSrc2}
-              content={content.content}
-              author={content.author}
-            />;
+            return (
+              <ColumnList
+                key={content.id}
+                imgSrc1={content.imgSrc1}
+                imgSrc2={content.imgSrc2}
+                content={content.content}
+                author={content.author}
+              />
+            );
           })}
         </div>
       </div>

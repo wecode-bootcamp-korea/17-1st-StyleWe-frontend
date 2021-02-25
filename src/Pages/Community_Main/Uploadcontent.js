@@ -28,7 +28,6 @@ export default class UploadContent extends Component {
 
     reader.onloadend = () => {
       const base64 = reader.result;
-      // console.log(base64);
 
       if (base64) {
         this.setState({
@@ -37,8 +36,6 @@ export default class UploadContent extends Component {
       }
     };
     if (event.target.files[0]) {
-      // console.log(event.target.files);
-
       reader.readAsDataURL(event.target.files[0]);
 
       this.setState({
@@ -66,7 +63,7 @@ export default class UploadContent extends Component {
               <>
                 <img src={this.state.imgBase64} alt="shownImage" />
                 <img
-                  src="https://www.flaticon.com/svg/vstatic/svg/1617/1617543.svg?token=exp=1613655420~hmac=4fb4fd9e6a908b37f25da129e5e81264"
+                  src="https://www.flaticon.com/svg/vstatic/svg/1617/1617543.svg?token=exp=1614228779~hmac=7c4135870ec4ff9c74ec4b6475a8142f"
                   className="closeButton"
                   onClick={this.handleRemove}
                   alt="close"

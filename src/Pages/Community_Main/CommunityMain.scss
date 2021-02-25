@@ -1,4 +1,4 @@
-@import "../../Styles/commons.scss";
+@import '../../Styles/commons.scss';
 
 .CommunityMain {
   @extend %flex-center;
@@ -12,7 +12,7 @@
     flex-flow: column wrap;
     width: inherit;
     height: 2400px;
-    overflow: auto;
+    overflow: hidden;
   }
 
   .upScroll,
@@ -20,8 +20,8 @@
     position: fixed;
     width: 50px;
     height: 50px;
-    right: 50px;
-
+    right: 60px;
+    z-index: 1000;
     &:hover {
       cursor: pointer;
     }
@@ -29,6 +29,7 @@
 
   .upScroll {
     bottom: 120px;
+    opacity: 0.5;
   }
 
   .createContent {

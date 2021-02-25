@@ -2,8 +2,55 @@ import React, { Component } from 'react';
 import './FeedUnit.scss';
 
 export default class FeedUnit extends Component {
+  state = {
+    itemNum: Math.floor(Math.random() * 3 + 1),
+    newItemArray: [],
+  };
+
+  componentDidMount() {
+    const itemInfos = [
+      {
+        product: 'shoes',
+        brandName: ['르꼬끄', '아디다스', '락포트', '컨버스'],
+        iconUrl:
+          'https://www.flaticon.com/svg/vstatic/svg/892/892453.svg?token=exp=1614231066~hmac=7d7379daf436ed06a40c0a42575404f2',
+      },
+      {
+        product: 'outer',
+        brandName: ['리버시블', '메종미네드', '23.65', '널디'],
+        iconUrl:
+          'https://www.flaticon.com/svg/vstatic/svg/1985/1985620.svg?token=exp=1614231192~hmac=0dd7ba37e981dc56cf117290f9a01140',
+      },
+      {
+        product: 'pants',
+        brandName: ['에이들', '캘빈클라인', '무아무아', '소나'],
+        iconUrl:
+          'https://www.flaticon.com/svg/vstatic/svg/884/884485.svg?token=exp=1614231229~hmac=107317e74fceb865309aab36f41efc6a',
+      },
+      {
+        product: 'Top',
+        brandName: ['텐블레이드', '마크엠', '커버낫', '청남방'],
+        iconUrl:
+          'https://www.flaticon.com/svg/vstatic/svg/3637/3637365.svg?token=exp=1614231369~hmac=1d8f6b69994aa8f1bc81d4092d2f91a9',
+      },
+      {
+        product: 'watch',
+        brandName: ['논논(NoneNone)', '롤렉스', '와치'],
+        iconUrl:
+          'https://www.flaticon.com/svg/vstatic/svg/878/878913.svg?token=exp=1614231333~hmac=9701e3e495665b6b6889e393e768c881',
+      },
+    ];
+
+    this.setState({
+      newItemArray: itemInfos.splice(0, this.state.itemNum),
+    });
+  }
+
   render() {
+    console.log(this.state.newItemArray);
+
     const {
+      key,
       username,
       mainimg,
       linkedProduct,
@@ -15,7 +62,7 @@ export default class FeedUnit extends Component {
     } = this.props;
 
     return (
-      <div className="FeedUnit">
+      <div className="FeedUnit" key={key}>
         <img src={mainimg} alt="snsPicture" />
 
         {linkedProduct.product_name && (
@@ -37,40 +84,18 @@ export default class FeedUnit extends Component {
           </section>
         )}
 
-        {linkedProduct.product_name && (
-          <section className="productInformation">
-            <div className="eachItem">
-              <img
-                src="https://www.flaticon.com/svg/vstatic/svg/884/884485.svg?token=exp=1613458430~hmac=ef7b56cecb1519a20f64d621dbe6f289"
-                alt="pants"
-              />
-              <div className="text">
-                <p>pants</p>
-                <p>빈티지</p>
+        {linkedProduct.product_name &&
+          this.state.newItemArray.map((item) => (
+            <section className="productInformation">
+              <div className="eachItem">
+                <img src={item.iconUrl} alt="icon" />
+                <div className="text">
+                  <p>{item.product}</p>
+                  <p>{item.brandName[this.state.itemNum]}</p>
+                </div>
               </div>
-            </div>
-            <div className="eachItem">
-              <img
-                src="https://www.flaticon.com/svg/vstatic/svg/884/884485.svg?token=exp=1613458430~hmac=ef7b56cecb1519a20f64d621dbe6f289"
-                alt="pants"
-              />
-              <div className="text">
-                <p>Shoes</p>
-                <p>소다</p>
-              </div>
-            </div>
-            <div className="eachItem">
-              <img
-                src="https://www.flaticon.com/svg/vstatic/svg/2784/2784554.svg?token=exp=1613459085~hmac=351b9c8fceae7e50f093623409f1bc89"
-                alt="pants"
-              />
-              <div className="text">
-                <p>outer</p>
-                <p>자켓</p>
-              </div>
-            </div>
-          </section>
-        )}
+            </section>
+          ))}
 
         <section className="summary">
           <div className="summaryFeed">
