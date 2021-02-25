@@ -1,0 +1,155 @@
+.signUpLast {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-image: url("https://images.unsplash.com/photo-1569748079281-dc67c9569015?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTkzfHxzdHJlZXQlMjBmYXNoaW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+  background-repeat: no-repeat;
+
+  .signUpLastWrapper {
+    position: absolute;
+    bottom: 200px;
+
+    .settingBox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      height: 500px;
+      width: 615px;
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #dbdbdb;
+      background-color: rgba(240, 238, 238, 0.8);
+      border-radius: 7px;
+
+      .settingPicBox {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 150px;
+        margin-right: 80px;
+
+        .profilePicture {
+          display: flex;
+          width: 120px;
+          height: 120px;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #fff;
+          border-radius: 50%;
+          background-color: rgb(247, 170, 170);
+        }
+
+        .profilePicBtn {
+          width: 90px;
+          height: 30px;
+          margin-top: 50px;
+          margin-left: 9px;
+          border-radius: 4px;
+          border: 1px solid #666565;
+          color: #666565;
+          outline: none;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .profileInputBox {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: 400px;
+
+        .snsBtn {
+          display: flex;
+          width: 286px;
+          height: 40px;
+          justify-content: center;
+          align-items: center;
+          background-color: #4564a2;
+          color: white;
+          border: none;
+          border-radius: 7px;
+          font-size: 15px;
+        }
+
+        .genderfield {
+          display: flex;
+          height: 48px;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+        }
+
+        .birthfield {
+          display: flex;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+
+          input {
+            width: 200px;
+            height: 28px;
+            border: 1px solid #fff;
+            outline: none;
+          }
+        }
+
+        .webSitefield {
+          display: flex;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+
+          input {
+            width: 200px;
+            height: 28px;
+            border: 1px solid #fff;
+            outline: none;
+          }
+        }
+
+        .aboutfield {
+          display: flex;
+          border-radius: 7px;
+          justify-content: center;
+          align-items: center;
+          background-color: #fff;
+          border: none;
+
+          textarea {
+            width: 200px;
+            outline: none;
+            border: none;
+          }
+        }
+
+        .btnDone {
+          height: 35px;
+          margin-top: 20px;
+          color: white;
+          background-color: #4adaae;
+          border: 1px solid #4adaae;
+          border-radius: 7px;
+          outline: none;
+
+          &:hover {
+            background-color: #118a60;
+            border: 1px solid #118a60;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
