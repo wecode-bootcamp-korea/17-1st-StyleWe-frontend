@@ -7,6 +7,7 @@ export default class ThumbnailComponent extends Component {
     this.state = {
       isOptionDropdownBtn: false,
       isSizeDropdownBtn: false,
+      isDeliveryDropdown: false,
       optionPlaceholder: "",
       sizePlaceholder: "",
       productInfo: [],
@@ -19,15 +20,16 @@ export default class ThumbnailComponent extends Component {
 
   getProductData = () => {
     fetch("/data/mockProductDetail.json", {
-      headers: {
-        Accept: "application/json",
-      },
+      method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log([data["product_basic"]]);
+        // console.log("fetch함수 속 콘솔 >>>>>", [data["result"].product_basic]);
+        // console.log("fetch함수 속 콘솔(소수점) >>>>>", [
+        //   data["result"].product_basic.discount_rate,
+        // ]);
         this.setState({
-          productInfo: [data["product_basic"]],
+          productInfo: [data["result"].product_basic],
         });
       });
   };
@@ -54,6 +56,12 @@ export default class ThumbnailComponent extends Component {
   ChangeSizeEvent = (e) => {
     this.setState({
       sizePlaceholder: e.target.innerText,
+    });
+  };
+
+  handleDeliveryDropdownEvent = () => {
+    this.setState({
+      isDeliveryDropdown: !this.state.isDeliveryDropdown,
     });
   };
 
@@ -92,152 +100,199 @@ export default class ThumbnailComponent extends Component {
       isOptionDropdownBtn,
       isSizeDropdownBtn,
       sizePlaceholder,
+      isDeliveryDropdown,
     } = this.state;
 
     return (
       <main className="thumbnailComponent">
         {productInfo.map((productData) => {
-          console.log(productData);
-          return (
-            <section key={productData.brandId} className="productInfoSection">
-              <h1>{productData.brandName}</h1>
-              <h2>{productData.productName}</h2>
-              <section className="productInfo">
-                <img alt="thumbnail" src={productData.thumbnailImages} />
-                <div className="orderTab">
-                  <p>최대 쿠폰 적용 가격</p>
-                  <div className="priceDetail">
-                    <div>
-                      <span className="salePercent">
-                        {productData.salePercent}
-                      </span>
-                      <span className="salePercent">%</span>
-                      <span className="salePrice">
-                        {productData.noSalePrice -
-                          productData.noSalePrice * productData.salePercent}
-                      </span>
-                      <span>원</span>
-                    </div>
-                    <span className="noSalePrice">
-                      {productData.noSalePrice}원
-                    </span>
+          const originalPrice =
+            Math.round(
+              (productData.original_price.slice(
+                0,
+                productData.original_price.indexOf(".")
+              ) -
+                "") /
+                10
+            ) * 10;
 
-                    <input type="checkbox" id="couponDropDownBtn" />
-                    <label htmlFor="couponDropDownBtn">{dropdownIcon}</label>
-                    <button type="button" className="couponDownloadBtn">
-                      쿠폰 다운&nbsp;{downloadIcon}
-                    </button>
-                  </div>
-                  <div className="countLikeReview">
-                    <span className="likeText">좋아요</span>
-                    <span className="likeCount">1,965</span>
-                    <span className="reviewText">후기</span>
-                    <span className="reviewCount">19</span>
-                  </div>
-                  <div className="deliveryContainer">
-                    <div className="myPointInfo">
-                      <h3 className="containerTitle">내 단추</h3>
-                      <span className="boldText">12,968</span>
-                      <span>개 사용 가능</span>
-                    </div>
-                    <div className="deliveryInfo">
-                      <h3 className="containerTitle">배송 가격</h3>
-                      <span className="boldText">무료 배송&nbsp;</span>
-                      <input type="checkbox" id="deliveryDropDownBtn" />
-                      <label htmlFor="deliveryDropDownBtn">
-                        {dropdownIcon}
-                      </label>
-                    </div>
-                    <div className="deliveryNotice">
-                      <h3 className="containerTitle">출고 안내</h3>
-                      <span>내일 2/23 화요일 출고 예정</span>
-                    </div>
-                  </div>
-                  <div className="optionDropdownContainer">
-                    {!optionPlaceholder ? (
-                      <button
-                        type="button"
-                        className="optionSelectBox"
-                        onClick={this.handleOptionDropdownEvent}
-                      >
-                        <span>{productData.firstOptionName}</span>
-                        {dropdownIcon}
+          const discountRate = (productData.discount_rate - "").toFixed(2) - "";
+
+          const discountPrice = (
+            Math.round(
+              ((originalPrice - originalPrice * discountRate).toFixed(0) - "") /
+                10
+            ) * 10
+          ).toLocaleString();
+
+          // console.log("discountPrice >>>", discountPrice);
+          // console.log("콘솔(소수점) >>>>>", productData.discount_rate - "");
+          // console.log("originalPrice >>>", originalPrice);
+          // console.log("맵 속 productData 매개변수 >>>", productData);
+
+          return (
+            <section key={productData.brand_id} className="productInfoSection">
+              <h1>{productData.brand_name}</h1>
+              <h2>{productData.product_name}</h2>
+              <section className="productInfo">
+                <div className="orderTabContainer">
+                  <img alt="thumbnail" src={productData.thumbnail_image} />
+                  <div className="orderTab">
+                    <p>최대 쿠폰 적용 가격</p>
+                    <div className="priceDetail">
+                      <div>
+                        <span className="salePercent">
+                          {discountRate * 100}%
+                        </span>
+                      </div>
+                      <div>
+                        <span className="salePrice">{discountPrice}</span>
+                        <span>원</span>
+                      </div>
+                      <div className="orginalPriceContainer">
+                        <span className="noSalePrice">
+                          {originalPrice.toLocaleString()}원
+                        </span>
+                        <input type="checkbox" id="couponDropDownBtn" />
+                        <label htmlFor="couponDropDownBtn">
+                          {dropdownIcon}
+                        </label>
+                      </div>
+                      <button type="button" className="couponDownloadBtn">
+                        쿠폰 다운&nbsp;{downloadIcon}
                       </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="optionSelectBox"
-                        onClick={this.handleOptionDropdownEvent}
-                      >
-                        <span>{optionPlaceholder}</span>
-                        {dropdownIcon}
-                      </button>
-                    )}
-                    {isOptionDropdownBtn && (
-                      <div onClick={this.handleOptionDropdownEvent}>
-                        <ul
-                          className="optionList"
-                          onClick={this.ChangeOptionEvent}
+                    </div>
+                    <div className="countLikeReview">
+                      <span className="likeText">좋아요</span>
+                      <span className="likeCount">1,965</span>
+                      <span className="reviewText">후기</span>
+                      <span className="reviewCount">19</span>
+                    </div>
+                    <div className="deliveryContainer">
+                      <div className="myPointInfo">
+                        <h3 className="containerTitle">내 단추</h3>
+                        <span className="boldText">12,968</span>
+                        <span>개 사용 가능</span>
+                      </div>
+                      <div className="deliveryInfo">
+                        <h3 className="containerTitle">배송 가격</h3>
+                        <span className="boldText">무료 배송&nbsp;</span>
+                        <input type="checkbox" id="deliveryDropDownBtn" />
+                        <label
+                          htmlFor="deliveryDropDownBtn"
+                          onClick={this.handleDeliveryDropdownEvent}
                         >
-                          {productData.firstOptions.map((firstOptionData) => {
-                            console.log(firstOptionData);
-                            return (
-                              <li
-                                key={firstOptionData.brandId}
-                                className="option"
-                              >
-                                {firstOptionData}
-                              </li>
-                            );
-                          })}
-                        </ul>
+                          {dropdownIcon}
+                        </label>
                       </div>
-                    )}
-                    {!sizePlaceholder ? (
-                      <button
-                        type="button"
-                        className="sizeSelectBox"
-                        onClick={this.handleSizeDropdownEvent}
-                        disabled={optionPlaceholder === "" && "disabled"}
-                      >
-                        <span>{productData.secondOptionName}</span>
-                        {dropdownIcon}
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        className="sizeSelectBox"
-                        onClick={this.handleSizeDropdownEvent}
-                      >
-                        <span>{sizePlaceholder}</span>
-                        {dropdownIcon}
-                      </button>
-                    )}
-                    {isSizeDropdownBtn && (
-                      <div onClick={this.handleSizeDropdownEvent}>
-                        <ul className="sizeList" onClick={this.ChangeSizeEvent}>
-                          {productData.secondOptions.map((secondOptionData) => {
-                            console.log(secondOptionData);
-                            return (
-                              <li
-                                key={secondOptionData.brandId}
-                                className="option"
-                              >
-                                {secondOptionData}
-                              </li>
-                            );
-                          })}
-                        </ul>
+                      {isDeliveryDropdown && (
+                        <div className="deliveryInfo">
+                          <span className="containerTitle"></span>
+                          <span className="deliveryDetailInfo">
+                            제주/도서산간 추가배송비 1,000원~10,000원
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="deliveryNotice">
+                        <h3 className="containerTitle">출고 안내</h3>
+                        <span>내일 2/23 화요일 출고 예정</span>
                       </div>
-                    )}
-                  </div>
-                  <div className="submitSection">
-                    <button type="submit" className="buyBtn">
-                      바로 구매
-                    </button>
-                    <button type="submit" className="bucketBtn">
-                      장바구니 담기
-                    </button>
+                    </div>
+                    <div className="optionDropdownContainer">
+                      {!optionPlaceholder ? (
+                        <button
+                          type="button"
+                          className="optionSelectBox"
+                          onClick={this.handleOptionDropdownEvent}
+                        >
+                          <span>{productData.first_option_name}</span>
+                          {dropdownIcon}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="optionSelectBox"
+                          onClick={this.handleOptionDropdownEvent}
+                        >
+                          <span>{optionPlaceholder}</span>
+                          {dropdownIcon}
+                        </button>
+                      )}
+                      {isOptionDropdownBtn && (
+                        <div onClick={this.handleOptionDropdownEvent}>
+                          <ul
+                            className="optionList"
+                            onClick={this.ChangeOptionEvent}
+                          >
+                            {productData.first_options.map(
+                              (firstOptionData) => {
+                                console.log(firstOptionData);
+                                return (
+                                  <li
+                                    key={firstOptionData.brand_id}
+                                    className="option"
+                                  >
+                                    {firstOptionData}
+                                  </li>
+                                );
+                              }
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                      {!sizePlaceholder ? (
+                        <button
+                          type="button"
+                          className="sizeSelectBox"
+                          onClick={this.handleSizeDropdownEvent}
+                          disabled={optionPlaceholder === "" && "disabled"}
+                        >
+                          <span>{productData.second_option_name}</span>
+                          {dropdownIcon}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="sizeSelectBox"
+                          onClick={this.handleSizeDropdownEvent}
+                        >
+                          <span>{sizePlaceholder}</span>
+                          {dropdownIcon}
+                        </button>
+                      )}
+                      {isSizeDropdownBtn && (
+                        <div onClick={this.handleSizeDropdownEvent}>
+                          <ul
+                            className="sizeList"
+                            onClick={this.ChangeSizeEvent}
+                          >
+                            {productData.second_options.map(
+                              (secondOptionData) => {
+                                console.log(secondOptionData);
+                                return (
+                                  <li
+                                    key={secondOptionData.brand_id}
+                                    className="option"
+                                  >
+                                    {secondOptionData}
+                                  </li>
+                                );
+                              }
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="submitSection">
+                      <button type="submit" className="buyBtn">
+                        바로 구매
+                      </button>
+                      <button type="submit" className="bucketBtn">
+                        장바구니 담기
+                      </button>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -245,7 +300,7 @@ export default class ThumbnailComponent extends Component {
                 <img alt="brandImageSample" src="images/thumbnail.jpeg" />
                 <div className="brandWrapper">
                   <div className="brandName">
-                    나이키
+                    {productData.brand_name}
                     <div className="brandProducts">12,898</div>
                   </div>
                   {dropdownIcon}

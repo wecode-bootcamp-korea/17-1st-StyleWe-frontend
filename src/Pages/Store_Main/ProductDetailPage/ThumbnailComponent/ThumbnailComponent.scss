@@ -1,8 +1,3 @@
-* {
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
 %flexCenter {
   display: flex;
   justify-content: center;
@@ -13,9 +8,11 @@
   @extend %flexCenter;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
 
   .productInfoSection {
-    width: 80%;
+    width: 1320px;
 
     h1 {
       margin: 50px 0px 10px 0px;
@@ -29,263 +26,276 @@
     }
 
     .productInfo {
-      display: flex;
-      justify-content: center;
-      width: fit-content;
-      height: fit-content;
+      position: relative;
 
-      img {
-        width: 720px;
-        height: 720px;
-        margin-right: 50px;
-        border-radius: 8px;
-        border: 1px solid lightgray;
-      }
+      .orderTabContainer {
+        display: flex;
+        justify-content: space-between;
 
-      .orderTab {
-        width: 462px;
-        height: fit-content;
-        padding: 32px 24px;
-        border-radius: 8px;
-        border: 1px solid lightgray;
-
-        p {
-          color: #757d86;
+        img {
+          width: 700px;
+          height: 700px;
+          margin-right: 100px;
+          border-radius: 8px;
+          border: 1px solid lightgray;
+          object-fit: cover;
         }
 
-        .priceDetail {
-          display: flex;
-          align-items: flex-end;
+        .orderTab {
+          width: 450px;
+          height: fit-content;
+          padding: 32px 24px;
+          border-radius: 8px;
+          border: 1px solid lightgray;
 
-          div {
-            margin-right: 8px;
-
-            .salePercent {
-              margin-right: 5px;
-              color: red;
-              font-size: 32px;
-              font-weight: bold;
-            }
-            .salePrice {
-              color: black;
-              font-size: 32px;
-              font-weight: bold;
-            }
-          }
-          .noSalePrice {
-            margin-right: 10px;
-            color: #757d86;
-            text-decoration: line-through;
-          }
-
-          #couponDropDownBtn {
-            display: none;
-          }
-
-          #couponDropDownBtn + label {
-            @extend %flexCenter;
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-            border: 0.5px solid lightgrey;
-            border-radius: 50%;
-            color: rgb(48, 48, 48);
-            transform: rotate(0deg);
-            transition: transform 0.25s ease-in-out 0s;
-          }
-
-          #couponDropDownBtn:checked + label {
-            transform: rotate(-180deg);
-            transition: transform 0.25s ease-in-out 0s;
-          }
-
-          .couponDownloadBtn {
-            @extend %flexCenter;
-            width: 110px;
-            height: 36px;
-            border: 0;
-            border-radius: 18px;
-            outline: none;
-            font-weight: bold;
-            cursor: pointer;
-
-            svg {
-              width: 16px;
-              height: 16px;
-            }
-          }
-        }
-
-        .countLikeReview {
-          margin: 25px 0px;
-
-          .likeText,
-          .reviewText {
-            margin-right: 5px;
+          p {
             color: #757d86;
           }
 
-          .likeCount,
-          .reviewCount {
-            margin-right: 10px;
-            color: rgb(43, 43, 43);
-            font-weight: bold;
-          }
-        }
-
-        .deliveryContainer {
-          margin-bottom: 30px;
-
-          .myPointInfo,
-          .deliveryInfo,
-          .deliveryNotice {
+          .priceDetail {
             display: flex;
-            align-items: center;
-            margin-top: 10px;
-            color: #757d86;
-            font-weight: normal;
-
-            .containerTitle {
-              width: 80px;
-            }
-
-            .boldText {
-              color: rgb(43, 43, 43);
-              font-weight: bold;
-            }
-
-            #deliveryDropDownBtn {
-              display: none;
-            }
-
-            #deliveryDropDownBtn + label {
-              @extend %flexCenter;
-              width: 20px;
-              height: 20px;
-              margin-right: 10px;
-              border: 0.5px solid lightgrey;
-              border-radius: 50%;
-              color: rgb(48, 48, 48);
-              transform: rotate(0deg);
-              transition: transform 0.25s ease-in-out 0s;
-            }
-
-            #deliveryDropDownBtn:checked + label {
-              transform: rotate(-180deg);
-              transition: transform 0.25s ease-in-out 0s;
-            }
-          }
-        }
-        .optionDropdownContainer {
-          position: relative;
-
-          .optionSelectBox,
-          .sizeSelectBox {
-            display: flex;
+            align-items: flex-end;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            height: 40px;
-            margin-bottom: 10px;
-            padding: 12px 20px;
-            border: 1px solid lightgrey;
-            border-radius: 8px;
-            outline: none;
-            background-color: lightgray;
-            font-weight: bold;
-            transform: rotate(0deg);
-            transition: transform 0.25s ease-in-out 0s;
 
-            &:hover {
-              border: 1px solid #757d86;
+            div {
+              margin-right: 8px;
+
+              .salePercent {
+                margin-right: 5px;
+                color: red;
+                font-size: 32px;
+                font-weight: bold;
+              }
+              .salePrice {
+                color: black;
+                font-size: 32px;
+                font-weight: bold;
+              }
             }
 
-            &:disabled {
-              border: 1px solid rgb(231, 231, 231);
-              border-radius: 8px;
-              background-color: white;
-              font-weight: normal;
+            .orginalPriceContainer {
+              display: flex;
+              align-items: flex-end;
+
+              .noSalePrice {
+                margin-right: 10px;
+                color: #757d86;
+                text-decoration: line-through;
+              }
+
+              #couponDropDownBtn {
+                display: none;
+              }
+
+              #couponDropDownBtn + label {
+                @extend %flexCenter;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                border: 0.5px solid lightgrey;
+                border-radius: 50%;
+                color: rgb(48, 48, 48);
+                transform: rotate(0deg);
+                transition: transform 0.25s ease-in-out 0s;
+              }
+
+              #couponDropDownBtn:checked + label {
+                transform: rotate(-180deg);
+                transition: transform 0.25s ease-in-out 0s;
+              }
             }
-          }
+            .couponDownloadBtn {
+              position: relative;
+              @extend %flexCenter;
+              width: 110px;
+              height: 36px;
+              border: 0;
+              border-radius: 18px;
+              outline: none;
+              font-weight: bold;
+              cursor: pointer;
 
-          .optionSelectBox:focus svg,
-          .sizeSelectBox:focus svg {
-            transform: rotate(180deg);
-            transition: transform 0.25s ease-in-out 0s;
-          }
-
-          .optionList {
-            position: absolute;
-            top: 40px;
-            z-index: 1;
-          }
-
-          .sizeList {
-            position: absolute;
-            top: 90px;
-            z-index: 1;
-          }
-
-          .optionList,
-          .sizeList {
-            width: 100%;
-            max-height: 200px;
-            height: fit-content;
-            border: 1px solid rgb(231, 231, 231);
-            border-top: 0;
-            overflow: hidden;
-            overflow-y: scroll;
-            color: #50585f;
-
-            .option,
-            .sizeOption {
-              width: inherit;
-              padding: 12px 20px;
-              background-color: white;
-
-              &:hover {
-                background-color: lightgrey;
+              svg {
+                width: 16px;
+                height: 16px;
               }
             }
           }
-        }
-        .submitSection {
-          margin-top: 24px;
 
-          .buyBtn,
-          .bucketBtn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 56px;
-            margin-top: 10px;
-            padding: 0px 20px;
-            border-radius: 9999px;
-            outline: none;
-            font-size: 16px;
-            font-weight: bolder;
-            cursor: pointer;
-          }
+          .countLikeReview {
+            margin: 25px 0px;
 
-          .buyBtn {
-            border: 1px solid #3cdfbf;
-            background-color: white;
-            color: #3cdfbf;
+            .likeText,
+            .reviewText {
+              margin-right: 5px;
+              color: #757d86;
+            }
 
-            &:hover {
-              background-color: #3cdfbf;
-              color: white;
+            .likeCount,
+            .reviewCount {
+              margin-right: 10px;
+              color: rgb(43, 43, 43);
+              font-weight: bold;
             }
           }
 
-          .bucketBtn {
-            border: 1px solid #3cdfbf;
-            background-color: #3cdfbf;
-            color: white;
+          .deliveryContainer {
+            margin-bottom: 30px;
 
-            &:hover {
-              opacity: 0.8;
+            .myPointInfo,
+            .deliveryInfo,
+            .deliveryNotice {
+              display: flex;
+              align-items: center;
+              margin-top: 10px;
+              color: #757d86;
+              font-weight: normal;
+
+              .containerTitle {
+                width: 80px;
+              }
+
+              .boldText {
+                color: rgb(43, 43, 43);
+                font-weight: bold;
+              }
+
+              #deliveryDropDownBtn {
+                display: none;
+              }
+
+              #deliveryDropDownBtn + label {
+                @extend %flexCenter;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                border: 0.5px solid lightgrey;
+                border-radius: 50%;
+                color: rgb(48, 48, 48);
+                transform: rotate(0deg);
+                transition: transform 0.25s ease-in-out 0s;
+              }
+
+              #deliveryDropDownBtn:checked + label {
+                transform: rotate(-180deg);
+                transition: transform 0.25s ease-in-out 0s;
+              }
+            }
+          }
+
+          .optionDropdownContainer {
+            position: relative;
+            width: 450px;
+            justify-content: center;
+
+            .optionSelectBox,
+            .sizeSelectBox {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 410px;
+              height: 30px;
+              margin-bottom: 10px;
+              padding: 12px 20px;
+              border: 1px solid lightgrey;
+              border-radius: 8px;
+              outline: none;
+              background-color: lightgray;
+              font-weight: bold;
+              transform: rotate(0deg);
+              transition: transform 0.25s ease-in-out 0s;
+
+              &:hover {
+                border: 1px solid #757d86;
+              }
+
+              &:disabled {
+                border: 1px solid rgb(231, 231, 231);
+                border-radius: 8px;
+                background-color: white;
+                font-weight: normal;
+              }
+            }
+
+            .optionSelectBox:focus svg,
+            .sizeSelectBox:focus svg {
+              transform: rotate(180deg);
+              transition: transform 0.25s ease-in-out 0s;
+            }
+
+            .optionList {
+              position: absolute;
+              top: 40px;
+              z-index: 1;
+            }
+
+            .sizeList {
+              position: absolute;
+              top: 90px;
+              z-index: 1;
+            }
+
+            .optionList,
+            .sizeList {
+              width: 410px;
+              max-height: 200px;
+              height: fit-content;
+              border: 1px solid rgb(231, 231, 231);
+              border-top: 0;
+              overflow: hidden;
+              overflow-y: scroll;
+              color: #50585f;
+
+              .option,
+              .sizeOption {
+                width: inherit;
+                padding: 12px 20px;
+                background-color: white;
+
+                &:hover {
+                  background-color: lightgrey;
+                }
+              }
+            }
+          }
+          .submitSection {
+            margin-top: 24px;
+
+            .buyBtn,
+            .bucketBtn {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 410px;
+              height: 56px;
+              margin-top: 10px;
+              padding: 0px 20px;
+              border-radius: 9999px;
+              outline: none;
+              font-size: 16px;
+              font-weight: bolder;
+              cursor: pointer;
+            }
+
+            .buyBtn {
+              border: 1px solid #3cdfbf;
+              background-color: white;
+              color: #3cdfbf;
+
+              &:hover {
+                background-color: #3cdfbf;
+                color: white;
+              }
+            }
+
+            .bucketBtn {
+              border: 1px solid #3cdfbf;
+              background-color: #3cdfbf;
+              color: white;
+
+              &:hover {
+                opacity: 0.8;
+              }
             }
           }
         }
@@ -295,18 +305,18 @@
       display: flex;
       align-items: center;
 
-      width: 720px;
+      width: 700px;
       height: 120px;
       margin-top: 24px;
-      border: solid 1px #757d86;
+      border: solid 1px lightgrey;
       border-radius: 8px;
       font-weight: bolder;
 
       img {
         width: 238px;
         height: 118px;
-        margin-left: 8px;
-        // border-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
       }
 
       .brandWrapper {
