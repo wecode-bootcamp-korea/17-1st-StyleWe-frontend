@@ -1,13 +1,14 @@
-import React from "react";
-import "./StoreNav.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './StoreNav.scss';
 
 class StoreNav extends React.Component {
   constructor() {
     super();
     this.state = {
       categoriesData: [],
-      searchInputValue: "",
-      hoverValue: "",
+      searchInputValue: '',
+      hoverValue: '',
       isPlaceholder: false,
       isLogin: false,
     };
@@ -18,7 +19,7 @@ class StoreNav extends React.Component {
   }
 
   getCommentData = () => {
-    fetch("/data/navMenu.json")
+    fetch('/data/navMenu.json')
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -101,12 +102,14 @@ class StoreNav extends React.Component {
                   alt="장바구니"
                   src="/images/paperBagIcon.svg"
                 />
-                <button
-                  className="signBtn"
-                  onClick={this.handleDisplayMemberEvent}
-                >
-                  로그인/가입
-                </button>
+                <Link to="/signin">
+                  <button
+                    className="signBtn"
+                    onClick={this.handleDisplayMemberEvent}
+                  >
+                    로그인/가입
+                  </button>
+                </Link>
               </div>
             ) : (
               <div className="memberDisplay">

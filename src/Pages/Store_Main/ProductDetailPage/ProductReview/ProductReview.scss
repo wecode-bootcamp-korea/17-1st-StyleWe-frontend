@@ -1,0 +1,68 @@
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$lightGrayBorder: solid 1px lightgray;
+
+.reviewSection {
+  width: 100%;
+  height: 500px;
+  margin-top: 50px;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1320px;
+    margin: 20px auto;
+
+    .nullBox {
+      width: 108px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .previewBtn .dropdownIcon,
+    .nextBtn .dropdownIcon {
+      width: 50px;
+      height: 50px;
+      color: transparent;
+    }
+
+    .previewBtn .dropdownIcon {
+      margin-right: 8px;
+      transform: rotate(90deg);
+    }
+
+    .nextBtn .dropdownIcon {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .reviewBtnBox {
+    width: 1320px;
+    margin: 50px auto;
+
+    .btnDivider {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+
+      .moreReviewBtn {
+        width: 200px;
+        height: 45px;
+        border: 0;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: bolder;
+        outline: none;
+      }
+    }
+  }
+}

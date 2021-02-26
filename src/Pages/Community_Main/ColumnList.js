@@ -13,7 +13,7 @@ export default class ColumnList extends Component {
         </div>
         <div>
           <p>{content}</p>
-          <p>`by ${author}`</p>
+          <p>{author} </p>
         </div>
       </div>
     );

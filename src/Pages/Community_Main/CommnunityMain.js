@@ -6,20 +6,19 @@ import FeedUnit from './FeedUnit';
 import CreateModal from './CreateModal';
 import Footer from '../../Components/Footer/Footer';
 import StoreNav from '../../Components/Nav/StoreNav/StoreNav';
+import FeedDetail from './FeedDetail';
 
 export default class CommnunityMain extends Component {
-  constructor() {
-    super();
-    this.state = {
-      feedContent: [],
-      isCreateModalOpen: false,
-      isFeedDetailModalOpen: false,
-      limit: 30,
-      offset: 0,
-      feedContainerHeight: 2400,
-      isScollTopZero: false,
-    };
-  }
+  state = {
+    feedContent: [],
+    isCreateModalOpen: false,
+    isFeedDetailModalOpen: false,
+    limit: 30,
+    offset: 0,
+    feedContainerHeight: 2400,
+    isScollTopZero: false,
+    feedId: 0,
+  };
 
   getData = () => {
     const { limit, offset } = this.state;
@@ -30,12 +29,12 @@ export default class CommnunityMain extends Component {
         this.setState({
           feedContent: [...this.state.feedContent, ...data.feed_list],
         });
-        window.addEventListener('scroll', this.infiniteScroll, true);
       });
   };
 
   componentDidMount() {
     this.getData();
+    window.addEventListener('scroll', this.infiniteScroll, true);
   }
 
   infiniteScroll = () => {
@@ -59,8 +58,6 @@ export default class CommnunityMain extends Component {
       this.componentDidMount();
     }
 
-    console.log(scrollTop, this.state.isScollTopZero);
-
     this.setState({
       isScollTopZero: scrollTop === 0 ? true : false,
     });
@@ -68,6 +65,7 @@ export default class CommnunityMain extends Component {
 
   goUp = () => {
     window.scrollTo(0, 0);
+    // console.log(this.props);
   };
 
   handleCreateModal = () => {
@@ -76,10 +74,13 @@ export default class CommnunityMain extends Component {
     });
   };
 
-  handleFeedModal = () => {
+  handleFeedModal = (id) => {
     this.setState({
       isFeedDetailModalOpen: !this.state.isFeedDetailModalOpen,
+      feedId: id,
     });
+    // console.log(this.props);
+    console.log(id);
   };
 
   render() {
@@ -91,9 +92,8 @@ export default class CommnunityMain extends Component {
       isScollTopZero,
     } = this.state;
 
-    document.body.style.overflow = isCreateModalOpen ? 'hidden' : 'auto';
-
-    console.log(this.state.isScollTopZero);
+    document.body.style.overflow =
+      isCreateModalOpen || isFeedDetailModalOpen ? 'hidden' : 'auto';
 
     return (
       <>
@@ -101,20 +101,26 @@ export default class CommnunityMain extends Component {
         <main className="CommunityMain">
           {(isCreateModalOpen || isFeedDetailModalOpen) && (
             <div
-              className={'overlay active'}
+              className={'overlay'}
               style={{ height: `${feedContainerHeight}px` }}
               onClick={this.handleFeedModal}
             ></div>
           )}
+
+          {isFeedDetailModalOpen && <FeedDetail feedId={this.state.feedId} />}
 
           <TopFeedSection />
 
           <p className="sectionTitle">지금의 트랜드</p>
           <div className="Feeds" style={{ height: `${feedContainerHeight}px` }}>
             {feedContent.map((feed) => {
+              {
+                /* console.log(feed.feed_basic_data?.feed_id); */
+              }
+
               return (
                 <FeedUnit
-                  key={feed.feed_basic_data?.feed_id}
+                  id={feed.feed_basic_data?.feed_id}
                   username={feed.feed_basic_data.feed_user}
                   mainimg={feed.feed_basic_data.feed_main_image?.image_url}
                   linkedProduct={feed.product_data}
@@ -124,6 +130,7 @@ export default class CommnunityMain extends Component {
                   commentsNum={feed.feed_comment_data.feed_comment_count}
                   createdTime={feed.feed_basic_data.created_at.split('T')[0]}
                   handleFeedModal={this.handleFeedModal}
+                  // updateFeedId={this.updateFeedId}
                 />
               );
             })}

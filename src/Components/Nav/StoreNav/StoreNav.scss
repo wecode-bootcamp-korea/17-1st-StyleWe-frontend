@@ -1,6 +1,6 @@
-@import "../../../Styles/commons.scss";
-@import "../../../Styles/reset.scss";
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+@import '../../../Styles/commons.scss';
+@import '../../../Styles/reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 
 %flex-space-between {
   display: flex;
@@ -10,9 +10,9 @@
 
 .storeNav {
   position: fixed;
-  z-index: 1000;
+  z-index: 2000;
   width: 100vmax;
-  height: 100vmax;
+  height: 130px;
   background-color: transparent;
 
   .storeNavSection {

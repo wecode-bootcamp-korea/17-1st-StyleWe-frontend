@@ -21,9 +21,13 @@ export default class FeedUnit extends Component {
     return num.toString().replace(regexp, ',');
   };
 
+  handleFeed = () => {
+    this.props.handleFeedModal(this.props.id);
+  };
+
   render() {
     const {
-      key,
+      id,
       username,
       mainimg,
       linkedProduct,
@@ -32,11 +36,17 @@ export default class FeedUnit extends Component {
       comments,
       commentsNum,
       createdTime,
+      // handleFeedModal,
     } = this.props;
 
     return (
-      <div className="FeedUnit" key={key}>
-        <img src={mainimg} alt="snsPicture" />
+      <div className="FeedUnit">
+        <img
+          className="mainImg"
+          src={mainimg}
+          alt="snsPicture"
+          onClick={this.handleFeed}
+        />
 
         {linkedProduct.product_name && (
           <section className="linkedProduct">
@@ -52,7 +62,7 @@ export default class FeedUnit extends Component {
                   )} 원`}
                 </span>
                 <span className="old">{`${this.addComma(
-                  Number(linkedProduct.price.split('.')[0])
+                  linkedProduct.price.split('.')[0]
                 )} 원`}</span>
               </p>
             </div>
