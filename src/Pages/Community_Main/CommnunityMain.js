@@ -65,7 +65,6 @@ export default class CommnunityMain extends Component {
 
   goUp = () => {
     window.scrollTo(0, 0);
-    // console.log(this.props);
   };
 
   handleCreateModal = () => {
@@ -79,8 +78,6 @@ export default class CommnunityMain extends Component {
       isFeedDetailModalOpen: !this.state.isFeedDetailModalOpen,
       feedId: id,
     });
-    // console.log(this.props);
-    console.log(id);
   };
 
   render() {

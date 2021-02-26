@@ -82,8 +82,6 @@ export default class FeedDetail extends Component {
   render() {
     const { feedData, slideMove, isHoverOnImage } = this.state;
 
-    console.log(profileImgs[0]);
-
     return (
       <div className="FeedDetail">
         <div className="leftContainer">

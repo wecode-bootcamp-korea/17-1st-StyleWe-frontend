@@ -128,15 +128,15 @@
       line-height: 40px;
     }
 
-    .productContent {
-      display: flex;
-    }
-
     .contentInBox {
       margin: 20px 24px;
       width: 312px;
       border: $border;
       border-radius: $border-radius;
+    }
+
+    .productContent {
+      display: flex;
     }
 
     .product,

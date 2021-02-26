@@ -3,6 +3,10 @@ import Slider from 'react-slick';
 import './Slide.scss';
 
 export default class SimpleSlider extends Component {
+  feedControl = (e) => {
+    this.props.handleFeedModal(e.target.id);
+  };
+
   render() {
     function SampleNextArrow(props) {
       console.log(props);
@@ -71,18 +75,20 @@ export default class SimpleSlider extends Component {
             {this.props.productReview.map((reviewData) => {
               return (
                 <>
-                  <div key={reviewData.user_name} className="reviewImageHover">
+                  <div className="reviewImageHover">
                     <img
+                      id={reviewData.feed_id}
                       className="reviewImage"
                       alt="review"
                       src={reviewData['main_image']}
+                      onClick={this.feedControl}
                     />
                   </div>
                   <div className="commentContainer">
                     <img
                       className="userImage"
                       alt="review"
-                      src="images/profileImage.png"
+                      src={reviewData['main_image']}
                     />
                     <div className="userName">
                       {reviewData['user_name']}{' '}

@@ -20,13 +20,6 @@ class Signup extends React.Component {
     });
   };
 
-  handleKeyPress = (e) => {
-    console.log('onKeyPress');
-    if (e.key === 'Enter') {
-      this.clickSignup();
-    }
-  };
-
   goToSignupLast = () => {
     this.props.history.push('/SignupLast');
   };
@@ -110,7 +103,6 @@ class Signup extends React.Component {
                     <button
                       className="signupbtn"
                       onClick={this.clickSignup}
-                      onKeyPress={this.handleKeyPress}
                       type="button"
                     >
                       Signup
