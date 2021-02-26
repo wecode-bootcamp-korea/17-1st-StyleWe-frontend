@@ -43,7 +43,8 @@ export default class ThumbnailComponent extends Component {
       handleSizeDropdownEvent,
       addProductList,
       productCount,
-      countEvent,
+      countPlusEvent,
+      countMinusEvent,
     } = this.props;
 
     return (
@@ -62,12 +63,11 @@ export default class ThumbnailComponent extends Component {
             Number(productData.discount_rate).toFixed(2)
           );
 
-          const discountPrice = (
+          const discountPrice =
             Math.round(
               Number(originalPrice - originalPrice * discountRate).toFixed(0) /
                 10
-            ) * 10
-          ).toLocaleString();
+            ) * 10;
           return (
             <section key={idx} className="productInfoSection">
               <h1>{productData.brand_name}</h1>
@@ -84,7 +84,9 @@ export default class ThumbnailComponent extends Component {
                         </span>
                       </div>
                       <div>
-                        <span className="salePrice">{discountPrice}</span>
+                        <span className="salePrice">
+                          {discountPrice.toLocaleString()}
+                        </span>
                         <span>원</span>
                       </div>
                       <div className="orginalPriceContainer">
@@ -202,14 +204,30 @@ export default class ThumbnailComponent extends Component {
                         </p>
                         <div className="countContainer">
                           <div className="btnContainer">
-                            <button className="countBtn">-</button>
+                            <button
+                              className="countBtn"
+                              onClick={countMinusEvent}
+                            >
+                              -
+                            </button>
                             <span>{productCount}</span>
-                            <button className="countBtn" onClick={countEvent}>
+                            <button
+                              className="countBtn"
+                              onClick={countPlusEvent}
+                            >
                               +
                             </button>
                           </div>
 
-                          <span>{discountPrice}</span>
+                          <span className="addProductPrice">
+                            {(productCount * discountPrice).toLocaleString()}원
+                          </span>
+                        </div>
+                        <div className="totalPriceContainer">
+                          <span className="totalPriceText">총 가격</span>
+                          <span className="totalPrice">
+                            {(productCount * discountPrice).toLocaleString()}원
+                          </span>
                         </div>
                       </div>
                     )}

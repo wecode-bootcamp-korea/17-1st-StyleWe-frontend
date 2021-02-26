@@ -78,13 +78,20 @@ export default class ProductDetailPage extends Component {
     this.setState({
       productInfo: newProductData,
     });
-    console.log("newProductData >>>>", newProductData);
   };
 
-  countEvent = () => {
+  countPlusEvent = () => {
     this.setState({
-      productCount: +1,
+      productCount: this.state.productCount + 1,
     });
+  };
+
+  countMinusEvent = () => {
+    if (this.state.productCount > 1) {
+      this.setState({
+        productCount: this.state.productCount - 1,
+      });
+    }
   };
 
   render() {
@@ -112,7 +119,8 @@ export default class ProductDetailPage extends Component {
           handleSizeDropdownEvent={this.handleSizeDropdownEvent}
           handleDeliveryDropdownEvent={this.handleDeliveryDropdownEvent}
           addProductList={this.addProductList}
-          countEvent={this.countEvent}
+          countPlusEvent={this.countPlusEvent}
+          countMinusEvent={this.countMinusEvent}
           productCount={productCount}
         />
         <ProductReview

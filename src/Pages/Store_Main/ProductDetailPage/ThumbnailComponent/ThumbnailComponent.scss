@@ -267,10 +267,9 @@ $lightGrayBorder: solid 1px lightgray;
             margin: 20px 0px;
 
             p {
-              margin: 10px 0px;
+              margin: 20px 0px;
               color: black;
               font-size: 16px;
-              font-weight: bold;
             }
             .countContainer {
               display: flex;
@@ -287,11 +286,39 @@ $lightGrayBorder: solid 1px lightgray;
                   background-color: none;
                   outline: none;
                   font-size: 16px;
+                  cursor: pointer;
                 }
 
                 span {
                   margin: 10px;
+                  font-size: 16px;
+                  font-weight: bolder;
                 }
+              }
+
+              .addProductPrice {
+                margin: 10px;
+                font-size: 16px;
+                font-weight: bolder;
+              }
+            }
+
+            .totalPriceContainer {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              width: 450px;
+              margin-top: 30px;
+              padding: 30px 0px;
+              border-top: solid 2px lightgray;
+
+              .totalPriceText {
+                font-size: 16px;
+                font-weight: bolder;
+              }
+              .totalPrice {
+                font-size: 18px;
+                font-weight: bolder;
               }
             }
           }
