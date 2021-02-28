@@ -24,12 +24,15 @@
     right: 60px;
     z-index: 5000;
 
+
     &:hover {
       cursor: pointer;
     }
   }
 
   .upScroll {
+    background-color: white;
+    border-radius: 50%;
     bottom: 120px;
     background-color: white;
     border-radius: 50%;

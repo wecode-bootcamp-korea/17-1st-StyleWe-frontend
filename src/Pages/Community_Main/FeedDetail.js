@@ -92,6 +92,7 @@ export default class FeedDetail extends Component {
                   return (
                     <img
                       src={image.url}
+
                       className="presentImg"
                       alt="presentImg"
                       style={{
@@ -128,6 +129,7 @@ export default class FeedDetail extends Component {
                 feedData.feed_image_data.map((image, index) => {
                   return (
                     <img
+
                       src={image.url}
                       data-id={index}
                       alt="smallimage"
@@ -191,6 +193,7 @@ export default class FeedDetail extends Component {
                 </Link>
               );
             })}
+
           <section className="contentInBox brandBox">
             <div className="brand">
               <img

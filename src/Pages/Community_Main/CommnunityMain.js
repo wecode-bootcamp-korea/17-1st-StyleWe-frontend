@@ -1,10 +1,13 @@
+
 import React, { Component } from 'react';
 import '../../Styles/commons.scss';
 import './CommunityMain.scss';
+
 import TopFeedSection from './TopFeedSection';
 import FeedUnit from './FeedUnit';
 import CreateModal from './CreateModal';
 import Footer from '../../Components/Footer/Footer';
+
 import StoreNav from '../../Components/Nav/StoreNav/StoreNav';
 import FeedDetail from './FeedDetail';
 
@@ -28,6 +31,7 @@ export default class CommnunityMain extends Component {
       .then((data) => {
         this.setState({
           feedContent: [...this.state.feedContent, ...data.feed_list],
+
         });
       });
   };
@@ -73,10 +77,12 @@ export default class CommnunityMain extends Component {
     });
   };
 
+
   handleFeedModal = (id) => {
     this.setState({
       isFeedDetailModalOpen: !this.state.isFeedDetailModalOpen,
       feedId: id,
+
     });
   };
 

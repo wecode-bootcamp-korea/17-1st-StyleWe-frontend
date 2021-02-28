@@ -1,6 +1,7 @@
 @import '../../Styles/commons.scss';
 
 .FeedDetail {
+
   position: fixed;
   width: 960px;
   height: auto;
@@ -135,9 +136,11 @@
       border-radius: $border-radius;
     }
 
+
     .productContent {
       display: flex;
     }
+
 
     .product,
     .brand {
