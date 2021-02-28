@@ -1,8 +1,12 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import "./Slide.scss";
+import React, { Component } from 'react';
+import Slider from 'react-slick';
+import './Slide.scss';
 
 export default class SimpleSlider extends Component {
+  feedControl = (e) => {
+    this.props.handleFeedModal(e.target.id);
+  };
+
   render() {
     function SampleNextArrow(props) {
       console.log(props);
@@ -10,7 +14,7 @@ export default class SimpleSlider extends Component {
       return (
         <div
           className={className}
-          style={{ ...style, display: "block", background: "red" }}
+          style={{ ...style, display: 'block', background: 'red' }}
           onClick={onClick}
         />
       );
@@ -21,7 +25,7 @@ export default class SimpleSlider extends Component {
       return (
         <div
           className={className}
-          style={{ ...style, display: "block", background: "green" }}
+          style={{ ...style, display: 'block', background: 'green' }}
           onClick={onClick}
         />
       );
@@ -71,29 +75,31 @@ export default class SimpleSlider extends Component {
             {this.props.productReview.map((reviewData) => {
               return (
                 <>
-                  <div key={reviewData.user_name} className="reviewImageHover">
+                  <div className="reviewImageHover">
                     <img
+                      id={reviewData.feed_id}
                       className="reviewImage"
                       alt="review"
-                      src={reviewData["main_image"]}
+                      src={reviewData['main_image']}
+                      onClick={this.feedControl}
                     />
                   </div>
                   <div className="commentContainer">
                     <img
                       className="userImage"
                       alt="review"
-                      src="images/profileImage.png"
+                      src={reviewData['main_image']}
                     />
                     <div className="userName">
-                      {reviewData["user_name"]}{" "}
+                      {reviewData['user_name']}{' '}
                       <span className="description">
-                        {reviewData["description"]}
+                        {reviewData['description']}
                       </span>
                     </div>
                   </div>
                   <span className="likeReviewNumber">
-                    좋아요 {reviewData["like_number"]} 댓글{" "}
-                    {reviewData["comment_number"]}
+                    좋아요 {reviewData['like_number']} 댓글{' '}
+                    {reviewData['comment_number']}
                   </span>
                 </>
               );

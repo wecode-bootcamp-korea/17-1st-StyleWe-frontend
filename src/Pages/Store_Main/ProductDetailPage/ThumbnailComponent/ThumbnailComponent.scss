@@ -15,6 +15,7 @@ $lightGrayBorder: solid 1px lightgray;
 
   .productInfoSection {
     width: 1320px;
+    margin-top: 150px;
 
     h1 {
       margin: 50px 0px 10px 0px;
@@ -109,6 +110,7 @@ $lightGrayBorder: solid 1px lightgray;
             }
 
             .couponDownloadBtn {
+              display: none;
               @extend %flexCenter;
               position: relative;
               width: 110px;

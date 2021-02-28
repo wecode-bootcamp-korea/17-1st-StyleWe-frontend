@@ -1,14 +1,14 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import "./signuplast.scss";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import './signuplast.scss';
 
 class Signuplast extends React.Component {
   constructor() {
     super();
     this.state = {
-      birth: "",
-      website: "",
-      about: "",
+      birth: '',
+      website: '',
+      about: '',
     };
   }
 
@@ -20,11 +20,11 @@ class Signuplast extends React.Component {
   };
 
   clickSignuplast = () => {
-    console.log(typeof "birth");
-    fetch("http://10.58.2.161:8000/user/signup", {
-      method: "PATCH",
+    console.log(typeof 'birth');
+    fetch('http://10.58.2.161:8000/user/signup', {
+      method: 'PATCH',
       headers: {
-        Authorization: localStorage.getItem("access_token"),
+        Authorization: localStorage.getItem('access_token'),
       },
       body: JSON.stringify({
         birth: this.state.birth,
@@ -34,9 +34,9 @@ class Signuplast extends React.Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("result:", res);
-        localStorage.getItem("access_token", res.token);
-        this.props.history.push("/Main");
+        console.log('result:', res);
+        localStorage.getItem('access_token', res.token);
+        this.props.history.push('/Main');
       });
   };
 

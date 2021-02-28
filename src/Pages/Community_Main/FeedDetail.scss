@@ -1,15 +1,16 @@
 @import '../../Styles/commons.scss';
 
 .FeedDetail {
-  position: absolute;
-  margin: auto;
+
+  position: fixed;
   width: 960px;
   height: auto;
-  top: 30px;
+  top: 40px;
   border-radius: 5px;
+  margin-top: auto;
   margin-left: auto;
   background-color: white;
-  z-index: 10;
+  z-index: 2500;
 
   .leftContainer {
     float: left;
@@ -128,16 +129,18 @@
       line-height: 40px;
     }
 
-    .productContent {
-      display: flex;
-    }
-
     .contentInBox {
       margin: 20px 24px;
       width: 312px;
       border: $border;
       border-radius: $border-radius;
     }
+
+
+    .productContent {
+      display: flex;
+    }
+
 
     .product,
     .brand {

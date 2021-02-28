@@ -1,13 +1,14 @@
-import React from "react";
-import { withRouter, Link } from "react-router-dom";
-import "./signin.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './signin.scss';
+
 
 class Signin extends React.Component {
   constructor() {
     super();
     this.state = {
-      user_name: "",
-      password: "",
+      user_name: '',
+      password: '',
     };
   }
 
@@ -19,8 +20,8 @@ class Signin extends React.Component {
   };
 
   clickSignin = () => {
-    fetch("http://10.58.2.161:8000/user/signin", {
-      method: "POST",
+    fetch('http://10.58.2.215:8000/user/signin', {
+      method: 'POST',
       body: JSON.stringify({
         user_name: this.state.user_name,
         password: this.state.password,
@@ -29,13 +30,14 @@ class Signin extends React.Component {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        if (result.message === "SUCCESS") {
-          localStorage.setItem("access_token", result.Authorization);
-          this.props.history.push("/main");
-        } else if (result.message === "INVALID_USER") {
-          alert("아이디를 확인해주세요.");
-        } else if (result.message === "SIGNIN_FAIL") {
-          alert("비밀번호를 확인해주세요.");
+
+        if (result.message === 'SUCCESS') {
+          localStorage.setItem('access_token', result.Authorization);
+          this.props.history.push('/');
+        } else if (result.message === 'INVALID_USER') {
+          alert('아이디를 확인해주세요.');
+        } else if (result.message === 'SIGNIN_FAIL') {
+          alert('비밀번호를 확인해주세요.');
         }
       });
   };
@@ -111,4 +113,4 @@ class Signin extends React.Component {
   }
 }
 
-export default withRouter(Signin);
+export default Signin;

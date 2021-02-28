@@ -3,21 +3,17 @@ import './ColumnList.scss';
 
 export default class ColumnList extends Component {
   render() {
+    const { imgSrc1, imgSrc2, content, author } = this.props;
+
     return (
       <div className="ColumnList">
         <div className="imgs">
-          <img
-            src="https://images.pexels.com/photos/128881/beautiful-girl-smiling-da-128881.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="girl"
-          />
-          <img
-            src="https://images.pexels.com/photos/128881/beautiful-girl-smiling-da-128881.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="girl"
-          />
+          <img src={imgSrc1} alt="image1" />
+          <img src={imgSrc2} alt="image2" />
         </div>
         <div>
-          <p>헤비즘 베스트 &신상 ~ 68</p>
-          <p>by 오직스쉐</p>
+          <p>{content}</p>
+          <p>{author} </p>
         </div>
       </div>
     );

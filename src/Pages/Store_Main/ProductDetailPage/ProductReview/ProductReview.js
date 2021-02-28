@@ -1,8 +1,13 @@
-import React, { Component } from "react";
-import SimpleSlider from "../Slide/Slide";
-import "../ProductReview/ProductReview.scss";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import SimpleSlider from '../Slide/Slide';
+import '../ProductReview/ProductReview.scss';
 
-export default class ProductReview extends Component {
+class ProductReview extends Component {
+  state = {
+    handleFeedModal: this.props.handleFeedModal,
+  };
+
   render() {
     const dropdownIcon = (
       <svg
@@ -25,13 +30,17 @@ export default class ProductReview extends Component {
       <section className="reviewSection">
         <div className="titleContainer">
           <span className="nullBox"></span>
-          <h1>상품후기 10</h1>
+          <h1>상품후기 {productReview.length}</h1>
           <div>
             <span className="previewBtn">{dropdownIcon}</span>
             <span className="nextBtn">{dropdownIcon}</span>
           </div>
         </div>
-        <SimpleSlider productReview={productReview} />
+        <SimpleSlider
+          productReview={productReview}
+          // handleFeedContent={this.feedPushEvent}
+          handleFeedModal={this.state.handleFeedModal}
+        />
         <div className="reviewBtnBox">
           <div className="btnDivider">
             <button className="moreReviewBtn" type="button">
@@ -43,3 +52,5 @@ export default class ProductReview extends Component {
     );
   }
 }
+
+export default withRouter(ProductReview);
