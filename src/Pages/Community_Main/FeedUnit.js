@@ -36,7 +36,6 @@ export default class FeedUnit extends Component {
       comments,
       commentsNum,
       createdTime,
-      // handleFeedModal,
     } = this.props;
 
     return (

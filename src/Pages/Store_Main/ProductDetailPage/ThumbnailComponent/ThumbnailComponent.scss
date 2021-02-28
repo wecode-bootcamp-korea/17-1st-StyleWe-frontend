@@ -111,6 +111,7 @@ $lightGrayBorder: solid 1px lightgray;
             }
 
             .couponDownloadBtn {
+              display: none;
               @extend %flexCenter;
               position: relative;
               width: 110px;

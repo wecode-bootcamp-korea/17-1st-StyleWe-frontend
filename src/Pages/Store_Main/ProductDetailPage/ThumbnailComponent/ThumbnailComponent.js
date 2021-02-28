@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "../ThumbnailComponent/ThumbnailComponent.scss";
+import React, { Component } from 'react';
+import '../ThumbnailComponent/ThumbnailComponent.scss';
 
 export default class ThumbnailComponent extends Component {
   render() {
@@ -55,7 +55,7 @@ export default class ThumbnailComponent extends Component {
               Number(
                 productData.original_price.slice(
                   0,
-                  productData.original_price.indexOf(".")
+                  productData.original_price.indexOf('.')
                 )
               ) / 10
             ) * 10;
@@ -99,7 +99,7 @@ export default class ThumbnailComponent extends Component {
                         </label>
                       </div>
                       <button type="button" className="couponDownloadBtn">
-                        쿠폰 다운&nbsp;{downloadIcon}
+                        {/* 쿠폰 다운&nbsp;{downloadIcon} */}
                       </button>
                     </div>
                     <div className="countLikeReview">
@@ -172,7 +172,7 @@ export default class ThumbnailComponent extends Component {
                         onClick={handleSizeDropdownEvent}
                         disabled={
                           optionPlaceholder === productData.first_option_name &&
-                          "disabled"
+                          'disabled'
                         }
                       >
                         <span>{sizePlaceholder}</span>

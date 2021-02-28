@@ -8,12 +8,6 @@ class ProductReview extends Component {
     handleFeedModal: this.props.handleFeedModal,
   };
 
-  // feedPushEvent = (e) => {
-  //   console.log(this.props);
-  //   // console.log(e.target);
-  //   this.props.history.push('/feed/3');
-  // };
-
   render() {
     const dropdownIcon = (
       <svg

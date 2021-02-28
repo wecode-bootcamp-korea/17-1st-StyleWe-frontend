@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './signin.scss';
 
 class Signin extends React.Component {
@@ -19,7 +19,7 @@ class Signin extends React.Component {
   };
 
   clickSignin = () => {
-    fetch('http://10.58.2.161:8000/user/signin', {
+    fetch('http://10.58.2.215:8000/user/signin', {
       method: 'POST',
       body: JSON.stringify({
         user_name: this.state.user_name,
@@ -29,9 +29,10 @@ class Signin extends React.Component {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+
         if (result.message === 'SUCCESS') {
           localStorage.setItem('access_token', result.Authorization);
-          this.props.history.push('/main');
+          this.props.history.push('/');
         } else if (result.message === 'INVALID_USER') {
           alert('아이디를 확인해주세요.');
         } else if (result.message === 'SIGNIN_FAIL') {
@@ -111,4 +112,4 @@ class Signin extends React.Component {
   }
 }
 
-export default withRouter(Signin);
+export default Signin;

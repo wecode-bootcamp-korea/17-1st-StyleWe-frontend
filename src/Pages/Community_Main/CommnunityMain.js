@@ -13,7 +13,6 @@ export default class CommnunityMain extends Component {
     feedContent: [],
     isCreateModalOpen: false,
     isFeedDetailModalOpen: false,
-    limit: 30,
     offset: 0,
     feedContainerHeight: 2400,
     isScollTopZero: false,
@@ -21,9 +20,10 @@ export default class CommnunityMain extends Component {
   };
 
   getData = () => {
-    const { limit, offset } = this.state;
+    const LIMIT = 30;
+    const { offset } = this.state;
 
-    fetch(`http://10.58.2.215:8000/feed?limit=${limit}&offset=${offset}`)
+    fetch(`http://10.58.2.215:8000/feed?limit=${LIMIT}&offset=${offset}`)
       .then((res) => res.json())
       .then((data) => {
         this.setState({
@@ -98,7 +98,7 @@ export default class CommnunityMain extends Component {
         <main className="CommunityMain">
           {(isCreateModalOpen || isFeedDetailModalOpen) && (
             <div
-              className={'overlay'}
+              className="overlay"
               style={{ height: `${feedContainerHeight}px` }}
               onClick={this.handleFeedModal}
             ></div>
@@ -111,10 +111,6 @@ export default class CommnunityMain extends Component {
           <p className="sectionTitle">지금의 트랜드</p>
           <div className="Feeds" style={{ height: `${feedContainerHeight}px` }}>
             {feedContent.map((feed) => {
-              {
-                /* console.log(feed.feed_basic_data?.feed_id); */
-              }
-
               return (
                 <FeedUnit
                   id={feed.feed_basic_data?.feed_id}
@@ -127,7 +123,6 @@ export default class CommnunityMain extends Component {
                   commentsNum={feed.feed_comment_data.feed_comment_count}
                   createdTime={feed.feed_basic_data.created_at.split('T')[0]}
                   handleFeedModal={this.handleFeedModal}
-                  // updateFeedId={this.updateFeedId}
                 />
               );
             })}
