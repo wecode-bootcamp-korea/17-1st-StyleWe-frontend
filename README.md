@@ -23,7 +23,7 @@
    - Front-End : 유승현(PM), 박정현, 박경토
    - Back-End : 강승연, 심규보, 남채린
 
-### 4. gitHub 링크 : https://github.com/ysh1394/17-1st-StyleWe-frontend
+### 4. gitHub 링크 : https://github.com/OZOscarZulu/17-1st-StyleWe-frontend
 
 ### 5. 데모 영상(링크) : https://drive.google.com/file/d/1-yQxb6fVL7KY29i3dajLNLSoZQaLSqI9/view?usp=sharing
 
