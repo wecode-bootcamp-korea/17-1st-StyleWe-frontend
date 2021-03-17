@@ -1,0 +1,153 @@
+{
+  "feed_list": [
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-20T16:16:29.972Z",
+        "description": "언제 끝낼수 있을까",
+        "feed_id": 1,
+        "feed_main_image": {
+          "image_url": "피드이미지1"
+        },
+        "feed_user": "비비",
+        "like_number": 4,
+        "tag_item_number": 1
+      },
+      "feed_comment_data": {
+        "comment_list": [
+          {
+            "content": "헝그리맨~~",
+            "user": "디디"
+          },
+          {
+            "content": "호오오이",
+            "user": "씨씨"
+          }
+        ],
+        "feed_comment_count": 4
+      },
+      "product_data": {
+        "discount_rate": "0.50",
+        "price": "15000.000",
+        "product_image": "그냥이미지url2번",
+        "product_name": "나이키 긴팔 기모 후드 위코드 에디션"
+      }
+    },
+
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-21T08:16:05.909Z",
+        "description": "배고파",
+        "feed_id": 3,
+        "feed_main_image": null,
+        "feed_user": "씨씨",
+        "like_number": 0,
+        "tag_item_number": 1
+      },
+      "feed_comment_data": {
+        "comment_list": [
+          {
+            "content": "나도오오~",
+            "user": "비비"
+          }
+        ],
+        "feed_comment_count": 1
+      },
+      "product_data": {}
+    },
+
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-23T04:47:43.190Z",
+        "description": "스웻셔어어어어츠",
+        "feed_id": 4,
+        "feed_main_image": {
+          "image_url": "https://images.unsplash.com/photo-1582377865071-6e622dc74d8c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1233&q=80"
+        },
+        "feed_user": "지지",
+        "like_number": 8,
+        "tag_item_number": 2
+      },
+      "feed_comment_data": {
+        "comment_list": [
+          {
+            "content": "세번째댓글",
+            "user": "비비"
+          },
+          {
+            "content": "두번째댓글",
+            "user": "디디"
+          }
+        ],
+        "feed_comment_count": 3
+      },
+      "product_data": {
+        "discount_rate": "0.53",
+        "price": "75000.000",
+        "product_image": "https://usercontents-c.styleshare.io/images/02dd8683-b78e-426c-84f2-58f7096b487f/1480x-",
+        "product_name": "[선발매]코듀로이 하프집업 스웻셔츠"
+      }
+    },
+
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-23T05:05:58.049Z",
+        "description": "피드메인테스트1",
+        "feed_id": 5,
+        "feed_main_image": {
+          "image_url": "https://images.unsplash.com/photo-1562157873-818bc0726f68?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1164&q=80"
+        },
+        "feed_user": "디디",
+        "like_number": 1000998,
+        "tag_item_number": null
+      },
+      "feed_comment_data": {},
+      "product_data": {}
+    },
+
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-23T05:15:50.151Z",
+        "description": "피드메인테스트2",
+        "feed_id": 6,
+        "feed_main_image": {
+          "image_url": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2551&q=80"
+        },
+        "feed_user": "비비",
+        "like_number": 3,
+        "tag_item_number": 1
+      },
+      "feed_comment_data": {},
+      "product_data": {}
+    },
+
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-23T05:16:16.527Z",
+        "description": "피드메인테스트2",
+        "feed_id": 7,
+        "feed_main_image": {
+          "image_url": "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80"
+        },
+        "feed_user": "비비",
+        "like_number": 0,
+        "tag_item_number": null
+      },
+      "feed_comment_data": {},
+      "product_data": {}
+    },
+
+    {
+      "feed_basic_data": {
+        "created_at": "2021-02-23T05:23:43.248Z",
+        "description": "피드메인테스트3",
+        "feed_id": 8,
+        "feed_main_image": null,
+        "feed_user": "디디",
+        "like_number": 0,
+        "tag_item_number": 3
+      },
+      "feed_comment_data": {},
+      "product_data": {}
+    }
+  ]
+}

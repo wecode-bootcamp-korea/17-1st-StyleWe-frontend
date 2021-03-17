@@ -1,15 +1,15 @@
-import React from "react";
-import { withRouter, Link } from "react-router-dom";
-import "./signup.scss";
+import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import './signup.scss';
 
 class Signup extends React.Component {
   constructor() {
     super();
     this.state = {
-      user_name: "",
-      password: "",
-      nickname: "",
-      alertMessage: "",
+      user_name: '',
+      password: '',
+      nickname: '',
+      alertMessage: '',
     };
   }
 
@@ -20,20 +20,13 @@ class Signup extends React.Component {
     });
   };
 
-  handleKeyPress = (e) => {
-    console.log("onKeyPress");
-    if (e.key === "Enter") {
-      this.clickSignup();
-    }
-  };
-
   goToSignupLast = () => {
-    this.props.history.push("/SignupLast");
+    this.props.history.push('/SignupLast');
   };
 
   clickSignup = () => {
-    fetch("http://10.58.2.161:8000/user/signup", {
-      method: "POST",
+    fetch('http://10.58.2.215:8000/user/signup', {
+      method: 'POST',
       body: JSON.stringify({
         user_name: this.state.user_name,
         password: this.state.password,
@@ -43,21 +36,21 @@ class Signup extends React.Component {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log("result: ", result);
-        if (result.message === "SUCCESS") {
-          console.log("회원가입 성공");
-          localStorage.setItem("access_token", result.access_token);
-          this.props.history.push("/signuplast");
-        } else if (result.message === "USER_NAME_ALREADY_EXITS") {
-          alert("아이디가 중복됩니다.");
-        } else if (result.message === "EMAIL_ALREADY_EXISTS") {
-          alert("이메일이 중복됩니다.");
-        } else if (result.message === "SHORT_ID") {
-          alert("아이디가 짧습니다");
-        } else if (result.message === "LONG_ID") {
-          alert("아이디가 깁니다");
-        } else if (result.message === "SHORT_PASSWORD") {
-          alert("비밀번호가 짧습니다.");
+        console.log('result: ', result);
+        if (result.message === 'SUCCESS') {
+          console.log('회원가입 성공');
+          localStorage.setItem('access_token', result.access_token);
+          this.props.history.push('/signuplast');
+        } else if (result.message === 'USER_NAME_ALREADY_EXITS') {
+          alert('아이디가 중복됩니다.');
+        } else if (result.message === 'EMAIL_ALREADY_EXISTS') {
+          alert('이메일이 중복됩니다.');
+        } else if (result.message === 'SHORT_ID') {
+          alert('아이디가 짧습니다');
+        } else if (result.message === 'LONG_ID') {
+          alert('아이디가 깁니다');
+        } else if (result.message === 'SHORT_PASSWORD') {
+          alert('비밀번호가 짧습니다.');
         }
       });
   };
@@ -110,7 +103,6 @@ class Signup extends React.Component {
                     <button
                       className="signupbtn"
                       onClick={this.clickSignup}
-                      onKeyPress={this.handleKeyPress}
                       type="button"
                     >
                       Signup

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import profileImgs from './profileImgs';
 import './FeedDetail.scss';
 
 export default class FeedDetail extends Component {
@@ -6,16 +8,22 @@ export default class FeedDetail extends Component {
     isHoverOnImage: false,
     slideMove: 0,
     feedData: [],
+    imgNum: Math.floor(Math.random() * 3 + 1),
+  };
+
+  addComma = (num) => {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ',');
   };
 
   getData = () => {
-    fetch('http://10.58.2.215:8000/feed/45')
+    fetch(`http://10.58.2.215:8000/feed/${this.props.feedId}`)
       .then((res) => res.json())
-      .then((data) =>
+      .then((data) => {
         this.setState({
           feedData: data,
-        })
-      );
+        });
+      });
   };
 
   componentDidMount() {
@@ -80,10 +88,11 @@ export default class FeedDetail extends Component {
           <section className="carousel">
             <div className="topSection">
               {feedData.feed_image_data &&
-                feedData.feed_image_data.map((image, index) => {
+                feedData.feed_image_data.map((image) => {
                   return (
                     <img
-                      src={image[index]}
+                      src={image.url}
+
                       className="presentImg"
                       alt="presentImg"
                       style={{
@@ -120,7 +129,8 @@ export default class FeedDetail extends Component {
                 feedData.feed_image_data.map((image, index) => {
                   return (
                     <img
-                      src={image[index]}
+
+                      src={image.url}
                       data-id={index}
                       alt="smallimage"
                       onClick={this.handlePresentImage}
@@ -157,28 +167,33 @@ export default class FeedDetail extends Component {
         </div>
 
         <aside>
-          {feedData.product_data && (
-            <section className="contentInBox productBox">
-              <span>StyleWe에서 구입가능한 제품</span>
-              <div className="product">
-                <img src={feedData.product_data.product_image} alt="" />
-                <div>
-                  <p className="productName">
-                    {feedData.product_data.product_name}
-                  </p>
-                  <p className="price">
-                    {`${feedData.product_data.price.split('.')[0]} 원`}{' '}
-                    <span>
-                      {Math.round(
-                        feedData.product_data.price *
-                          (1 - feedData.product_data.discount_rate)
-                      )}
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </section>
-          )}
+          {feedData.product_data &&
+            feedData.product_data.map((product) => {
+              return (
+                <Link to={`product/${product.id}`}>
+                  <section className="contentInBox productBox">
+                    <span>StyleWe에서 구입가능한 제품</span>
+                    <div className="product">
+                      <img src={product.product_image} alt="" />
+                      <div>
+                        <p className="productName">{product.product_name}</p>
+                        <p className="price">
+                          {this.addComma(`${product.price?.split('.')[0]} 원`)}
+                          <span>
+                            {this.addComma(
+                              Math.round(
+                                product.price * (1 - product.discount_rate)
+                              )
+                            ) + '원'}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                </Link>
+              );
+            })}
+
           <section className="contentInBox brandBox">
             <div className="brand">
               <img
@@ -249,25 +264,26 @@ export default class FeedDetail extends Component {
               <a href="www.naver.com">더보기</a>
             </div>
             <div className="commentsArea">
-              {feedData.feed_comment_data?.comment_list.map((comment) => {
-                return (
-                  <div className="singleComment">
-                    <img
-                      src="https://usercontents-c.styleshare.io/images/48671419/30x30"
-                      alt="profileImg"
-                    />
-                    <div class="commentText">
-                      <p>
-                        <span>{comment.user}</span>
-                        {comment.content}
-                      </p>
-                      <p className="writtenDate">
-                        {comment.created_at.split('T')[0]}
-                      </p>
+              {feedData.feed_comment_data?.comment_list &&
+                feedData.feed_comment_data?.comment_list.map((comment) => {
+                  return (
+                    <div className="singleComment">
+                      <img
+                        src={profileImgs[this.state.imgNum]}
+                        alt="profileImg"
+                      />
+                      <div class="commentText">
+                        <p>
+                          <span>{comment.user}</span>
+                          {comment.content}
+                        </p>
+                        <p className="writtenDate">
+                          {comment.created_at.split('T')[0]}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
             <input type="text" placeholder="댓글을 남기세요" />
           </section>
